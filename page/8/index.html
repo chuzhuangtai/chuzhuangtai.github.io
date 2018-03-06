@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="Yang.Xu">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
-<meta property="og:site_name" content="Wei.Cao">
+<meta property="og:site_name" content="Yang.Xu">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
+<meta name="twitter:title" content="Yang.Xu">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>Wei.Cao</title>
+  <title>Yang.Xu</title>
   
 
 
@@ -162,7 +162,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Wei.Cao</span>
+        <span class="site-title">Yang.Xu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -306,13 +306,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/hive问题集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -456,13 +456,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java多线程-线程安全/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -608,13 +608,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java-netty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -755,321 +755,16 @@ Netty是一个NIO client-server(客户端服务器)框架，使用Netty可以快
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java并发编程学习的一些总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/06/java并发编程学习的一些总结/" itemprop="url">java并发编程学习的一些总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
-                2018-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ##1.不应用线程池的缺点
-
-有些开发者图省事，遇到需要多线程处理的地方，直接new Thread(…).start()，对于一般场景是没问题的，但如果是在并发请求很高的情况下，就会有些隐患：
-新建线程的开销。线程虽然比进程要轻量许多，但对于JVM来说，新建一个线程的代价还是挺大的，决不同于新建一个
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/java并发编程学习的一些总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java并发包消息队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/06/java并发包消息队列/" itemprop="url">java并发包消息队列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
-                2018-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ##BlockingQueue
-
-BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。
-主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。
-
-插入:
-add(anObject):把anObject加到BlockingQueu
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/java并发包消息队列/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java多线程基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -1213,164 +908,16 @@ add(anObject):把anObject加到BlockingQueu
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/ubuntu安装伪分布式hadoop/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/06/ubuntu安装伪分布式hadoop/" itemprop="url">Hadoop安装教程单机/伪分布式配置Hadoop2.6.0/Ubuntu14.04</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
-                2018-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          当开始着手实践 Hadoop 时，安装 Hadoop 往往会成为新手的一道门槛。尽管安装其实很简单，书上有写到，官方网站也有 Hadoop 安装配置教程，但由于对 Linux 环境不熟悉，书上跟官网上简略的安装步骤新手往往 Hold 不住。加上网上不少教程也甚是坑，导致新手折腾老几天愣是没装好，很是
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/ubuntu安装伪分布式hadoop/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/linux安装zookeeper集群/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -1520,16 +1067,472 @@ vi zoo.cfg
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/mapreduce进阶学习/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java并发包消息队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/06/java并发包消息队列/" itemprop="url">java并发包消息队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ##BlockingQueue
+
+BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。
+主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。
+
+插入:
+add(anObject):把anObject加到BlockingQueu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/06/java并发包消息队列/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java并发编程学习的一些总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang.Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang.Xu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/06/java并发编程学习的一些总结/" itemprop="url">java并发编程学习的一些总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ##1.不应用线程池的缺点
+
+有些开发者图省事，遇到需要多线程处理的地方，直接new Thread(…).start()，对于一般场景是没问题的，但如果是在并发请求很高的情况下，就会有些隐患：
+新建线程的开销。线程虽然比进程要轻量许多，但对于JVM来说，新建一个线程的代价还是挺大的，决不同于新建一个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/06/java并发编程学习的一些总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java的JMS技术/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang.Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang.Xu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/06/java的JMS技术/" itemprop="url">java并发编程学习的一些总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ##什么是JMS
+
+
+JMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/06/java的JMS技术/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/mapreduce进阶学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang.Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -1675,16 +1678,16 @@ vi zoo.cfg
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/java的JMS技术/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/使用Mapper专用的MyBatis Generator插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="name" content="Yang.Xu">
     </span>
 
     
@@ -1694,7 +1697,7 @@ vi zoo.cfg
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/06/java的JMS技术/" itemprop="url">java并发编程学习的一些总结</a></h1>
+                <a class="post-title-link" href="/2018/03/06/使用Mapper专用的MyBatis Generator插件/" itemprop="url">使用Mapper专用的MyBatis Generator插件</a></h1>
         
 
         <div class="post-meta">
@@ -1768,14 +1771,14 @@ vi zoo.cfg
       
         
           
-          ##什么是JMS
-
-
-JMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提
+          通用Mapper在1.0.0版本的时候增加了MyBatis Generator(以下简称MBG)插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。
+本篇文档就是讲述如何在MBG中使用该插件。
+首先对MBG不太了解的可以先阅读下面的文档：
+MybatisGeneator详解
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/java的JMS技术/#more" rel="contents">
+            <a class="btn" href="/2018/03/06/使用Mapper专用的MyBatis Generator插件/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1854,9 +1857,9 @@ JMS即Java消息服务（Java Message Service）应用程序接口是一个Java�
             
               <img class="site-author-image" itemprop="image"
                 src="/uploads/596cd3e8d520e.png"
-                alt="Wei.Cao" />
+                alt="Yang.Xu" />
             
-              <p class="site-author-name" itemprop="name">Wei.Cao</p>
+              <p class="site-author-name" itemprop="name">Yang.Xu</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -1929,7 +1932,7 @@ JMS即Java消息服务（Java Message Service）应用程序接口是一个Java�
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Wei.Cao</span>
+  <span class="author" itemprop="copyrightHolder">Yang.Xu</span>
 
   
 </div>
