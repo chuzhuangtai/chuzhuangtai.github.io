@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,Nginx," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="今天再做nginx下https配置的时候，配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–wit">
+<meta name="description" content="配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–with-httpsslmodule配置就行了，">
+<meta name="keywords" content="Linux,Nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="已经编译安装好的nginx，添加未被编译的模块">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/已经编译安装好的nginx，添加未被编译的模块/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="今天再做nginx下https配置的时候，配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–wit">
+<meta property="og:description" content="配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–with-httpsslmodule配置就行了，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-05T07:13:27.529Z">
+<meta property="og:updated_time" content="2018-03-06T07:38:44.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="今天再做nginx下https配置的时候，配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–wit">
+<meta name="twitter:title" content="已经编译安装好的nginx，添加未被编译的模块">
+<meta name="twitter:description" content="配置完nginx重启的时候，报了如下错误： 1nginx: [emerg] the &amp;quot;ssl&amp;quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37 原因也很简单，nginx缺少httpsslmodule模块，编译安装的时候带上–with-httpsslmodule配置就行了，">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>已经编译安装好的nginx，添加未被编译的模块 | Wei.Cao</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">已经编译安装好的nginx，添加未被编译的模块</h1>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,7 +406,7 @@
       
 
       
-        <p>今天再做nginx下https配置的时候，配置完nginx重启的时候，报了如下错误：</p>
+        <p>配置完nginx重启的时候，报了如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx: [emerg] the &quot;ssl&quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37</span><br></pre></td></tr></table></figure>
 <p>原因也很简单，nginx缺少http<em>ssl</em>module模块，编译安装的时候带上–with-http<em>ssl</em>module配置就行了，但是现在的情况是我的nginx已经安装过了，怎么添加模块，其实也很简单，往下看：</p>
 <p>做个说明：我的nginx的安装目录是/usr/local/nginx这个目录，我的源码包在/usr/local/src/nginx-1.6.2目录</p>
@@ -446,6 +469,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          
+        </div>
+      
 
       
       
@@ -455,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/ActiveMQ/" rel="next" title="ActiveMQ">
-                <i class="fa fa-chevron-left"></i> ActiveMQ
+              <a href="/2018/03/06/第七篇 高可用的分布式配置中心(Spring Cloud Config)/" rel="next" title="第七篇 高可用的分布式配置中心(Spring Cloud Config)">
+                <i class="fa fa-chevron-left"></i> 第七篇 高可用的分布式配置中心(Spring Cloud Config)
               </a>
             
           </div>
@@ -465,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/git 提交前强制检查各个项目用户名邮箱设置/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/第一篇： 服务的注册与发现（Eureka）/" rel="prev" title="第一篇： 服务的注册与发现（Eureka）">
+                第一篇： 服务的注册与发现（Eureka） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -563,7 +594,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -574,7 +605,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -790,7 +821,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162370', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

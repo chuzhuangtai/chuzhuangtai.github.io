@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,18 +79,19 @@
 
 
 
-<meta name="description" content="Java动态代理业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被">
+<meta name="description" content="业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被代理的类的类加载">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="Java动态代理">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/Java动态代理/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="Java动态代理业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被">
+<meta property="og:description" content="业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被代理的类的类加载">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ou9crezlk.bkt.clouddn.com/blog/170930/b0AHh2bH35.png?imageslim">
-<meta property="og:updated_time" content="2017-09-30T02:52:26.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:54:41.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="Java动态代理业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被">
+<meta name="twitter:title" content="Java动态代理">
+<meta name="twitter:description" content="业务场景 旧业务 买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。   新业务 在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。    代理实现流程 书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance 代理中需要的参数分别为：被代理的类的类加载">
 <meta name="twitter:image" content="http://ou9crezlk.bkt.clouddn.com/blog/170930/b0AHh2bH35.png?imageslim">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>Java动态代理 | Wei.Cao</title>
   
 
 
@@ -325,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Java动态代理</h1>
         
 
         <div class="post-meta">
@@ -337,7 +338,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -347,6 +348,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -385,7 +408,7 @@
       
 
       
-        <h1 id="Java动态代理"><a href="#Java动态代理" class="headerlink" title="Java动态代理"></a>Java动态代理</h1><h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><ol>
+        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><ol>
 <li>旧业务<ul>
 <li>买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。</li>
 </ul>
@@ -451,6 +474,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -460,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/java的JMS技术/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/06/Let's Encrypt 使用教程，免费的 SSL 证书/" rel="next" title="Let's Encrypt 使用教程，免费的 SSL 证书">
+                <i class="fa fa-chevron-left"></i> Let's Encrypt 使用教程，免费的 SSL 证书
               </a>
             
           </div>
@@ -470,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/java多线程基础/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/Java反射/" rel="prev" title="Java反射">
+                Java反射 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -566,7 +595,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,7 +606,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +617,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -620,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java动态代理"><span class="nav-number">1.</span> <span class="nav-text">Java动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理实现流程"><span class="nav-number">1.2.</span> <span class="nav-text">代理实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务接口IBoss"><span class="nav-number">1.2.1.</span> <span class="nav-text">原业务接口IBoss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务实现类"><span class="nav-number">1.2.2.</span> <span class="nav-text">原业务实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务调用"><span class="nav-number">1.2.3.</span> <span class="nav-text">原业务调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理类"><span class="nav-number">1.2.4.</span> <span class="nav-text">代理类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新业务调用"><span class="nav-number">1.2.5.</span> <span class="nav-text">新业务调用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理实现流程"><span class="nav-number">2.</span> <span class="nav-text">代理实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务接口IBoss"><span class="nav-number">2.1.</span> <span class="nav-text">原业务接口IBoss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务实现类"><span class="nav-number">2.2.</span> <span class="nav-text">原业务实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原业务调用"><span class="nav-number">2.3.</span> <span class="nav-text">原业务调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理类"><span class="nav-number">2.4.</span> <span class="nav-text">代理类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新业务调用"><span class="nav-number">2.5.</span> <span class="nav-text">新业务调用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -820,7 +849,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162455', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="java并发包消息队列标签（空格分隔）： 并发编程学习  ##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以">
+<meta name="description" content="##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以容纳,则返回true,否则抛出异常,不好 offer(an">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="java并发包消息队列">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/java并发包消息队列/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="java并发包消息队列标签（空格分隔）： 并发编程学习  ##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以">
+<meta property="og:description" content="##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以容纳,则返回true,否则抛出异常,不好 offer(an">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T09:20:52.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:56:14.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="java并发包消息队列标签（空格分隔）： 并发编程学习  ##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以">
+<meta name="twitter:title" content="java并发包消息队列">
+<meta name="twitter:description" content="##BlockingQueue  BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。 主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。  插入: add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以容纳,则返回true,否则抛出异常,不好 offer(an">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>java并发包消息队列 | Wei.Cao</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">java并发包消息队列</h1>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,9 +406,7 @@
       
 
       
-        <h1 id="java并发包消息队列"><a href="#java并发包消息队列" class="headerlink" title="java并发包消息队列"></a>java并发包消息队列</h1><p>标签（空格分隔）： 并发编程学习</p>
-<hr>
-<p>##BlockingQueue</p>
+        <p>##BlockingQueue</p>
 <ul>
 <li>BlockingQueue也是java.util.concurrent下的主要用来控制线程同步的工具。</li>
 <li><p>主要的方法是：put、take一对阻塞存取；add、poll一对非阻塞存取。</p>
@@ -436,6 +457,7 @@
 <p>###消费者代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mport java.util.Random;</span><br><span class="line">import java.util.concurrent.BlockingQueue;</span><br><span class="line"></span><br><span class="line">public class TestBlockingQueueConsumer implements Runnable&#123;  </span><br><span class="line">    BlockingQueue&lt;String&gt; queue; </span><br><span class="line">    Random random = new Random();</span><br><span class="line">    </span><br><span class="line">    public TestBlockingQueueConsumer(BlockingQueue&lt;String&gt; queue)&#123;  </span><br><span class="line">        this.queue = queue;  </span><br><span class="line">    &#125;        </span><br><span class="line">    @Override  </span><br><span class="line">    public void run() &#123;  </span><br><span class="line">        try &#123;  </span><br><span class="line">        	Thread.sleep(random.nextInt(10));</span><br><span class="line">        	System.out.println(Thread.currentThread().getName()+ &quot;trying...&quot;);</span><br><span class="line">            String temp = queue.take();//如果队列为空，会阻塞当前线程  </span><br><span class="line">            System.out.println(Thread.currentThread().getName() + &quot; get a job &quot; +temp);  </span><br><span class="line">        &#125; catch (InterruptedException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###测试代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.BlockingQueue;</span><br><span class="line">import java.util.concurrent.LinkedBlockingQueue;</span><br><span class="line"></span><br><span class="line">public class TestBlockingQueue &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		BlockingQueue&lt;String&gt; queue = new LinkedBlockingQueue&lt;String&gt;(2);</span><br><span class="line">		// BlockingQueue&lt;String&gt; queue = new LinkedBlockingQueue&lt;String&gt;();</span><br><span class="line">		// 不设置的话，LinkedBlockingQueue默认大小为Integer.MAX_VALUE</span><br><span class="line">		// BlockingQueue&lt;String&gt; queue = new ArrayBlockingQueue&lt;String&gt;(2);</span><br><span class="line">		TestBlockingQueueConsumer consumer = new TestBlockingQueueConsumer(queue);</span><br><span class="line">		TestBlockingQueueProducer producer = new TestBlockingQueueProducer(queue);</span><br><span class="line">		for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">			new Thread(producer, &quot;Producer&quot; + (i + 1)).start();</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">			new Thread(consumer, &quot;Consumer&quot; + (i + 1)).start();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		new Thread(producer, &quot;Producer&quot; + (5)).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​        </p>
 
       
     </div>
@@ -480,6 +502,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -489,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/Java-nio/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/06/java多线程基础/" rel="next" title="java多线程基础学习">
+                <i class="fa fa-chevron-left"></i> java多线程基础学习
               </a>
             
           </div>
@@ -499,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/java并发编程学习的一些总结/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/java并发编程学习的一些总结/" rel="prev" title="java并发编程学习的一些总结">
+                java并发编程学习的一些总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -566,17 +594,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -595,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -606,7 +625,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -617,7 +636,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -639,22 +658,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java并发包消息队列"><span class="nav-number">1.</span> <span class="nav-text">java并发包消息队列</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -849,7 +852,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162432', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

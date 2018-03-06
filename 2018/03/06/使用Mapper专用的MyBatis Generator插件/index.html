@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,Mybatis,Mapper," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通用Mapper在1.0.0版本的时候增加了MyBatis Generator(以下简称MBG)插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。 本篇文档就是讲述如何在MBG中使用该插件。 首先对MBG不太了解的可以先阅读下面的文档： MybatisGeneator详解http://git.oschina.net/free/Mybatis_Utils/tree/mas">
+<meta name="keywords" content="Java,Mybatis,Mapper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Mapper专用的MyBatis Generator插件">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/使用Mapper专用的MyBatis Generator插件/index.html">
+<meta property="og:site_name" content="Wei.Cao">
+<meta property="og:description" content="通用Mapper在1.0.0版本的时候增加了MyBatis Generator(以下简称MBG)插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。 本篇文档就是讲述如何在MBG中使用该插件。 首先对MBG不太了解的可以先阅读下面的文档： MybatisGeneator详解http://git.oschina.net/free/Mybatis_Utils/tree/mas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-06T07:37:32.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Mapper专用的MyBatis Generator插件">
+<meta name="twitter:description" content="通用Mapper在1.0.0版本的时候增加了MyBatis Generator(以下简称MBG)插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。 本篇文档就是讲述如何在MBG中使用该插件。 首先对MBG不太了解的可以先阅读下面的文档： MybatisGeneator详解http://git.oschina.net/free/Mybatis_Utils/tree/mas">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/06/使用Mapper专用的MyBatis Generator插件/"/>
+
+
+
+
+
+  <title>使用Mapper专用的MyBatis Generator插件 | Wei.Cao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad8fac4ab530dc35351b752a97b89b03";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wei.Cao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/使用Mapper专用的MyBatis Generator插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wei.Cao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用Mapper专用的MyBatis Generator插件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/06/使用Mapper专用的MyBatis Generator插件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/06/使用Mapper专用的MyBatis Generator插件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通用Mapper在1.0.0版本的时候增加了MyBatis Generator(以下简称MBG)插件，使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。</p>
+<p>本篇文档就是讲述如何在MBG中使用该插件。</p>
+<p>首先对MBG不太了解的可以先阅读下面的文档：</p>
+<h2 id="MybatisGeneator详解"><a href="#MybatisGeneator详解" class="headerlink" title="MybatisGeneator详解"></a>MybatisGeneator详解</h2><p><a href="http://git.oschina.net/free/Mybatis_Utils/tree/master/MybatisGeneator/MybatisGeneator.md" target="_blank" rel="noopener">http://git.oschina.net/free/Mybatis_Utils/tree/master/MybatisGeneator/MybatisGeneator.md</a></p>
+<h2 id="使用通用Mapper插件"><a href="#使用通用Mapper插件" class="headerlink" title="使用通用Mapper插件"></a>使用通用Mapper插件</h2><p>插件代码在<code>tk.mybatis.mapper.generator</code>包下面，一共有如下两个类：</p>
+<ul>
+<li><code>MapperCommentGenerator</code>：该类用于生成数据库备注字段的注释，以及实体类字段的注解。</li>
+<li><code>MapperPlugin</code>：插件的实现类，该类默认使用上面这个注释生成器，插件屏蔽了一般的CRUD方法（保留了Example），插件可以生成实体的<code>@Table</code>注解。</li>
+</ul>
+<p>另外本项目为了在Maven中配置更简单，从1.0.0版本开始上传Maven中央仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;tk.mybatis&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mapper&lt;/artifactId&gt;</span><br><span class="line">	&lt;!-- 建议使用最新版本 --&gt;</span><br><span class="line">    &lt;version&gt;x.x.x&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>为什么用maven更方便，稍后会说明。</p>
+<p>运行MBG有多种方法，这里只介绍两种比较常见的方法。并且有关的内容会针对这样的运行方式进行配置。</p>
+<h3 id="一、使用Java编码方式运行MBG"><a href="#一、使用Java编码方式运行MBG" class="headerlink" title="一、使用Java编码方式运行MBG"></a>一、使用Java编码方式运行MBG</h3><p>本项目测试代码中包含这个例子。</p>
+<p>使用这种方式，首先下载MBG的Jar包（本项目测试代码中使用maven引入jar包，使用Java代码运行）。</p>
+<p>MBG下载地址:<a href="http://repo1.maven.org/maven2/org/mybatis/generator/mybatis-generator-core/" target="_blank" rel="noopener">http://repo1.maven.org/maven2/org/mybatis/generator/mybatis-generator-core/</a></p>
+<p>Java代码很容易，和文档中的一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; warnings = new ArrayList&lt;String&gt;();</span><br><span class="line">boolean overwrite = true;</span><br><span class="line">ConfigurationParser cp = new ConfigurationParser(warnings);</span><br><span class="line">Configuration config = cp.parseConfiguration(</span><br><span class="line">        Generator.class.getResourceAsStream(&quot;/generator/generatorConfig.xml&quot;));</span><br><span class="line">DefaultShellCallback callback = new DefaultShellCallback(overwrite);</span><br><span class="line">MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);</span><br><span class="line">myBatisGenerator.generate(null);</span><br></pre></td></tr></table></figure>
+<p>你只需要在你当前的项目中创建一个类，添加一个<code>main</code>方法，在<code>main</code>中写上上面的代码即可。</p>
+<p>这段代码容易，最主要的一个内容是<code>&quot;generatorConfig.xml&quot;</code>,我们应该如何配置该类。</p>
+<p>下面是一个<a href="http://git.oschina.net/free/Mapper/blob/master/src/test/resources/generator/generatorConfig.xml" target="_blank" rel="noopener"><code>generatorConfig.xml</code></a>的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</span><br><span class="line">        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">  &lt;context id=&quot;Mysql&quot; targetRuntime=&quot;MyBatis3Simple&quot; defaultModelType=&quot;flat&quot;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;plugin type=&quot;tk.mybatis.mapper.generator.MapperPlugin&quot;&gt;</span><br><span class="line">      &lt;property name=&quot;mappers&quot; value=&quot;tk.mybatis.mapper.common.Mapper&quot;/&gt;</span><br><span class="line">      &lt;!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true --&gt;</span><br><span class="line">      &lt;property name=&quot;caseSensitive&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">    &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">                    connectionURL=&quot;jdbc:mysql://localhost:3306/test&quot;</span><br><span class="line">                    userId=&quot;root&quot;</span><br><span class="line">                    password=&quot;&quot;&gt;</span><br><span class="line">    &lt;/jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">    &lt;javaModelGenerator targetPackage=&quot;test.model&quot; targetProject=&quot;G:\MyProject\src\main\java&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;sqlMapGenerator targetPackage=&quot;mapper&quot;  targetProject=&quot;G:\MyProject\src\main\resources&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;javaClientGenerator targetPackage=&quot;test.mapper&quot; targetProject=&quot;G:\MyProject\src\main\java&quot; type=&quot;XMLMAPPER&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;table tableName=&quot;%&quot; &gt;</span><br><span class="line">      &lt;generatedKey column=&quot;id&quot; sqlStatement=&quot;Mysql&quot; identity=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">  &lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+<p>下面逐段对上面的配置进行详解。</p>
+<p>看下面这段，这段代码配置了通用Mapper的插件<code>tk.mybatis.mapper.generator.MapperPlugin</code>，该插件有一个必选的<code>&lt;property&gt;</code>属性<code>mappers</code>，这里的<code>mappers</code>和通用Mapper中的<code>mappers</code>配置含义一样，就是我们使用的通用Mapper接口，多个通用Mapper接口可以用逗号隔开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin type=&quot;tk.mybatis.mapper.generator.MapperPlugin&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;mappers&quot; value=&quot;tk.mybatis.mapper.common.Mapper&quot;/&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+<p>关于本插件，最重要的内容就是上面这个配置。下面要说的其他配置和普通的一致。</p>
+<p>下面这段是数据库配置信息，由于需要连接数据库，需要保证项目的classpath下面有数据库的JDBC驱动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">                    connectionURL=&quot;jdbc:mysql://localhost:3306/test&quot;</span><br><span class="line">                    userId=&quot;root&quot;</span><br><span class="line">                    password=&quot;&quot;&gt;</span><br><span class="line">&lt;/jdbcConnection&gt;</span><br></pre></td></tr></table></figure>
+<p>下面这个配置是生成实体类的配置，是一个必须配置的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;javaModelGenerator targetPackage=&quot;test.model&quot; targetProject=&quot;G:\MyProject\src\main\java&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>再下面的<code>sqlMapGenerator</code>是一个可选的配置，配置后可以生成Mapper接口对应的XML文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;sqlMapGenerator targetPackage=&quot;mapper&quot;  targetProject=&quot;G:\MyProject\src\main\resources&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>再往下就是通用Mapper接口的配置，配置<code>javaClientGenerator</code>后会生成对应的接口文件，该接口会自动继承前面配置的通用Mapper接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;javaClientGenerator targetPackage=&quot;test.mapper&quot; targetProject=&quot;G:\MyProject\src\main\java&quot; type=&quot;XMLMAPPER&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>最后一个配置<code>table</code>,这里使用SQL通配符<code>%</code>来匹配所有表。<code>generatedKey</code>意味着所有的表都有一个<code>id</code>自增的主键，在生成实体类的时候会根据该配置生成相应的注解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;table tableName=&quot;%&quot; &gt;</span><br><span class="line">	&lt;generatedKey column=&quot;id&quot; sqlStatement=&quot;Mysql&quot; identity=&quot;true&quot;/&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>补充类似 Oracle 序列的配置方式<code>&lt;generatedKey column=&quot;id&quot; sqlStatement=&quot;select SEQ_{1}.nextval from dual&quot; identity=&quot;false&quot; type=&quot;pre&quot;/&gt;</code> 这里的 {1} 代表的是对应表的大写形式，{0} 是小写形式 这个配置生成的代码会像下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; public class Author &#123;</span><br><span class="line">&gt;     @Id</span><br><span class="line">&gt;     @GeneratedValue(strategy = GenerationType.IDENTITY,</span><br><span class="line">&gt;             generator = &quot;select SEQ_AUTHOR.nextval from dual&quot;)</span><br><span class="line">&gt;     private Integer id;</span><br><span class="line">&gt;     // 省略其他</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>这段配置介绍完了，之后运行前面的JAVA方法，就会生成对应的文件。该文件的样式最后贴个例子。</p>
+<h3 id="二、使用Maven执行MBG"><a href="#二、使用Maven执行MBG" class="headerlink" title="二、使用Maven执行MBG"></a>二、使用Maven执行MBG</h3><p>这里有一个完整的例子，<a href="https://github.com/abel533/Mybatis-Spring/tree/spring4" target="_blank" rel="noopener">Mybatis-Spring</a>，下面讲解的内容出自这个例子。</p>
+<p>使用Maven插件的一个好处是可以将Maven中的属性使用<code>${property}</code>形式在<a href="http://git.oschina.net/free/Mapper/blob/master/src/test/resources/generator/generatorConfig.xml" target="_blank" rel="noopener"><code>generatorConfig.xml</code></a>中引用。</p>
+<p>先看Maven的<a href="https://github.com/abel533/Mybatis-Spring/blob/spring4/pom.xml" target="_blank" rel="noopener">pom.xml</a>文件(只显示有关的部分内容):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">	&lt;!--  MyBatis Generator  --&gt;</span><br><span class="line">	&lt;!--  Java接口和实体类  --&gt;</span><br><span class="line">	&lt;targetJavaProject&gt;$&#123;basedir&#125;/src/main/java&lt;/targetJavaProject&gt;</span><br><span class="line">	&lt;targetMapperPackage&gt;tk.mybatis.mapper.mapper&lt;/targetMapperPackage&gt;</span><br><span class="line">	&lt;targetModelPackage&gt;tk.mybatis.mapper.model&lt;/targetModelPackage&gt;</span><br><span class="line">	&lt;!--  XML生成路径  --&gt;</span><br><span class="line">	&lt;targetResourcesProject&gt;$&#123;basedir&#125;/src/main/resources&lt;/targetResourcesProject&gt;</span><br><span class="line">	&lt;targetXMLPackage&gt;mapper&lt;/targetXMLPackage&gt;</span><br><span class="line">	&lt;!--  依赖版本  --&gt;</span><br><span class="line">	&lt;mapper.version&gt;1.0.0&lt;/mapper.version&gt;</span><br><span class="line">	&lt;mysql.version&gt;5.1.29&lt;/mysql.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+<p>上面是pom.xml中<code>properties</code>配置的部分内容。这里配置了MBG配置文件中常用到的几个路径以及包名。还包含了通用Mapper的版本和数据库JDBC驱动的版本。</p>
+<p>下面是MBG的Maven插件配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">	&lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;configurationFile&gt;$&#123;basedir&#125;/src/main/resources/generator/generatorConfig.xml&lt;/configurationFile&gt;</span><br><span class="line">		&lt;overwrite&gt;true&lt;/overwrite&gt;</span><br><span class="line">		&lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br><span class="line">	&lt;dependencies&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;$&#123;mysql.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;tk.mybatis&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;mapper&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;$&#123;mapper.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	&lt;/dependencies&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+<p>这里配置了MBG插件，并且配置了<code>generatorConfig.xml</code>配置文件的路径。另外还有两个依赖，分别是JDBC驱动以及通用Mapper（提供了MBG插件）。</p>
+<p>下面我们在看看这个<code>generatorConfig.xml</code>配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</span><br><span class="line">        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">	&lt;properties resource=&quot;config.properties&quot;/&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;context id=&quot;Mysql&quot; targetRuntime=&quot;MyBatis3Simple&quot; defaultModelType=&quot;flat&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;beginningDelimiter&quot; value=&quot;`&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;endingDelimiter&quot; value=&quot;`&quot;/&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;plugin type=&quot;$&#123;mapper.plugin&#125;&quot;&gt;</span><br><span class="line">		  &lt;property name=&quot;mappers&quot; value=&quot;$&#123;mapper.Mapper&#125;&quot;/&gt;</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;jdbcConnection driverClass=&quot;$&#123;jdbc.driverClass&#125;&quot;</span><br><span class="line">		                connectionURL=&quot;$&#123;jdbc.url&#125;&quot;</span><br><span class="line">		                userId=&quot;$&#123;jdbc.user&#125;&quot;</span><br><span class="line">		                password=&quot;$&#123;jdbc.password&#125;&quot;&gt;</span><br><span class="line">		&lt;/jdbcConnection&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;javaModelGenerator targetPackage=&quot;$&#123;targetModelPackage&#125;&quot; targetProject=&quot;$&#123;targetJavaProject&#125;&quot;/&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;sqlMapGenerator targetPackage=&quot;$&#123;targetXMLPackage&#125;&quot;  targetProject=&quot;$&#123;targetResourcesProject&#125;&quot;/&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;javaClientGenerator targetPackage=&quot;$&#123;targetMapperPackage&#125;&quot; targetProject=&quot;$&#123;targetJavaProject&#125;&quot; type=&quot;XMLMAPPER&quot; /&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;table tableName=&quot;%&quot; &gt;</span><br><span class="line">		  &lt;generatedKey column=&quot;id&quot; sqlStatement=&quot;Mysql&quot; identity=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">	&lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到这个配置文件中的大多数属性都使用<code>${}</code>形式替代了。使用<code>&lt;properties resource=&quot;config.properties&quot;/&gt;</code>引入了<code>config.properties</code>属性配置，该文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 数据库配置</span><br><span class="line">jdbc.driverClass = com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url = jdbc:mysql://localhost:3306/test</span><br><span class="line">jdbc.user = root</span><br><span class="line">jdbc.password =</span><br><span class="line"></span><br><span class="line">#c3p0</span><br><span class="line">jdbc.maxPoolSize=50</span><br><span class="line">jdbc.minPoolSize=10</span><br><span class="line">jdbc.maxStatements=100</span><br><span class="line">jdbc.testConnection=true</span><br><span class="line"></span><br><span class="line"># 通用Mapper配置</span><br><span class="line">mapper.plugin = tk.mybatis.mapper.generator.MapperPlugin</span><br><span class="line">mapper.Mapper = tk.mybatis.mapper.common.Mapper</span><br></pre></td></tr></table></figure>
+<p>使用配置文件的目的是因为系统多处地方使用了这种配置，因而使用一个属性文件可以方便的保持一致。</p>
+<p>除了引用配置文件中的属性外，部分还使用了pom.xml中的属性。这种方式使用起来更灵活。</p>
+<p><strong>运行</strong></p>
+<p>配置好之后如何运行呢？</p>
+<p>在pom.xml这一级目录的命令行窗口执行<code>mvn mybatis-generator:generate</code>即可（前提是配置了mvn）。</p>
+<h2 id="生成的代码"><a href="#生成的代码" class="headerlink" title="生成的代码"></a>生成的代码</h2><p>下面是自动生成的代码的例子，这些例子可以在<a href="https://github.com/abel533/Mybatis-Spring/tree/spring4" target="_blank" rel="noopener">Mybatis-Spring</a>这里找到。</p>
+<h3 id="一、实体类UserInfo"><a href="#一、实体类UserInfo" class="headerlink" title="一、实体类UserInfo"></a>一、实体类<a href="https://github.com/abel533/Mybatis-Spring/blob/spring4/src/main/java/com/isea533/mybatis/model/UserInfo.java" target="_blank" rel="noopener"><code>UserInfo</code></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package tk.mybatis.mapper.model;</span><br><span class="line"></span><br><span class="line">import javax.persistence.*;</span><br><span class="line"></span><br><span class="line">@Table(name = &quot;user_info&quot;)</span><br><span class="line">public class UserInfo &#123;</span><br><span class="line">    @Id</span><br><span class="line">    @Column(name = &quot;Id&quot;)</span><br><span class="line">    @GeneratedValue(strategy = GenerationType.IDENTITY)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 用户名</span><br><span class="line">     */</span><br><span class="line">    private String username;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 密码</span><br><span class="line">     */</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @return Id</span><br><span class="line">     */</span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param id</span><br><span class="line">     */</span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取用户名</span><br><span class="line">     *</span><br><span class="line">     * @return username - 用户名</span><br><span class="line">     */</span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 设置用户名</span><br><span class="line">     *</span><br><span class="line">     * @param username 用户名</span><br><span class="line">     */</span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码过长，省略了一部分，完整查看：<a href="https://github.com/abel533/Mybatis-Spring/blob/spring4/src/main/java/com/isea533/mybatis/model/UserInfo.java" target="_blank" rel="noopener"><code>UserInfo</code></a></p>
+<p>可以看到这里生成的注释是有意义的内容，注释来源于数据库表字段的注释。</p>
+<p>这里还自动生成了几项注解的内容。</p>
+<h3 id="二、Mapper接口UserInfoMapper"><a href="#二、Mapper接口UserInfoMapper" class="headerlink" title="二、Mapper接口UserInfoMapper"></a>二、Mapper接口<a href="https://github.com/abel533/Mybatis-Spring/blob/spring4/src/main/java/com/isea533/mybatis/mapper/UserInfoMapper.java" target="_blank" rel="noopener"><code>UserInfoMapper</code></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package tk.mybatis.mapper.mapper;</span><br><span class="line"></span><br><span class="line">import tk.mybatis.mapper.common.Mapper;</span><br><span class="line">import tk.mybatis.mapper.model.UserInfo;</span><br><span class="line"></span><br><span class="line">public interface UserInfoMapper extends Mapper&lt;UserInfo&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口自动继承配置的通用Mapper接口，自动包含泛型实体。</p>
+<h3 id="三、Mapper-xml文件UserInfoMapper-xml"><a href="#三、Mapper-xml文件UserInfoMapper-xml" class="headerlink" title="三、Mapper.xml文件UserInfoMapper.xml"></a>三、Mapper.xml文件<a href="https://github.com/abel533/Mybatis-Spring/blob/spring4/src/main/resources/mapper/UserInfoMapper.xml" target="_blank" rel="noopener"><code>UserInfoMapper.xml</code></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;</span><br><span class="line">&lt;mapper namespace=&quot;tk.mybatis.mapper.mapper.UserInfoMapper&quot; &gt;</span><br><span class="line">	&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;tk.mybatis.mapper.model.UserInfo&quot; &gt;</span><br><span class="line">		&lt;!--</span><br><span class="line">			WARNING - @mbggenerated</span><br><span class="line">		--&gt;</span><br><span class="line">		&lt;id column=&quot;Id&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;username&quot; property=&quot;username&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;password&quot; property=&quot;password&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;usertype&quot; property=&quot;usertype&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;enabled&quot; property=&quot;enabled&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;realname&quot; property=&quot;realname&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;qq&quot; property=&quot;qq&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;email&quot; property=&quot;email&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;tel&quot; property=&quot;tel&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">	&lt;/resultMap&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<p>xml文件只包含了实体的<code>resultMap</code>映射配置。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Wei.Cao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Wei.Cao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Mybatis/" rel="tag"># Mybatis</a>
+          
+            <a href="/tags/Mapper/" rel="tag"># Mapper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/06/使用eclipse运行MapReduce/" rel="next" title="使用Eclipse编译运行MapReduce程序 Hadoop2.6.0_Ubuntu/CentOS">
+                <i class="fa fa-chevron-left"></i> 使用Eclipse编译运行MapReduce程序 Hadoop2.6.0_Ubuntu/CentOS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/06/java的JMS技术/" rel="prev" title="java并发编程学习的一些总结">
+                java并发编程学习的一些总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/596cd3e8d520e.png"
+                alt="Wei.Cao" />
+            
+              <p class="site-author-name" itemprop="name">Wei.Cao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">103</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1614642&auto=1&height=66"></iframe>          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MybatisGeneator详解"><span class="nav-number">1.</span> <span class="nav-text">MybatisGeneator详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用通用Mapper插件"><span class="nav-number">2.</span> <span class="nav-text">使用通用Mapper插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、使用Java编码方式运行MBG"><span class="nav-number">2.1.</span> <span class="nav-text">一、使用Java编码方式运行MBG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用Maven执行MBG"><span class="nav-number">2.2.</span> <span class="nav-text">二、使用Maven执行MBG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成的代码"><span class="nav-number">3.</span> <span class="nav-text">生成的代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、实体类UserInfo"><span class="nav-number">3.1.</span> <span class="nav-text">一、实体类UserInfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Mapper接口UserInfoMapper"><span class="nav-number">3.2.</span> <span class="nav-text">二、Mapper接口UserInfoMapper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Mapper-xml文件UserInfoMapper-xml"><span class="nav-number">3.3.</span> <span class="nav-text">三、Mapper.xml文件UserInfoMapper.xml</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wei.Cao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1520308235000', 
+            owner: 'huaxiaowei',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans# Force language, or auto switch by theme" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'a5317db783a77a762d0b32c444be681f8a55daed',
+            
+                client_id: 'e725b4cc6235cd482ba5'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

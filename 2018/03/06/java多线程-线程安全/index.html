@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="java多线程-线程安全标签（空格分隔）： 并发编程学习  ##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关">
+<meta name="description" content="##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关键字synchronized  synchronized是j">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="java多线程-线程安全">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/java多线程-线程安全/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="java多线程-线程安全标签（空格分隔）： 并发编程学习  ##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关">
+<meta property="og:description" content="##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关键字synchronized  synchronized是j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T09:20:38.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:55:22.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="java多线程-线程安全标签（空格分隔）： 并发编程学习  ##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关">
+<meta name="twitter:title" content="java多线程-线程安全">
+<meta name="twitter:description" content="##什么是线程安全和线程不安全  线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。 线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。  ##java内置的线程锁机制 ###关键字synchronized  synchronized是j">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>java多线程-线程安全 | Wei.Cao</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">java多线程-线程安全</h1>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,9 +406,7 @@
       
 
       
-        <h1 id="java多线程-线程安全"><a href="#java多线程-线程安全" class="headerlink" title="java多线程-线程安全"></a>java多线程-线程安全</h1><p>标签（空格分隔）： 并发编程学习</p>
-<hr>
-<p>##什么是线程安全和线程不安全</p>
+        <p>##什么是线程安全和线程不安全</p>
 <ul>
 <li>线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。</li>
 <li>线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。</li>
@@ -554,6 +575,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -563,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/java多线程基础/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/06/java-netty/" rel="next" title="Netty学习">
+                <i class="fa fa-chevron-left"></i> Netty学习
               </a>
             
           </div>
@@ -573,8 +600,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/Java反射/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/hive问题集/" rel="prev" title="hive问题集">
+                hive问题集 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,17 +667,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -669,7 +687,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +698,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -691,7 +709,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -713,22 +731,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java多线程-线程安全"><span class="nav-number">1.</span> <span class="nav-text">java多线程-线程安全</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -923,7 +925,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162471', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

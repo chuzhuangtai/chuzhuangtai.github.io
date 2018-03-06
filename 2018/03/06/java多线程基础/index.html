@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="java多线程基础标签（空格分隔）： 并发编程学习  ##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当">
+<meta name="description" content="##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当前的程序分配一段独立的运行空间。这片空间就专门负责当前">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="java多线程基础学习">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/java多线程基础/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="java多线程基础标签（空格分隔）： 并发编程学习  ##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当">
+<meta property="og:description" content="##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当前的程序分配一段独立的运行空间。这片空间就专门负责当前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T09:20:22.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:55:46.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="java多线程基础标签（空格分隔）： 并发编程学习  ##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当">
+<meta name="twitter:title" content="java多线程基础学习">
+<meta name="twitter:description" content="##同步和异步的区别  例如一个请求访问 同步：一个请求一定要等待返回之后再进行下一个操作 异步：一个请求不用等待返回之后就可以进行下一个操作##进程介绍 不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在内存中需要给当前的程序分配一段独立的运行空间。这片空间就专门负责当前">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>java多线程基础学习 | Wei.Cao</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">java多线程基础学习</h1>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,9 +406,7 @@
       
 
       
-        <h1 id="java多线程基础"><a href="#java多线程基础" class="headerlink" title="java多线程基础"></a>java多线程基础</h1><p>标签（空格分隔）： 并发编程学习</p>
-<hr>
-<p>##同步和异步的区别</p>
+        <p>##同步和异步的区别</p>
 <ul>
 <li>例如一个请求访问<ul>
 <li>同步：一个请求一定要等待返回之后再进行下一个操作</li>
@@ -406,7 +427,7 @@
 </blockquote>
 <p>##多线程运行的原理</p>
 <blockquote>
-<p>cpu在线程中做时间片的切换。<br>    其实真正电脑中的程序的运行不是同时在运行的。CPU负责程序的运行，而CPU在运行程序的过程中某个时刻点上，它其实只能运行一个程序。而不是多个程序。而CPU它可以在多个程序之间进行高速的切换。而切换频率和速度太快，导致人的肉眼看不到。<br>每个程序就是进程， 而每个进程中会有多个线程，而CPU是在这些线程之间进行切换。<br>了解了CPU对一个任务的执行过程，我们就必须知道，多线程可以提高程序的运行效率，但不能无限制的开线程。</p>
+<p>cpu在线程中做时间片的切换。<br>    其实真正电脑中的程序的运行不是同时在运行的。CPU负责程序的运行，而CPU在运行程序的过程中某个时刻点上，它其实只能运行一个程序。而不是多个程序。而CPU它可以在多个程序之间进行高速的切换。而切换频率和速度太快，导致人的肉眼看不到。<br> 个程序就是进程， 而每个进程中会有多个线程，而CPU是在这些线程之间进行切换。<br>了解了CPU对一个任务的执行过程，我们就必须知道，多线程可以提高程序的运行效率，但不能无限制的开线程。</p>
 </blockquote>
 <p>##实现多线程的三种方式</p>
 <p>###第一种：继承Thread类</p>
@@ -436,12 +457,9 @@
 </ul>
 </li>
 <li>Single Thread Scheduled Pool : 只有一个线程，用来调度任务在指定时间执行。<ul>
-<li>代码：<code>Executors.newSingleThreadScheduledExecutor()</code></li>
+<li>代码：<code>Executors.newSingleThreadScheduledExecutor()</code><br>​<br>####线程池的使用</li>
 </ul>
 </li>
-</ul>
-<p>####线程池的使用</p>
-<ul>
 <li><p>传入 Runnable ，任务完成后 Future 对象返回 null</p>
 <ul>
 <li>调用excute提交任务，匿名Runable重写run方法, run方法里是业务逻辑</li>
@@ -509,6 +527,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -518,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/Java动态代理/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/06/ubuntu安装伪分布式hadoop/" rel="next" title="Hadoop安装教程单机/伪分布式配置Hadoop2.6.0/Ubuntu14.04">
+                <i class="fa fa-chevron-left"></i> Hadoop安装教程单机/伪分布式配置Hadoop2.6.0/Ubuntu14.04
               </a>
             
           </div>
@@ -528,8 +552,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/java多线程-线程安全/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/java并发包消息队列/" rel="prev" title="java并发包消息队列">
+                java并发包消息队列 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,17 +619,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -635,7 +650,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -646,7 +661,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -668,22 +683,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java多线程基础"><span class="nav-number">1.</span> <span class="nav-text">java多线程基础</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -878,7 +877,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162464', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

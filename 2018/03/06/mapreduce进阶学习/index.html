@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hadoop,Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="MAPREDUCE进阶学习##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce">
+<meta name="description" content="##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce处理时，可采用combin">
+<meta name="keywords" content="Hadoop,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wei.Cao">
+<meta property="og:title" content="MAPREDUCE进阶学习">
 <meta property="og:url" content="http://yoursite.com/2018/03/06/mapreduce进阶学习/index.html">
 <meta property="og:site_name" content="Wei.Cao">
-<meta property="og:description" content="MAPREDUCE进阶学习##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce">
+<meta property="og:description" content="##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce处理时，可采用combin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T09:56:48.000Z">
+<meta property="og:updated_time" content="2018-03-06T07:34:37.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wei.Cao">
-<meta name="twitter:description" content="MAPREDUCE进阶学习##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce">
+<meta name="twitter:title" content="MAPREDUCE进阶学习">
+<meta name="twitter:description" content="##自定义inputFormat ###需求 无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案 ###分析 小文件的优化无非以下几种方式：  在数据采集的时候，就将小文件或小批数据合成大文件再上传HDFS 在业务处理之前，在HDFS上使用mapreduce程序对小文件进行合并 在mapreduce处理时，可采用combin">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Wei.Cao</title>
+  <title>MAPREDUCE进阶学习 | Wei.Cao</title>
   
 
 
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">MAPREDUCE进阶学习</h1>
         
 
         <div class="post-meta">
@@ -335,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T14:36:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
                 2018-03-06
               </time>
             
@@ -345,6 +346,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,7 +406,7 @@
       
 
       
-        <h1 id="MAPREDUCE进阶学习"><a href="#MAPREDUCE进阶学习" class="headerlink" title="MAPREDUCE进阶学习"></a>MAPREDUCE进阶学习</h1><p>##自定义inputFormat</p>
+        <p>##自定义inputFormat</p>
 <p>###需求</p>
 <p>无论hdfs还是mapreduce，对于小文件都有损效率，实践中，又难免面临处理大量小文件的场景，此时，就需要有相应解决方案</p>
 <p>###分析</p>
@@ -679,6 +702,14 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -688,8 +719,8 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/Let's Encrypt 使用教程，免费的 SSL 证书/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/06/java的JMS技术/" rel="next" title="java并发编程学习的一些总结">
+                <i class="fa fa-chevron-left"></i> java并发编程学习的一些总结
               </a>
             
           </div>
@@ -698,8 +729,8 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/06/MAPREDUCE学习/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/06/linux安装zookeeper集群/" rel="prev" title="linux安装zookeeper集群">
+                linux安装zookeeper集群 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -765,17 +796,8 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -794,7 +816,7 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -805,7 +827,7 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -816,7 +838,7 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -838,22 +860,6 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MAPREDUCE进阶学习"><span class="nav-number">1.</span> <span class="nav-text">MAPREDUCE进阶学习</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -1048,7 +1054,7 @@ FSDataOutputStream toCrawlOut = fs.create(toCrawlPath);
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520318162499', 
+            id: '1520308235000', 
             owner: 'huaxiaowei',
             repo: 'gitment-comments',
             

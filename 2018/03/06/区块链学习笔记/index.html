@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="区块链," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##区块链介绍 ###什么是区块链  区块链是指通过去中心化和去信任的方式集体维护一个可靠数据库的技术方案.过去主要应用在比特币上(P2P形式的数字货币) 区块链”技术”是全民参与记账的方式.(区块链-数据库/账本)  ###区块链的特点  去中心化 整个网络无中心化硬件或机构,用纯数学方法而非中心机构来建立分布式系统结构与节点间信任关系   时序数据 采用带有时间戳的链式区块结构存储数据,从而为">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/区块链学习笔记/index.html">
+<meta property="og:site_name" content="Wei.Cao">
+<meta property="og:description" content="##区块链介绍 ###什么是区块链  区块链是指通过去中心化和去信任的方式集体维护一个可靠数据库的技术方案.过去主要应用在比特币上(P2P形式的数字货币) 区块链”技术”是全民参与记账的方式.(区块链-数据库/账本)  ###区块链的特点  去中心化 整个网络无中心化硬件或机构,用纯数学方法而非中心机构来建立分布式系统结构与节点间信任关系   时序数据 采用带有时间戳的链式区块结构存储数据,从而为">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/9c2faeefa59648e69e0a9c1fe4199fd5_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/738778ded3214fa88dc1f74b8790a340_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/54449331a5cb4d0daa0e1eb8cc2388c8_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/dd91da6344014032b1bc294d78704e86_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/becbf4192b8b4e73b3223d727029ea0e_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/a76bbf886b7e4a238802bb8514a62a98_th.jpeg">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20161011/fe643c8498d346058c2d564a9d49e271_th.jpeg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1367447-5ec449233ceee941.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-06T07:37:48.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区块链学习笔记">
+<meta name="twitter:description" content="##区块链介绍 ###什么是区块链  区块链是指通过去中心化和去信任的方式集体维护一个可靠数据库的技术方案.过去主要应用在比特币上(P2P形式的数字货币) 区块链”技术”是全民参与记账的方式.(区块链-数据库/账本)  ###区块链的特点  去中心化 整个网络无中心化硬件或机构,用纯数学方法而非中心机构来建立分布式系统结构与节点间信任关系   时序数据 采用带有时间戳的链式区块结构存储数据,从而为">
+<meta name="twitter:image" content="http://img.mp.itc.cn/upload/20161011/9c2faeefa59648e69e0a9c1fe4199fd5_th.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/06/区块链学习笔记/"/>
+
+
+
+
+
+  <title>区块链学习笔记 | Wei.Cao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad8fac4ab530dc35351b752a97b89b03";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wei.Cao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/区块链学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei.Cao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wei.Cao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">区块链学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T11:50:35+08:00">
+                2018-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/06/区块链学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/06/区块链学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##区块链介绍</p>
+<p>###什么是区块链</p>
+<ul>
+<li>区块链是指通过去中心化和去信任的方式集体维护一个可靠数据库的技术方案.过去主要应用在比特币上(P2P形式的数字货币)</li>
+<li>区块链”技术”是全民参与记账的方式.(区块链-数据库/账本)</li>
+</ul>
+<p>###区块链的特点</p>
+<ul>
+<li>去中心化<ul>
+<li>整个网络无中心化硬件或机构,用纯数学方法而非中心机构来建立分布式系统结构与节点间信任关系</li>
+</ul>
+</li>
+<li>时序数据<ul>
+<li>采用带有时间戳的链式区块结构存储数据,从而为数据增加了时间维度,具有可验证性和可追溯性;</li>
+</ul>
+</li>
+<li>集体维护<ul>
+<li>分布式系统中所有节点均可参与数据区块的验证过程(如比特币”挖矿”),每个节点分享权力和义务</li>
+</ul>
+</li>
+<li>安全可信<ul>
+<li>用非对称密码学原理对数据加密,借助各节点的工作量证明等算法形成的强大算力来抵御外部攻击、保证区块链数据不可篡改、伪造。<br>区块链系统的安全性是通过挖矿形成的强大算理保证的。由于每笔交易都是通过盖时间戳的方式顺序链接的。当一个人想要伪造一笔交易时，他不仅需要伪造该笔交易对应的区块，还需要伪造该区块之后所链接的所有区块。如果伪造者计算机的算理不能支持它伪造区块的速度超过区块链增长的速度，那么伪造的区块就马上会被发现并被弃用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="区块链解决了什么问题"><a href="#区块链解决了什么问题" class="headerlink" title="区块链解决了什么问题"></a>区块链解决了什么问题</h3><ul>
+<li>区块链最重要的是解决中介信用问题。在过去，两个互不认识和信任的人要达到写作是很难的，必须要依靠第三方。通过区块链技术，比特币是人类第一次实现在没有任何中介机构参与下，完成双方可以互信的转账行为。这是区块链的最大突破。</li>
+</ul>
+<h3 id="区块链和比特币是什么关系？"><a href="#区块链和比特币是什么关系？" class="headerlink" title="区块链和比特币是什么关系？"></a>区块链和比特币是什么关系？</h3><ul>
+<li>区块链技术是比特币的底层技术，把比特币技术抽象提取出来，称之为区块链技术，或者分布式账本技术。所以从某个角度来看，比特币可以看成是区块链的一个应用，而区块链更类似于TCP/IP这样的底层“技术”，以后会扩展到越来越多的行业中。</li>
+</ul>
+<p>###区块链技术主要可以用在哪些行业？</p>
+<ul>
+<li>区块链主要的优势是无需中介参与、过程高效透明且成本很低、数据高度安全。所以如果在这三个方面有任意一个需求的行业都有机会使用区块链技术。<ul>
+<li>举个栗子 ： 如金融行业由于防止单点故障和系统性风险，需要层层审计来控制金融风险，但造成高昂的内部成本。区块链技术能够通过防篡改和高透明的方式让整个金融系统极大的降低成本。</li>
+</ul>
+</li>
+</ul>
+<p>##区块链的工作原理</p>
+<p>###比特币的交易机制</p>
+<ul>
+<li>比特币的交易机制是十分钟产生一个区块，意思就是每隔十分钟计算机就打包全网交易进入一个区块。而矿工就是在打包游戏中争夺区块链记账权的人，谁能最“快准狠”解开SHA256这个数学命题的值，谁就赢得了这个十分钟区块的打包记账权。而这十分钟里的每一笔交易，都会被盖上一个“timestamp”（时间戳），当然了，矿工的工作不是白辛苦的，一旦谁赢得了打包权，谁就将获得25个比特币作为奖励（最初是50个，经过一段时间之后就减半）。</li>
+</ul>
+<p>###区块链的机制</p>
+<ul>
+<li>目前在主要分为两类 ： pos（proof of stake）权益证明机制和pow（proof of work）工作量证明机制</li>
+</ul>
+<p>###比特币信用系统建立的过程</p>
+<ol>
+<li>每一笔交易为了让全网承认有效，需广播给每个节点（矿工）；</li>
+<li>每个矿工节点要正确无误的给这十分钟的每笔交易盖上时间戳并记入那个区块；</li>
+<li>每个矿工节点要通过解SHA256难题去竞争这个十分钟区块的合法记账权，并争取得到二十五个比特币的奖励（头四年是每十分钟五十个比特币，每四年递减一半）；</li>
+<li>如果一个矿工节点解开了这十分钟的SHA256难题，他将向全网公布他这十分钟记录的所有盖时间戳的交易，并由全网其他矿工节点核对；</li>
+<li>全网其他矿工节点核对该区块记账正确性，没有错误后他们将在该合法区块之后竞争下一个区块，这样就形成了一个合法记账的区块单链，也就是比特币支付系统的总账—–区块链</li>
+<li>一般来说，每一笔交易，必须经过六次区块确认，也就是六个十分钟记账，才能最终在区块链上承认合法交易。</li>
+<li>所以所谓“比特币”，也就是这样一个账单系统：它包括所有者用私钥进行电子签名并支付给下一个所有者，然后由全网的“矿工”盖时间戳记账，形成区块链。</li>
+</ol>
+<p>###交易实现，区块链形成的步骤：</p>
+<ol>
+<li>新的交易需求广播到所有节点。</li>
+<li>每一个节点把新的交易需求收集到一个区块中。</li>
+<li>每一个节点开始不断生成随机字符串，计算随机数答案。</li>
+<li>当一个节点得出的答案与随机数匹配时，它将它生成的区块广播到所有节点。</li>
+<li>节点对于交易进行验证，当该区块所包含的交易有效时，所有节点接受该区块。</li>
+<li>节点开始创建新区块，并将刚刚接受的区块的哈希散列添加进去。</li>
+</ol>
+<p>###第三方机构支持的硬件系统与区块链硬件系统的对比<br><img src="http://img.mp.itc.cn/upload/20161011/9c2faeefa59648e69e0a9c1fe4199fd5_th.jpeg" alt="此处输入图片的描述"></p>
+<h3 id="区块链在数字支付中应用的流程"><a href="#区块链在数字支付中应用的流程" class="headerlink" title="区块链在数字支付中应用的流程"></a>区块链在数字支付中应用的流程</h3><p><img src="http://img.mp.itc.cn/upload/20161011/738778ded3214fa88dc1f74b8790a340_th.jpeg" alt="此处输入图片的描述"></p>
+<p>##数字签名</p>
+<ul>
+<li>数字签名涉及到一个哈希函数、发送者的公钥、发送者的私钥。数字签名有两个作用。<ol>
+<li>能确定消息确实是由发送方签名并发出来的。</li>
+<li>数字签名能确定消息的完整性。</li>
+</ol>
+</li>
+<li>工作原理 ： 发送报文时，发送方用一个哈希函数从报文文本中生成报文摘要，然后用自己的私钥对摘要进行加密，加密后的摘要将作为报文的数字签名和报文一起发送给接收方，接收方首先用与发送方一样的哈希函数从接收到的原始报文中计算出报文摘要，接着再用发送方的公钥来对报文附加的数字签名进行解密，如果这两个摘要相同、那么接收方就能确认该数字签名是发送方的。</li>
+</ul>
+<p>##SHA256</p>
+<ul>
+<li>一种求Hash值的加密算法。</li>
+<li>工作原理 ： 将任何一串数据输入到SHA256将得到一个256位的Hash值（散列值）。</li>
+<li>特点 ： 相同的数据输入将得到相同的结果。输入数据只要稍有变化（比如一个1变成了0）则将得到一个千差万别的结果，且结果无法事先预知。正向计算（由数据计算其对应的Hash值）十分容易。逆向计算（俗称“破解”，即由Hash值计算出其对应的数据）极其困难，在当前科技条件下被视作不可能。</li>
+</ul>
+<h2 id="Merkle-Tree"><a href="#Merkle-Tree" class="headerlink" title="Merkle Tree"></a>Merkle Tree</h2><ul>
+<li>一种哈希二叉树，使用它可以快速校验大规模数据的完整性。在比特币网络中，Merkle树被用来归纳一个区块中的所有交易信息，最终生成这个区块所有交易信息的一个统一的哈希值，区块中任何一笔交易信息的改变都会使得Merkle树改变</li>
+<li>工作原理：非叶子节点value的计算方法是将该节点的所有子节点进行组合，然后对组合结果进行hash计算所得出的hash value。</li>
+</ul>
+<h2 id="时间戳服务器"><a href="#时间戳服务器" class="headerlink" title="时间戳服务器"></a>时间戳服务器</h2><ul>
+<li>大多用来进行对以及验证处理，时间戳服务器是一款基于PKI（公钥密码基础设施）技术的时间戳权威系统，对外提供精确可信的时间戳服务。它采用精确的时间源、高强度高标准的安全机制，以确认系统处理数据在某一时间的存在性和相关操作的相对时间顺序，为信息系统和中的时间防抵赖提供基础服务。</li>
+</ul>
+<h2 id="节点网络"><a href="#节点网络" class="headerlink" title="节点网络"></a>节点网络</h2><p><img src="http://img.mp.itc.cn/upload/20161011/54449331a5cb4d0daa0e1eb8cc2388c8_th.jpeg" alt="此处输入图片的描述"></p>
+<ul>
+<li>任何机器都可以运行一个完整的比特币节点，一个完整的比特币节点包括如下功能：<ol>
+<li>钱包，允许用户在区块链网络进行交易</li>
+<li>完整区块链，记录所有交易了历史，通过特殊的结构保证历史交易的安全性，并且用来验证新交易的合法性</li>
+<li>矿工，通过记录交易及解密数学题来生成新区块，如果成功可以赚取奖励</li>
+<li>路由功能，把其他节点传送过来的交易数据等信息再传送给更多节点</li>
+</ol>
+</li>
+<li>除了以外，其他的功能都不是必须的。</li>
+</ul>
+<h2 id="交易过程"><a href="#交易过程" class="headerlink" title="交易过程"></a>交易过程</h2><p><img src="http://img.mp.itc.cn/upload/20161011/dd91da6344014032b1bc294d78704e86_th.jpeg" alt="此处输入图片的描述"></p>
+<ul>
+<li>第一步：所有者A利用他的私钥对前一次交易（比特币来源）和下一位所有者B签署一个数字签名，并将这个签名附加在这枚货币的末尾，制作成交易单<ul>
+<li>要点：B以公钥作为接收方地址</li>
+</ul>
+</li>
+<li>第二步：A将交易单广播至全网，比特币就发送给了B，每个节点都将收到的交易信息纳入一个区块中。<ul>
+<li>要点：对B而言，该枚比特币会即时显示在比特币钱包中，但直到区块确认成功后才可用。目前一笔比特币从支付到最终确认，得到6个区块确认之后才能真正确认到账。</li>
+</ul>
+</li>
+<li>第三步：每个节点通过解一道数学难题，从而去获得创建新区块权利，并城区得到比特币的奖励（新比特币会在此过程中产生）<ul>
+<li>要点：节点反复尝试寻找一个数值，似的将该数值、区块链中最后一个区块的Hash值以及交易单三部分送入SHA256算法后能计算出散列值X（256位）满足一定条件（比如前20位均为0），即找到数学难题的解。由此可见，答案并不唯一</li>
+</ul>
+</li>
+<li>第四步：当一个节点找到解时，它就向全网广播该区块记录的所有盖时间戳交易，并由全网其他节点核对<ul>
+<li>要点：时间戳用来证明特定区块必然于某特定时间是的确存在的。比特币网络采取从5个以上节点获取时间，然后取中间值的方式为时间戳</li>
+</ul>
+</li>
+<li>第五步：全网其他节点核对该区块记账的正确性，没有错误后他们将在该合法区块之后竞争下一个区块，这样就形成了一个合法记账的区块链。<ul>
+<li>要点：每个区块的创建大约在10分钟。随着全网算力的不断变化，每个区块的产生时间会随着算力增强而缩短、随酸碱减弱而延长。其原理是根据最近产生的2016年区块的时间差（约两周时间），自动调整每个区块的生成难度（比如减少或增加目标值中0的个数），似的每个区块的生成时间是10分钟。</li>
+</ul>
+</li>
+</ul>
+<p>##数据结构</p>
+<p>###区块链<br><img src="http://img.mp.itc.cn/upload/20161011/becbf4192b8b4e73b3223d727029ea0e_th.jpeg" alt="此处输入图片的描述"></p>
+<p>###区块<br><img src="http://img.mp.itc.cn/upload/20161011/a76bbf886b7e4a238802bb8514a62a98_th.jpeg" alt="此处输入图片的描述"></p>
+<p>###区块头<br><img src="http://img.mp.itc.cn/upload/20161011/fe643c8498d346058c2d564a9d49e271_th.jpeg" alt="此处输入图片的描述"></p>
+<p>###区块形成过程</p>
+<ul>
+<li>在当前区块加入区块链后，所有矿工就立即开始下一个区块的生成工作。<ol>
+<li>把在本地内存中的交易信息记录到区块主体中</li>
+<li>在区块主体中生成此区块中所有交易信息的Merkle树，把Merkle树根的值保存在区块头中</li>
+<li>把上一个刚刚生成的区块的区块头的数据通过SHA256算法生成一个哈希值填入到当前区块的父哈希值中</li>
+<li>把当前时间保存的时间戳字段中</li>
+<li>难度值字段会根据之前一段时间区块的平均生成时间进行调整以对应整个网络不断变化的整体计算总量，如果计算总量增长了，则系统会调高数学题的难度值，使得预期完成下一个区块的时间依然在一定时间内。<br>##密码学<br>###密码学理论</li>
+</ol>
+</li>
+<li>首先，现代密码学理论的共识遵循“柯克霍夫原则”：<ul>
+<li>柯克霍夫原则由奥古斯特·柯克霍夫在19世纪提出：密码系统应该就算被所有人知道系统的运作步骤，仍然是安全的。</li>
+</ul>
+</li>
+<li>这个是什么意思呢，拿钥匙和锁的例子来说，研制和生产锁具（包括钥匙）的工艺是完全公开的，锁具被攻破只有两种可能：一是证明工艺有漏洞，不需要拿到原装钥匙也能打开。二是穷尽各种钥匙可能，在可接受的时间里能够从概率意义上试出来（暴力破解）。</li>
+<li>算法是公开的，唯一需要保护的是密钥，这是我们下文讨论的基础。</li>
+</ul>
+<p>###非对称加密</p>
+<ul>
+<li>先看对称加密很好理解也符合直觉：<ul>
+<li>对称加密：对同一份敏感数据，加密解密密钥是相同的。</li>
+</ul>
+</li>
+<li>非对称加密：<ul>
+<li>非对称加密算法需要两个密钥：公开密钥（publickey）和私有密钥（privatekey）。公开密钥与私有密钥是一对，如果用公开密钥对数据进行加密，只有用对应的私有密钥才能解密；如果用私有密钥对数据进行加密，那么只有用对应的公开密钥才能解密。因为加密和解密使用的是两个不同的密钥，所以这种算法叫作非对称加密算法。 非对称加密算法实现机密信息交换的基本过程是：甲方生成一对密钥并将其中的一把作为公用密钥向其它方公开；得到该公用密钥的乙方使用该密钥对机密信息进行加密后再发送给甲方；甲方再用自己保存的另一把专用密钥对加密后的信息进行解密。</li>
+</ul>
+</li>
+<li>我们用一幅图来说明：<br><img src="http://upload-images.jianshu.io/upload_images/1367447-5ec449233ceee941.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></li>
+</ul>
+<p>​                                            </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Wei.Cao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Wei.Cao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/区块链/" rel="tag"># 区块链</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/06/安装GCC/" rel="next" title="安装GCC">
+                <i class="fa fa-chevron-left"></i> 安装GCC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/06/多个git账号之间的切换/" rel="prev" title="多个git账号之间的切换">
+                多个git账号之间的切换 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/596cd3e8d520e.png"
+                alt="Wei.Cao" />
+            
+              <p class="site-author-name" itemprop="name">Wei.Cao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">103</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1614642&auto=1&height=66"></iframe>          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#区块链解决了什么问题"><span class="nav-number">1.</span> <span class="nav-text">区块链解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区块链和比特币是什么关系？"><span class="nav-number">2.</span> <span class="nav-text">区块链和比特币是什么关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区块链在数字支付中应用的流程"><span class="nav-number">3.</span> <span class="nav-text">区块链在数字支付中应用的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merkle-Tree"><span class="nav-number"></span> <span class="nav-text">Merkle Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间戳服务器"><span class="nav-number"></span> <span class="nav-text">时间戳服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点网络"><span class="nav-number"></span> <span class="nav-text">节点网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交易过程"><span class="nav-number"></span> <span class="nav-text">交易过程</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wei.Cao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1520308235000', 
+            owner: 'huaxiaowei',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans# Force language, or auto switch by theme" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'a5317db783a77a762d0b32c444be681f8a55daed',
+            
+                client_id: 'e725b4cc6235cd482ba5'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
