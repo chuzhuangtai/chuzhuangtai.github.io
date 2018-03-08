@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="canvas," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="动画与变形动画原理 动画的原理，就是一张张画面连续快速播放，当速度超过每秒24张时，人的肉眼就不会分辨出卡顿感。而觉得是在播放连续的视频动画 所以， 我们要实现动画，只需要隔十几毫秒把屏幕清空之后，重新绘制下一帧就可以了  执行动画方案 我们可以用window.setInterval(), window.setTimeout(),和window.requestAnimationFrame()来设定">
-<meta name="keywords" content="canvas">
+<meta name="description" content="简易贪吃蛇项目分析  原理：我只要找一个对象，当我调用它开始游戏的方法，那么游戏就开始了。但是现在没有这样的对象，所以我们要封装这个对象，相当于是一个游戏管家。    确定开发步骤 写一个div到body里，当地图，设置样式宽和高、背景颜色、相对定位 创建食物 创建蛇 把食物和蛇单独封装到各自的一个文件 创建一个游戏管家类 用户按上下左右让蛇跟着动 判断越界 判断吃食物  创建地图模板123456">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Canvas动画">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/Canvas动画/index.html">
+<meta property="og:title" content="Canvas小鸟游戏">
+<meta property="og:url" content="http://yoursite.com/2017/05/28/简易贪吃蛇/index.html">
 <meta property="og:site_name" content="Yang.Xu">
-<meta property="og:description" content="动画与变形动画原理 动画的原理，就是一张张画面连续快速播放，当速度超过每秒24张时，人的肉眼就不会分辨出卡顿感。而觉得是在播放连续的视频动画 所以， 我们要实现动画，只需要隔十几毫秒把屏幕清空之后，重新绘制下一帧就可以了  执行动画方案 我们可以用window.setInterval(), window.setTimeout(),和window.requestAnimationFrame()来设定">
+<meta property="og:description" content="简易贪吃蛇项目分析  原理：我只要找一个对象，当我调用它开始游戏的方法，那么游戏就开始了。但是现在没有这样的对象，所以我们要封装这个对象，相当于是一个游戏管家。    确定开发步骤 写一个div到body里，当地图，设置样式宽和高、背景颜色、相对定位 创建食物 创建蛇 把食物和蛇单独封装到各自的一个文件 创建一个游戏管家类 用户按上下左右让蛇跟着动 判断越界 判断吃食物  创建地图模板123456">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T13:44:33.624Z">
+<meta property="og:updated_time" content="2018-03-08T03:35:32.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Canvas动画">
-<meta name="twitter:description" content="动画与变形动画原理 动画的原理，就是一张张画面连续快速播放，当速度超过每秒24张时，人的肉眼就不会分辨出卡顿感。而觉得是在播放连续的视频动画 所以， 我们要实现动画，只需要隔十几毫秒把屏幕清空之后，重新绘制下一帧就可以了  执行动画方案 我们可以用window.setInterval(), window.setTimeout(),和window.requestAnimationFrame()来设定">
+<meta name="twitter:title" content="Canvas小鸟游戏">
+<meta name="twitter:description" content="简易贪吃蛇项目分析  原理：我只要找一个对象，当我调用它开始游戏的方法，那么游戏就开始了。但是现在没有这样的对象，所以我们要封装这个对象，相当于是一个游戏管家。    确定开发步骤 写一个div到body里，当地图，设置样式宽和高、背景颜色、相对定位 创建食物 创建蛇 把食物和蛇单独封装到各自的一个文件 创建一个游戏管家类 用户按上下左右让蛇跟着动 判断越界 判断吃食物  创建地图模板123456">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/06/Canvas动画/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/28/简易贪吃蛇/"/>
 
 
 
 
 
-  <title>Canvas动画 | Yang.Xu</title>
+  <title>Canvas小鸟游戏 | Yang.Xu</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/Canvas动画/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/28/简易贪吃蛇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yang.Xu">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Canvas动画</h1>
+          <h1 class="post-title" itemprop="name headline">Canvas小鸟游戏</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T21:37:05+08:00">
-                2018-03-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-28T12:54:05+08:00">
+                2017-05-28
               </time>
             
 
@@ -379,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/06/Canvas动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/06/Canvas动画/" itemprop="commentsCount"></span>
+                <a href="/2017/05/28/简易贪吃蛇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/05/28/简易贪吃蛇/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -408,58 +408,106 @@
       
 
       
-        <h2 id="动画与变形"><a href="#动画与变形" class="headerlink" title="动画与变形"></a>动画与变形</h2><h3 id="动画原理"><a href="#动画原理" class="headerlink" title="动画原理"></a>动画原理</h3><ol>
-<li>动画的原理，就是一张张画面连续快速播放，当速度超过每秒24张时，人的肉眼就不会分辨出卡顿感。而觉得是在播放连续的视频动画</li>
-<li>所以， 我们要实现动画，只需要隔十几毫秒把屏幕清空之后，重新绘制下一帧就可以了</li>
-</ol>
-<h3 id="执行动画方案"><a href="#执行动画方案" class="headerlink" title="执行动画方案"></a>执行动画方案</h3><ol>
-<li>我们可以用window.setInterval(), window.setTimeout(),和window.requestAnimationFrame()来设定定期执行一个指定函数。</li>
-<li>setInterval(function, delay): 当设定好间隔时间后，function会定期执行。</li>
-<li>setTimeout(function, delay): 在设定好的时间之后执行函数</li>
-<li>requestAnimationFrame(callback): 递归调用的形式才实现动画，动画的频率跟随浏览器的刷新频率，效率比较高，连续动画都使用这种方式就可以了</li>
-</ol>
-<h3 id="弹球动画讲解"><a href="#弹球动画讲解" class="headerlink" title="弹球动画讲解"></a>弹球动画讲解</h3><ol>
-<li><p>先实现绘制某一帧的方法(draw())</p>
-<ol>
-<li>清空canvas</li>
-<li>绘制小球</li>
-<li>更改小球的位置</li>
-</ol>
+        <h2 id="简易贪吃蛇"><a href="#简易贪吃蛇" class="headerlink" title="简易贪吃蛇"></a>简易贪吃蛇</h2><h3 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h3><ul>
+<li><blockquote>
+<p>原理：我只要找一个对象，当我调用它开始游戏的方法，那么游戏就开始了。但是现在没有这样的对象，所以我们要封装这个对象，相当于是一个游戏管家。</p>
+</blockquote>
 </li>
-<li><p>添加一个动画(window.requesAnimationFrame(draw))</p>
-</li>
-<li><p>边界处理</p>
-<ul>
-<li>如果小球到达边界，修改其速度为反方向；</li>
 </ul>
-</li>
-<li><p>代码实现</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    ctx.fillStyle = <span class="string">"blue"</span>;</span><br><span class="line">    <span class="keyword">var</span> animation;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建一个圆对象</span></span><br><span class="line">    <span class="keyword">var</span> circle = &#123;</span><br><span class="line">        radias: <span class="number">30</span>,</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span>,</span><br><span class="line">        speedx: <span class="number">2</span>,</span><br><span class="line">        speedy: <span class="number">1</span>,</span><br><span class="line">        isRunning: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        draw: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//画一个圆</span></span><br><span class="line">            ctx.beginPath();</span><br><span class="line">            ctx.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.radias, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">            ctx.fill();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//每一帧，圆的位置都会发生变化</span></span><br><span class="line">        circle.x += circle.speedx;</span><br><span class="line">        circle.y += circle.speedy;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//边界判断，到了边界就调头</span></span><br><span class="line">        <span class="keyword">if</span> (circle.x == canvas.width-circle.radias || circle.x == circle.radias) &#123;</span><br><span class="line">            circle.speedx = -circle.speedx;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (circle.y == canvas.height-circle.radias || circle.y == circle.radias) &#123;</span><br><span class="line">            circle.speedy = -circle.speedy;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//绘制小球，绘制当前帧，把上一帧的画面清空</span></span><br><span class="line">        <span class="comment">//ctx.clearRect(0, 0, canvas.width, canvas.height);</span></span><br><span class="line">        ctx.save();</span><br><span class="line">        ctx.fillStyle = <span class="string">"rgba(255,255,255,0.2)"</span>;</span><br><span class="line">        <span class="comment">//ctx.fillStyle = "red";</span></span><br><span class="line">        ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height);</span><br><span class="line">        ctx.restore();</span><br><span class="line">        circle.draw();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始执行动画</span></span><br><span class="line">        animation = <span class="built_in">window</span>.requestAnimationFrame(draw);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加点击事件，当点击时，如果正在运行，则暂停，如果没有正在运行，则点击动行</span></span><br><span class="line">    canvas.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!circle.isRunning) &#123;</span><br><span class="line">            circle.x = e.clientX;</span><br><span class="line">            circle.y = e.clientY;</span><br><span class="line">            animation = <span class="built_in">window</span>.requestAnimationFrame(draw);</span><br><span class="line">            circle.isRunning = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            circle.isRunning = <span class="literal">false</span>;</span><br><span class="line">            <span class="built_in">window</span>.cancelAnimationFrame(animation);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="确定开发步骤"><a href="#确定开发步骤" class="headerlink" title="确定开发步骤"></a>确定开发步骤</h3><ol>
+<li>写一个div到body里，当地图，设置样式宽和高、背景颜色、相对定位</li>
+<li>创建食物</li>
+<li>创建蛇</li>
+<li>把食物和蛇单独封装到各自的一个文件</li>
+<li>创建一个游戏管家类</li>
+<li>用户按上下左右让蛇跟着动</li>
+<li>判断越界</li>
+<li>判断吃食物</li>
 </ol>
-<h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><h4 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h4><ol>
-<li><p>scale是用来缩放画布元素的坐标和宽高。如果一张（100*100）的画布，scale为（0.5, 0.5），用fillRect(50, 50, 50, 50)来画一个正方形，实际显示效果未缩放前的（25, 25, 25, 25）位置和大小的效果是一样的。</p>
-</li>
-<li><p>代码与示例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置画笔的粗细和颜色</span></span><br><span class="line">    ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">    ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 将画笔移动到某个点</span></span><br><span class="line">    ctx.moveTo(<span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">    <span class="comment">//2. 从上面这个点开始，划一条直接到某一个点</span></span><br><span class="line">    ctx.lineTo(<span class="number">600</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    ctx.moveTo(<span class="number">300</span>, <span class="number">0</span>);</span><br><span class="line">    ctx.lineTo(<span class="number">300</span>, <span class="number">400</span>);</span><br><span class="line">    <span class="comment">//3. 填充颜色</span></span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    ctx.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h4><ol>
-<li><p>平移就是改变往水平或垂直方向，改变参考原点的值。translate(100, 100);就是绘图时，在当前参考原点的基本之上，向右平移100像素，向下平移100像素。</p>
-</li>
-<li><p>代码与示例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置画笔的粗细和颜色</span></span><br><span class="line">    ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">    ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 将画笔移动到某个点</span></span><br><span class="line">    ctx.moveTo(<span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">    <span class="comment">//2. 从上面这个点开始，划一条直接到某一个点</span></span><br><span class="line">    ctx.lineTo(<span class="number">600</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    ctx.moveTo(<span class="number">300</span>, <span class="number">0</span>);</span><br><span class="line">    ctx.lineTo(<span class="number">300</span>, <span class="number">400</span>);</span><br><span class="line">    <span class="comment">//3. 填充颜色</span></span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    ctx.translate(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><ol>
-<li><p>旋转，就是围绕当前的原点，坐标系发生旋转。</p>
-</li>
-<li><p>代码与示例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    ctx.save();</span><br><span class="line">    ctx.translate(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//画30条直线，角度不一样</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">30</span>; i++) &#123;</span><br><span class="line">        ctx.rotate(<span class="number">1</span>/<span class="number">15</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">        ctx.beginPath();</span><br><span class="line">        ctx.moveTo(<span class="number">30</span>, <span class="number">0</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">150</span>, <span class="number">0</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ctx.restore();</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
+<h3 id="创建地图模板"><a href="#创建地图模板" class="headerlink" title="创建地图模板"></a>创建地图模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=&quot;en&quot;&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #map &#123;</span><br><span class="line">            width: 600px;</span><br><span class="line">            height: 600px;</span><br><span class="line">            background-color: #cccccc;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=&quot;food.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;snake.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;Game.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">//找到地图</span><br><span class="line">var map = document.getElementById(&quot;map&quot;);</span><br><span class="line"></span><br><span class="line">//实例化游戏管家对象</span><br><span class="line">var gm = new Game();</span><br><span class="line"></span><br><span class="line">gm.startGame(map);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="创建食物"><a href="#创建食物" class="headerlink" title="创建食物"></a>创建食物</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">function Food(x, y, w, h, color) &#123;</span><br><span class="line"></span><br><span class="line">    this.x = x || 0;</span><br><span class="line">    this.y = y || 0;</span><br><span class="line">    this.width = w || 20;</span><br><span class="line">    this.height = h || 20;</span><br><span class="line">    this.color = color || &quot;green&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var lastFood;</span><br><span class="line"></span><br><span class="line">//把食物渲染出来</span><br><span class="line">Food.prototype.render = function (map) &#123;</span><br><span class="line"></span><br><span class="line">if (lastFood) &#123;</span><br><span class="line"></span><br><span class="line">    //先把上一次的食物清掉</span><br><span class="line">    map.removeChild(lastFood);</span><br><span class="line">&#125;</span><br><span class="line">    //用地图的宽除以食物的宽得到最大可以放多少列</span><br><span class="line">    var col = map.offsetWidth / this.width;</span><br><span class="line">    this.x = Math.floor((Math.random() * col)) * this.width;</span><br><span class="line">    var row = map.offsetHeight / this.height;</span><br><span class="line">    this.y = Math.floor(Math.random() * row) * this.height;</span><br><span class="line">    </span><br><span class="line">    //创建div</span><br><span class="line">    var div = document.createElement(&quot;div&quot;);</span><br><span class="line">    div.style.position = &quot;absolute&quot;;</span><br><span class="line">    div.style.left = this.x + &quot;px&quot;;</span><br><span class="line">    div.style.top = this.y + &quot;px&quot;;</span><br><span class="line">    div.style.width = this.width + &quot;px&quot;;</span><br><span class="line">    div.style.height = this.height + &quot;px&quot;;</span><br><span class="line">    div.style.backgroundColor = this.color;</span><br><span class="line">    </span><br><span class="line">    lastFood = div;</span><br><span class="line">    </span><br><span class="line">    map.appendChild(div);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建蛇对象"><a href="#创建蛇对象" class="headerlink" title="创建蛇对象"></a>创建蛇对象</h3><pre><code>//保存上一次渲染生成的div
+var list = [];
 
+//因为蛇是对象，所以给它一个构造函数
+function Snake(bodyW, bodyH, direction) {
+
+    //宽和高，只要用一个属性保存
+    this.bodyW = bodyW || 20;
+    this.bodyH = bodyH || 20;
+
+    //这里可以设置蛇默认的方向
+    this.direction = direction || &quot;right&quot;;
+
+    //蛇有身体，身体由数组组成（因为默认有3节身体，后面吃了食物还要能长身体（相当于给数组加一个元素））
+    this.body = [
+        {x: 3, y: 1, color: &quot;red&quot;},
+        {x: 2, y: 1, color: &quot;seagreen&quot;},
+        {x: 1, y: 1, color: &quot;seagreen&quot;},
+    ];
+}
+
+Snake.prototype.render = function (map) {
+
+
+    //先删除上一次渲染出来的div
+    for (var i = 0; i &lt; list.length; i++) {
+
+        map.removeChild(list[i]);
+    }
+
+    //内存中也要把这些div清楚掉
+    list = [];
+
+    //body里有多少个元素，就创建多少个div
+    for (var i = 0; i &lt; this.body.length; i++) {
+
+        var div = document.createElement(&quot;div&quot;);
+        div.style.position = &quot;absolute&quot;;
+        div.style.left = this.body[i].x * this.bodyW + &quot;px&quot;;
+        div.style.top = this.body[i].y * this.bodyH + &quot;px&quot;;
+        div.style.width = this.bodyW + &quot;px&quot;;
+        div.style.height = this.bodyH + &quot;px&quot;;
+        div.style.backgroundColor = this.body[i].color;
+
+        //把每次创建的div保存起来
+        list.push(div);
+        map.appendChild(div);
+    }
+}
+
+
+//移动是蛇的行为，所以给蛇对象加一个移动的方法
+Snake.prototype.move = function () {
+
+    //蛇身体移动，它前一个位置是多少，它就移动到多少
+    //从后到前遍历会更好，因为这样的话前一个身体还没动过位置可以拿到这个位置
+    //注意：不要包括0，因为0是蛇头，而蛇头没有前一个身体，是要单独根据方向来定
+    for (var i = this.body.length - 1; i &gt; 0; i--) {
+
+        this.body[i].x = this.body[i - 1].x;
+        this.body[i].y = this.body[i - 1].y;
+    }
+
+    //蛇头移动根据方向来
+    switch (this.direction) {
+
+        case &quot;up&quot;:
+            this.body[0].y--;
+            break;
+        case &quot;down&quot;:
+            this.body[0].y++;
+            break;
+        case &quot;left&quot;:
+            this.body[0].x--;
+            break;
+        case &quot;right&quot;:
+            this.body[0].x++;
+            break;
+    }
+
+}
+</code></pre><h3 id="创建一个游戏管家类"><a href="#创建一个游戏管家类" class="headerlink" title="创建一个游戏管家类"></a>创建一个游戏管家类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">var that;</span><br><span class="line">function Game() &#123;</span><br><span class="line"></span><br><span class="line">    //把游戏管理者对象保存起来，保存在that</span><br><span class="line">    that = this;</span><br><span class="line"></span><br><span class="line">    //管理蛇对象</span><br><span class="line">    this.snake = new Snake();</span><br><span class="line"></span><br><span class="line">    //管理食物对象</span><br><span class="line">    this.food = new Food();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bindKey() &#123;</span><br><span class="line"></span><br><span class="line">    //document.onkeypress;//不包括功能键</span><br><span class="line"></span><br><span class="line">    document.onkeydown = function (e) &#123;</span><br><span class="line"></span><br><span class="line">        e = e || window.event;</span><br><span class="line"></span><br><span class="line">        var code = e.keyCode || e.charCode || e.which;</span><br><span class="line">        //37左 38上 39右 40下</span><br><span class="line"></span><br><span class="line">        switch (code) &#123;</span><br><span class="line"></span><br><span class="line">            case 37:</span><br><span class="line">                if (that.snake.direction != &quot;right&quot;)</span><br><span class="line">                    that.snake.direction = &quot;left&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case 38:</span><br><span class="line">                if (that.snake.direction != &quot;down&quot;)</span><br><span class="line">                    that.snake.direction = &quot;up&quot;;</span><br><span class="line">                break;</span><br><span class="line"></span><br><span class="line">            case 39:</span><br><span class="line">                if (that.snake.direction != &quot;left&quot;)</span><br><span class="line">                    that.snake.direction = &quot;right&quot;;</span><br><span class="line">                break;</span><br><span class="line"></span><br><span class="line">            case 40:</span><br><span class="line">                if (that.snake.direction != &quot;up&quot;)</span><br><span class="line">                    that.snake.direction = &quot;down&quot;;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//开始游戏</span><br><span class="line">Game.prototype.startGame = function (map) &#123;</span><br><span class="line"></span><br><span class="line">    //开始游戏时就需要监听网页用户按下的键</span><br><span class="line">    bindKey();</span><br><span class="line"></span><br><span class="line">    //要把食物画出来</span><br><span class="line">    this.food.render(map);</span><br><span class="line"></span><br><span class="line">    //把蛇画出来</span><br><span class="line">    this.snake.render(map);</span><br><span class="line"></span><br><span class="line">    //蛇自己自动</span><br><span class="line">    autoMove();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function autoMove() &#123;</span><br><span class="line"></span><br><span class="line">    var timerID = setInterval(function () &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //保存移动之前最后一格的身体坐标（为了如果移动后吃到食物了，这个坐标就给新添加的身体）</span><br><span class="line">        var oldX = that.snake.body[that.snake.body.length - 1].x;</span><br><span class="line">        var oldY = that.snake.body[that.snake.body.length - 1].y;</span><br><span class="line"></span><br><span class="line">        //让蛇自己动</span><br><span class="line">        that.snake.move();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //判断是否越界</span><br><span class="line">        //如果水平方向一行只能放20个，意味着蛇头的x如果大于等于20就越界</span><br><span class="line">        var maxCol = map.offsetWidth / that.snake.bodyW;</span><br><span class="line">        var maxRow = map.offsetHeight / that.snake.bodyH;</span><br><span class="line">        var head = that.snake.body[0];</span><br><span class="line">        if (head.x &gt;= maxCol || head.x &lt; 0 || head.y &lt; 0 || head.y &gt;= maxRow) &#123;</span><br><span class="line"></span><br><span class="line">            alert(&quot;Game Over!&quot;);</span><br><span class="line"></span><br><span class="line">            clearInterval(timerID);</span><br><span class="line"></span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //判断有没有吃到食物：思路：蛇头的坐标如果和食物的坐标重合就代表吃到了</span><br><span class="line">        //先计算出蛇头真正left值</span><br><span class="line">        var x = head.x * that.snake.bodyW;</span><br><span class="line">        //再计算蛇头真正的top值</span><br><span class="line">        var y = head.y * that.snake.bodyH;</span><br><span class="line">        //判断是否迟到食物</span><br><span class="line">        if (x == that.food.x &amp;&amp; y == that.food.y) &#123;</span><br><span class="line"></span><br><span class="line">            //让蛇加一节身体</span><br><span class="line">            that.snake.body.push(</span><br><span class="line">                &#123;x: oldX, y: oldY, color: &quot;seagreen&quot;&#125;</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            //让食物重新生成（渲染）它内部每次渲染之前都清除原来的了</span><br><span class="line">            that.food.render(map);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //让你根据最新位置渲染</span><br><span class="line">        that.snake.render(map);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;, 180);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -505,7 +553,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/canvas/" rel="tag"># canvas</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -518,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/DOM元素的增删改查操作/" rel="next" title="DOM元素获取">
-                <i class="fa fa-chevron-left"></i> DOM元素获取
+              <a href="/2017/02/08/笨笨的小鸟/" rel="next" title="Canvas小鸟游戏">
+                <i class="fa fa-chevron-left"></i> Canvas小鸟游戏
               </a>
             
           </div>
@@ -527,6 +575,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/06/DOM元素的增删改查操作/" rel="prev" title="DOM元素获取">
+                DOM元素获取 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -701,7 +753,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动画与变形"><span class="nav-number">1.</span> <span class="nav-text">动画与变形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动画原理"><span class="nav-number">1.1.</span> <span class="nav-text">动画原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行动画方案"><span class="nav-number">1.2.</span> <span class="nav-text">执行动画方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹球动画讲解"><span class="nav-number">1.3.</span> <span class="nav-text">弹球动画讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变形"><span class="nav-number">1.4.</span> <span class="nav-text">变形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缩放"><span class="nav-number">1.4.1.</span> <span class="nav-text">缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#平移"><span class="nav-number">1.4.2.</span> <span class="nav-text">平移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转"><span class="nav-number">1.4.3.</span> <span class="nav-text">旋转</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简易贪吃蛇"><span class="nav-number">1.</span> <span class="nav-text">简易贪吃蛇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目分析"><span class="nav-number">1.1.</span> <span class="nav-text">项目分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定开发步骤"><span class="nav-number">1.2.</span> <span class="nav-text">确定开发步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建地图模板"><span class="nav-number">1.3.</span> <span class="nav-text">创建地图模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建食物"><span class="nav-number">1.4.</span> <span class="nav-text">创建食物</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建蛇对象"><span class="nav-number">1.5.</span> <span class="nav-text">创建蛇对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个游戏管家类"><span class="nav-number">1.6.</span> <span class="nav-text">创建一个游戏管家类</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -901,7 +953,7 @@ var jiathis_config={
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520343425000', 
+            id: '1495947245000', 
             owner: 'chuzhuangtai',
             repo: 'chuzhuangtai.github.io',
             
