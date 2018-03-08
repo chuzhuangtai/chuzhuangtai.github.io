@@ -23,6 +23,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[响应式viewport设计]]></title>
+    <url>%2F2018%2F01%2F14%2Fviewport%2F</url>
+    <content type="text"><![CDATA[响应式viewport设计什么是 Viewport?viewport 是用户网页的可视区域。 viewport 翻译为中文可以叫做”视区”。 在移动设备里面， 屏幕可以把它相像成一个窗户。 网页是在窗户的后面一个叫做 视区（viewport）的区域显示的。 就相当于在窗记的后面有一块可以滑动的幕布。 一般情况下， viewport的宽度，会比手机的实际的宽度要大。 viewport的背景： 在智能手机才出来的时候，所有的pc端的网页，要想在手机上完整显示， 必须只能左右滑动。 这样的话只能让手机的可视区。 比手机屏幕的宽度要大。 就产生了一个问题： 在布局的时候，如果使用百分比布局，参考的屏幕的宽度可能是一个错误的值。 强制去设置视口的宽度和屏幕的宽度一致。 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; viewport的属性的介绍 height：和 width 相对应，指定高度。 initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。 maximum-scale：允许用户缩放到的最大比例。 minimum-scale：允许用户缩放到的最小比例。 user-scalable：用户是否可以手动缩放。]]></content>
+      <categories>
+        <category>web移动端</category>
+      </categories>
+      <tags>
+        <tag>viewport设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHP数据库简单操作]]></title>
     <url>%2F2017%2F09%2F21%2FPHP%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[数据库操作方式 图形界面客户端 创建连接 创建数据库 删除数据库 创建表 编辑表 删除表 表结构分析 数据类型分析 数据增删改查操作 SQL SQL基本概述 插入数据insert 12-- insert into 表名 (字段列表) values (值列表)insert into book (name,author,category,price) values ('天龙八部','金庸','文学',20) 修改数据update 12-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件update book set name='笑傲江湖',price='30' where id=10 删除数据delete 12-- delete from 表名 where 条件delete from book where id=10 查询数据select 12-- select * from 表名 where 条件select * from book where author='金庸' and price&gt;20 简单的联表查询 1select u.username,b.name from user u,book b where u.id=b.uid and b.price&gt;20 PHP代码操作数据 连接数据库基本步骤 12345678910111213141516171819// 1、连接数据库$server = 'localhost';//数据库所在计算机的域名或者IP地址$username = 'root';//登录数据库的用户名$pw = '';//登录数据库的密码// 执行连接操作$link = mysql_connect($server,$username,$pw);// 2、选择要操作哪个数据库mysql_select_db('hello',$link);// 3、设置查询编码mysql_query("SET names UTF8");// 4、操作数据（通过sql语句操作数据库）$str = 'select count(*) as cc from user';$result = mysql_query($str);// 5、获取数据库的结果集并解析$row = mysql_fetch_assoc($result);echo $row['cc'];// 6、释放资源并关闭数据库mysql_free_result($result);mysql_close($link); 数据库操作常用api mysql_connect() 连接数据库 mysql_select_db() 选择数据库 mysql_query() 执SQL语句 mysql_fetch_row() 以索引数组的形式返回结果 mysql_fetch_assoc() 以关联数组的形式范湖数据 mysql_fetch_array() 返回索引数组和关联数组 mysql_fetch_object() 以对象形式返回结果 mysql_free_result() 释放资源 mysql_close() 关闭连接 基本增删改查操作]]></content>
@@ -30,7 +41,7 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>PHP</tag>
+        <tag>PHP-数据库</tag>
       </tags>
   </entry>
   <entry>
