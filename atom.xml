@@ -68,6 +68,35 @@
   </entry>
   
   <entry>
+    <title>PHP数据库简单操作</title>
+    <link href="http://yoursite.com/2017/09/21/PHP%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://yoursite.com/2017/09/21/PHP数据库/</id>
+    <published>2017-09-21T09:25:18.000Z</published>
+    <updated>2018-03-08T09:26:24.965Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据库操作方式"><a href="#数据库操作方式" class="headerlink" title="数据库操作方式"></a>数据库操作方式</h2><ul><li>图形界面客户端<ul><li>创建连接</li><li>创建数据库</li><li>删除数据库</li><li>创建表</li><li>编辑表</li><li>删除表</li><li>表结构分析</li><li>数据类型分析</li><li>数据增删改查操作</li></ul></li></ul><h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><ul><li>SQL基本概述</li><li><p>插入数据insert</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- insert into 表名 (字段列表) values (值列表)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book (<span class="keyword">name</span>,author,<span class="keyword">category</span>,price) <span class="keyword">values</span> (<span class="string">'天龙八部'</span>,<span class="string">'金庸'</span>,<span class="string">'文学'</span>,<span class="number">20</span>)</span><br></pre></td></tr></table></figure></li><li><p>修改数据update</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件</span></span><br><span class="line"><span class="keyword">update</span> book <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">'笑傲江湖'</span>,price=<span class="string">'30'</span> <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span></span><br></pre></td></tr></table></figure></li><li><p>删除数据delete</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 条件</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span></span><br></pre></td></tr></table></figure></li><li><p>查询数据select</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 where 条件</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">where</span> author=<span class="string">'金庸'</span> <span class="keyword">and</span> price&gt;<span class="number">20</span></span><br></pre></td></tr></table></figure></li><li><p>简单的联表查询</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> u.username,b.name <span class="keyword">from</span> <span class="keyword">user</span> u,book b <span class="keyword">where</span> u.id=b.uid <span class="keyword">and</span> b.price&gt;<span class="number">20</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="PHP代码操作数据"><a href="#PHP代码操作数据" class="headerlink" title="PHP代码操作数据"></a>PHP代码操作数据</h2><ul><li><p>连接数据库基本步骤</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、连接数据库</span></span><br><span class="line">$server = <span class="string">'localhost'</span>;<span class="comment">//数据库所在计算机的域名或者IP地址</span></span><br><span class="line">$username = <span class="string">'root'</span>;<span class="comment">//登录数据库的用户名</span></span><br><span class="line">$pw = <span class="string">''</span>;<span class="comment">//登录数据库的密码</span></span><br><span class="line"><span class="comment">// 执行连接操作</span></span><br><span class="line">$link = mysql_connect($server,$username,$pw);</span><br><span class="line"><span class="comment">// 2、选择要操作哪个数据库</span></span><br><span class="line">mysql_select_db(<span class="string">'hello'</span>,$link);</span><br><span class="line"><span class="comment">// 3、设置查询编码</span></span><br><span class="line">mysql_query(<span class="string">"SET names UTF8"</span>);</span><br><span class="line"><span class="comment">// 4、操作数据（通过sql语句操作数据库）</span></span><br><span class="line">$str = <span class="string">'select count(*) as cc from user'</span>;</span><br><span class="line">$result = mysql_query($str);</span><br><span class="line"><span class="comment">// 5、获取数据库的结果集并解析</span></span><br><span class="line">$row = mysql_fetch_assoc($result);</span><br><span class="line"><span class="keyword">echo</span> $row[<span class="string">'cc'</span>];</span><br><span class="line"><span class="comment">// 6、释放资源并关闭数据库</span></span><br><span class="line">mysql_free_result($result);</span><br><span class="line">mysql_close($link);</span><br></pre></td></tr></table></figure></li><li><p>数据库操作常用api</p><ul><li>mysql_connect() 连接数据库</li><li>mysql_select_db() 选择数据库</li><li>mysql_query() 执SQL语句</li><li>mysql_fetch_row() 以索引数组的形式返回结果</li><li>mysql_fetch_assoc() 以关联数组的形式范湖数据</li><li>mysql_fetch_array() 返回索引数组和关联数组</li><li>mysql_fetch_object() 以对象形式返回结果</li><li>mysql_free_result() 释放资源</li><li>mysql_close() 关闭连接</li></ul></li><li>基本增删改查操作</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;数据库操作方式&quot;&gt;&lt;a href=&quot;#数据库操作方式&quot; class=&quot;headerlink&quot; title=&quot;数据库操作方式&quot;&gt;&lt;/a&gt;数据库操作方式&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;图形界面客户端&lt;ul&gt;
+&lt;li&gt;创建连接&lt;/li&gt;
+&lt;li&gt;创建数据库&lt;/li&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js贪吃蛇</title>
     <link href="http://yoursite.com/2017/05/28/%E7%AE%80%E6%98%93%E8%B4%AA%E5%90%83%E8%9B%87/"/>
     <id>http://yoursite.com/2017/05/28/简易贪吃蛇/</id>
