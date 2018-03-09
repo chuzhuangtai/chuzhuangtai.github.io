@@ -25,7 +25,7 @@
   <entry>
     <title><![CDATA[响应式viewport设计]]></title>
     <url>%2F2018%2F01%2F14%2Fviewport%2F</url>
-    <content type="text"><![CDATA[响应式viewport设计什么是 Viewport?viewport 是用户网页的可视区域。 viewport 翻译为中文可以叫做”视区”。 在移动设备里面， 屏幕可以把它相像成一个窗户。 网页是在窗户的后面一个叫做 视区（viewport）的区域显示的。 就相当于在窗记的后面有一块可以滑动的幕布。 一般情况下， viewport的宽度，会比手机的实际的宽度要大。 viewport的背景： 在智能手机才出来的时候，所有的pc端的网页，要想在手机上完整显示， 必须只能左右滑动。 这样的话只能让手机的可视区。 比手机屏幕的宽度要大。 就产生了一个问题： 在布局的时候，如果使用百分比布局，参考的屏幕的宽度可能是一个错误的值。 强制去设置视口的宽度和屏幕的宽度一致。 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; viewport的属性的介绍 height：和 width 相对应，指定高度。 initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。 maximum-scale：允许用户缩放到的最大比例。 minimum-scale：允许用户缩放到的最小比例。 user-scalable：用户是否可以手动缩放。]]></content>
+    <content type="text"><![CDATA[响应式viewport设计什么是 Viewport?viewport 是用户网页的可视区域。 viewport 翻译为中文可以叫做”视区”。 在移动设备里面， 屏幕可以把它相像成一个窗户。 网页是在窗户的后面一个叫做 视区（viewport）的区域显示的。 就相当于在窗记的后面有一块可以滑动的幕布。 一般情况下， viewport的宽度，会比手机的实际的宽度要大。 viewport的背景： 在智能手机才出来的时候，所有的pc端的网页，要想在手机上完整显示， 必须只能左右滑动。 这样的话只能让手机的可视区。比手机屏幕的宽度要大。 就产生了一个问题： 在布局的时候，如果使用百分比布局，参考的屏幕的宽度可能是一个错误的值。 强制去设置视口的宽度和屏幕的宽度一致。 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; viewport的属性的介绍 height：和 width 相对应，指定高度。 initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。 maximum-scale：允许用户缩放到的最大比例。 minimum-scale：允许用户缩放到的最小比例。 user-scalable：用户是否可以手动缩放。]]></content>
       <categories>
         <category>web移动端</category>
       </categories>
@@ -42,6 +42,17 @@
       </categories>
       <tags>
         <tag>PHP-数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jQuery操作]]></title>
+    <url>%2F2017%2F09%2F21%2FjQuery_Class%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[jQuery操作CSS操作 功能：设置或者修改样式，操作的是style属性。 操作单个样式 12345// name：需要设置的样式名称// value：对应的样式值$obj.css(name, value);// 使用案例$('#one').css('background','gray');// 将背景色修改为灰色 设置多个样式 12345678// 参数是一个对象，对象中包含了需要设置的样式名和样式值$obj.css(obj);// 使用案例$('#one').css(&#123; 'background':'gray', 'width':'400px', 'height':'200px'&#125;); 获取样式 1234// name:需要获取的样式名称$obj.css(name);// 案例$('div').css('background-color'); 注意：获取样式操作只会返回第一个元素对应的样式值。 隐式迭代： 设置操作的时候，如果是多个元素，那么给所有的元素设置相同的值 获取操作的时候，如果是多个元素，那么只会返回第一个元素的值。 class操作 添加样式类 1234// name：需要添加的样式类名，注意参数不要带点.$obj.addClass(name);// 例子,给所有的div添加one的样式。$('div').addClass('one'); 移除样式类 1234// name:需要移除的样式类名$obj.removeClass('name');// 例子，移除div中one的样式类名$('div').removeClass('one'); 判断是否有某个样式类 1234// name:用于判断的样式类名，返回值为true false$obj.hasClass(name)// 例子，判断第一个div是否有one的样式类$('div').hasClass('one'); 切换样式类 1234// name:需要切换的样式类名，如果有，移除该样式，如果没有，添加该样式。$obj.toggleClass(name);// 例子$('div').toggleClass('one'); jQuery节点操作创建节点123// $(htmlStr)// htmlStr：html格式的字符串$('&lt;span-这是一个span元素&lt;/span-'); 添加节点1234append appendTo 在被选元素的结尾插入内容prepend prependTo 在被选元素的开头插入内容before 在被选元素之后插入内容after 在被选元素之前插入内容 清空节点与删除节点 empty：清空指定节点的所有元素，自身保留(清理门户) 12$('div').empty(); // 清空div的所有内容（推荐使用，会清除子元素上绑定的内容，源码）$('div').html('');// 使用html方法来清空元素，不推荐使用，会造成内存泄漏，绑定的事件不会被清除。 remove：相比于empty，自身也删除（自杀） 1$('div').remove(); 克隆节点 作用：复制匹配的元素 1234// 复制$(selector)所匹配到的元素（深度复制）// cloneNode(true)// 返回值为复制的新元素，和原来的元素没有任何关系了。即修改新元素，不会影响到原来的元素。$(selector).clone(); 案例 城市选择 [11-城市选择案例.html] 删除表格 [12 表格删除案例.html] 根据数据生成表格 [13-表格生成案例.html] 添加和删除表格数据 [14-动态数据添加和删除.html] jQuery操作属性attr操作 设置单个属性 123456// 第一个参数：需要设置的属性名// 第二个参数：对应的属性值$obj.attr(name, value);// 用法举例$('img').attr('title','哎哟，不错哦');$('img').attr('alt','哎哟，不错哦'); 设置多个属性 12345678// 参数是一个对象，包含了需要设置的属性名和属性值$obj.attr(obj)// 用法举例$('img').attr(&#123; title:'哎哟，不错哦', alt:'哎哟，不错哦', style:'opacity:.5'&#125;); 获取属性 12345// 传需要获取的属性名称，返回对应的属性值$obj.attr(name)// 用法举例var oTitle = $('img').attr('title');alert(oTitle); 移除属性 1234// 参数：需要移除的属性名，$obj.removeAttr(name);// 用法举例$('img').removeAttr('title'); prop操作 在jQuery1.6之后，对于checked、selected、disabled这类boolean类型的属性来说，不能用attr方法，只能用prop方法。 1234// 设置属性$(':checked').prop('checked',true);// 获取属性$(':checked').prop('checked');// 返回true或者false val()/text/()html()123$obj.val() 获取或者设置表单元素的value属性的值$obj.html() 对应innerHTML$obj.text() 对应innerText/textContent，处理了浏览器的兼容性 案例 表格全选反选 [15-表格全选反选.html] 打字效果 [16-打字效果.html] jQuery尺寸和位置操作width方法与height方法 设置或者获取高度，不包括内边距、边框和外边距 1234// 带参数表示设置高度$('img').height(200);// 不带参数获取高度$('img').height(); 获取网页的可视区宽高 1234// 获取可视区宽度$(window).width();// 获取可视区高度$(window).height(); innerWidth/innerHeight/outerWidth/outerHeight123innerWidth()/innerHeight() 方法返回元素的宽度/高度（包括内边距）。outerWidth()/outerHeight() 方法返回元素的宽度/高度（包括内边距和边框）。outerWidth(true)/outerHeight(true) 方法返回元素的宽度/高度（包括内边距、边框和外边距）。 scrollTop与scrollLeft 设置或者获取垂直滚动条的位置 1234// 获取页面被卷曲的高度$(window).scrollTop();// 获取页面被卷曲的宽度$(window).scrollLeft(); offset方法与position方法 offset方法获取元素距离document的位置，position方法获取的是元素距离有定位的父元素(offsetParent)的位置。 1234// 获取元素距离document的位置,返回值为对象：&#123;left:100, top:100&#125;$(selector).offset();// 获取相对于其最近的有定位的父元素的位置。$(selector).position();]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery操作元素</tag>
       </tags>
   </entry>
   <entry>
