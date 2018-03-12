@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-06T13:44:33.624Z</updated>
+  <updated>2018-03-12T06:44:17.005Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/03/12/get%E5%92%8Cpost/"/>
+    <id>http://yoursite.com/2018/03/12/get和post/</id>
+    <published>2018-03-12T06:44:17.005Z</published>
+    <updated>2018-03-12T06:44:17.005Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Canvas动画</title>
-    <link href="http://yoursite.com/2018/03/06/Canvas%E5%8A%A8%E7%94%BB/"/>
-    <id>http://yoursite.com/2018/03/06/Canvas动画/</id>
-    <published>2018-03-06T13:37:05.000Z</published>
-    <updated>2018-03-06T13:44:33.624Z</updated>
+    <link href="http://yoursite.com/2018/03/01/Canvas%E5%8A%A8%E7%94%BB/"/>
+    <id>http://yoursite.com/2018/03/01/Canvas动画/</id>
+    <published>2018-03-01T10:27:09.000Z</published>
+    <updated>2018-03-12T06:43:23.050Z</updated>
     
     <content type="html"><![CDATA[<h2 id="动画与变形"><a href="#动画与变形" class="headerlink" title="动画与变形"></a>动画与变形</h2><h3 id="动画原理"><a href="#动画原理" class="headerlink" title="动画原理"></a>动画原理</h3><ol><li>动画的原理，就是一张张画面连续快速播放，当速度超过每秒24张时，人的肉眼就不会分辨出卡顿感。而觉得是在播放连续的视频动画</li><li>所以， 我们要实现动画，只需要隔十几毫秒把屏幕清空之后，重新绘制下一帧就可以了</li></ol><h3 id="执行动画方案"><a href="#执行动画方案" class="headerlink" title="执行动画方案"></a>执行动画方案</h3><ol><li>我们可以用window.setInterval(), window.setTimeout(),和window.requestAnimationFrame()来设定定期执行一个指定函数。</li><li>setInterval(function, delay): 当设定好间隔时间后，function会定期执行。</li><li>setTimeout(function, delay): 在设定好的时间之后执行函数</li><li>requestAnimationFrame(callback): 递归调用的形式才实现动画，动画的频率跟随浏览器的刷新频率，效率比较高，连续动画都使用这种方式就可以了</li></ol><h3 id="弹球动画讲解"><a href="#弹球动画讲解" class="headerlink" title="弹球动画讲解"></a>弹球动画讲解</h3><ol><li><p>先实现绘制某一帧的方法(draw())</p><ol><li>清空canvas</li><li>绘制小球</li><li>更改小球的位置</li></ol></li><li><p>添加一个动画(window.requesAnimationFrame(draw))</p></li><li><p>边界处理</p><ul><li>如果小球到达边界，修改其速度为反方向；</li></ul></li><li><p>代码实现</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    ctx.fillStyle = <span class="string">"blue"</span>;</span><br><span class="line">    <span class="keyword">var</span> animation;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建一个圆对象</span></span><br><span class="line">    <span class="keyword">var</span> circle = &#123;</span><br><span class="line">        radias: <span class="number">30</span>,</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span>,</span><br><span class="line">        speedx: <span class="number">2</span>,</span><br><span class="line">        speedy: <span class="number">1</span>,</span><br><span class="line">        isRunning: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">        draw: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//画一个圆</span></span><br><span class="line">            ctx.beginPath();</span><br><span class="line">            ctx.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.radias, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">            ctx.fill();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//每一帧，圆的位置都会发生变化</span></span><br><span class="line">        circle.x += circle.speedx;</span><br><span class="line">        circle.y += circle.speedy;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//边界判断，到了边界就调头</span></span><br><span class="line">        <span class="keyword">if</span> (circle.x == canvas.width-circle.radias || circle.x == circle.radias) &#123;</span><br><span class="line">            circle.speedx = -circle.speedx;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (circle.y == canvas.height-circle.radias || circle.y == circle.radias) &#123;</span><br><span class="line">            circle.speedy = -circle.speedy;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//绘制小球，绘制当前帧，把上一帧的画面清空</span></span><br><span class="line">        <span class="comment">//ctx.clearRect(0, 0, canvas.width, canvas.height);</span></span><br><span class="line">        ctx.save();</span><br><span class="line">        ctx.fillStyle = <span class="string">"rgba(255,255,255,0.2)"</span>;</span><br><span class="line">        <span class="comment">//ctx.fillStyle = "red";</span></span><br><span class="line">        ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height);</span><br><span class="line">        ctx.restore();</span><br><span class="line">        circle.draw();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始执行动画</span></span><br><span class="line">        animation = <span class="built_in">window</span>.requestAnimationFrame(draw);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加点击事件，当点击时，如果正在运行，则暂停，如果没有正在运行，则点击动行</span></span><br><span class="line">    canvas.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!circle.isRunning) &#123;</span><br><span class="line">            circle.x = e.clientX;</span><br><span class="line">            circle.y = e.clientY;</span><br><span class="line">            animation = <span class="built_in">window</span>.requestAnimationFrame(draw);</span><br><span class="line">            circle.isRunning = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            circle.isRunning = <span class="literal">false</span>;</span><br><span class="line">            <span class="built_in">window</span>.cancelAnimationFrame(animation);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><h4 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h4><ol><li><p>scale是用来缩放画布元素的坐标和宽高。如果一张（100*100）的画布，scale为（0.5, 0.5），用fillRect(50, 50, 50, 50)来画一个正方形，实际显示效果未缩放前的（25, 25, 25, 25）位置和大小的效果是一样的。</p></li><li><p>代码与示例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置画笔的粗细和颜色</span></span><br><span class="line">    ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">    ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 将画笔移动到某个点</span></span><br><span class="line">    ctx.moveTo(<span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">    <span class="comment">//2. 从上面这个点开始，划一条直接到某一个点</span></span><br><span class="line">    ctx.lineTo(<span class="number">600</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    ctx.moveTo(<span class="number">300</span>, <span class="number">0</span>);</span><br><span class="line">    ctx.lineTo(<span class="number">300</span>, <span class="number">400</span>);</span><br><span class="line">    <span class="comment">//3. 填充颜色</span></span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    ctx.scale(<span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h4 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h4><ol><li><p>平移就是改变往水平或垂直方向，改变参考原点的值。translate(100, 100);就是绘图时，在当前参考原点的基本之上，向右平移100像素，向下平移100像素。</p></li><li><p>代码与示例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置画笔的粗细和颜色</span></span><br><span class="line">    ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">    ctx.strokeStyle = <span class="string">"red"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 将画笔移动到某个点</span></span><br><span class="line">    ctx.moveTo(<span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">    <span class="comment">//2. 从上面这个点开始，划一条直接到某一个点</span></span><br><span class="line">    ctx.lineTo(<span class="number">600</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    ctx.moveTo(<span class="number">300</span>, <span class="number">0</span>);</span><br><span class="line">    ctx.lineTo(<span class="number">300</span>, <span class="number">400</span>);</span><br><span class="line">    <span class="comment">//3. 填充颜色</span></span><br><span class="line">    ctx.stroke();</span><br><span class="line"></span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    ctx.translate(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    ctx.fillRect(<span class="number">300</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><ol><li><p>旋转，就是围绕当前的原点，坐标系发生旋转。</p></li><li><p>代码与示例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    ctx.save();</span><br><span class="line">    ctx.translate(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//画30条直线，角度不一样</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">30</span>; i++) &#123;</span><br><span class="line">        ctx.rotate(<span class="number">1</span>/<span class="number">15</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">        ctx.beginPath();</span><br><span class="line">        ctx.moveTo(<span class="number">30</span>, <span class="number">0</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">150</span>, <span class="number">0</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ctx.restore();</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><p>​</p></li></ol>]]></content>
     
@@ -42,39 +56,13 @@
   </entry>
   
   <entry>
-    <title>DOM元素获取</title>
-    <link href="http://yoursite.com/2018/03/06/DOM%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C/"/>
-    <id>http://yoursite.com/2018/03/06/DOM元素的增删改查操作/</id>
-    <published>2018-03-06T13:37:05.000Z</published>
-    <updated>2018-03-08T03:48:47.685Z</updated>
-    
-    <content type="html"><![CDATA[<h6 id="获得页面元素的方式"><a href="#获得页面元素的方式" class="headerlink" title="获得页面元素的方式"></a>获得页面元素的方式</h6><ol><li>document.getElementById();     //方法可返回对拥有指定 ID 的第一个对象的引用</li><li>document.getElementsByTagName();    //返回带有指定标签名的对象集合。</li><li>document.getElementsByClassName();    //方法返回文档中所有指定类名的元素集合</li><li>querySelector();     //方法仅仅返回匹配指定选择器的第一个元素。如需返回所有的元素，请使用 querySelectorAll() 方法替代。</li><li>querySelectorAll()；  // 是HTML5中引入的新方法，返回文档中匹配的CSS选择器的所有元素节点列表</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h6 id=&quot;获得页面元素的方式&quot;&gt;&lt;a href=&quot;#获得页面元素的方式&quot; class=&quot;headerlink&quot; title=&quot;获得页面元素的方式&quot;&gt;&lt;/a&gt;获得页面元素的方式&lt;/h6&gt;&lt;ol&gt;
-&lt;li&gt;document.getElementById();     //方法可
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="DOM" scheme="http://yoursite.com/tags/DOM/"/>
-    
-  </entry>
-  
-  <entry>
     <title>响应式viewport设计</title>
     <link href="http://yoursite.com/2018/01/14/viewport/"/>
     <id>http://yoursite.com/2018/01/14/viewport/</id>
     <published>2018-01-14T02:29:12.000Z</published>
-    <updated>2018-03-08T13:22:02.279Z</updated>
+    <updated>2018-03-12T06:53:27.103Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="响应式viewport设计"><a href="#响应式viewport设计" class="headerlink" title="响应式viewport设计"></a>响应式viewport设计</h2><h3 id="什么是-Viewport"><a href="#什么是-Viewport" class="headerlink" title="什么是 Viewport?"></a>什么是 Viewport?</h3><p>viewport 是用户网页的可视区域。</p><ul><li>viewport 翻译为中文可以叫做”视区”。</li></ul><blockquote><p> 在移动设备里面， 屏幕可以把它相像成一个窗户。 网页是在窗户的后面一个叫做 视区（viewport）的区域显示的。 就相当于在窗记的后面有一块可以滑动的幕布。 一般情况下， viewport的宽度，会比手机的实际的宽度要大。</p></blockquote><pre><code>   viewport的背景： 在智能手机才出来的时候，所有的pc端的网页，要想在手机上完整显示， 必须只能左右滑动。 这样的话只能让手机的可视区。比手机屏幕的宽度要大。      就产生了一个问题： 在布局的时候，如果使用百分比布局，参考的屏幕的宽度可能是一个错误的值。    强制去设置视口的宽度和屏幕的宽度一致。    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre><h3 id="viewport的属性的介绍"><a href="#viewport的属性的介绍" class="headerlink" title="viewport的属性的介绍"></a>viewport的属性的介绍</h3><ul><li>height：和 width 相对应，指定高度。</li><li>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。</li><li>maximum-scale：允许用户缩放到的最大比例。</li><li>minimum-scale：允许用户缩放到的最小比例。</li><li>user-scalable：用户是否可以手动缩放。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="响应式viewport设计"><a href="#响应式viewport设计" class="headerlink" title="响应式viewport设计"></a>响应式viewport设计</h2><h3 id="什么是-Viewport"><a href="#什么是-Viewport" class="headerlink" title="什么是 Viewport?"></a>什么是 Viewport?</h3><p>viewport 是用户网页的可视区域。</p><ul><li>viewport 翻译为中文可以叫做”视区”。</li></ul><blockquote><p> 在移动设备里面， 屏幕可以把它相像成一个窗户。 网页是在窗户的后面一个叫做 视区（viewport）的区域显示的。 就相当于在窗记的后面有一块可以滑动的幕布。 一般情况下， viewport的宽度，会比手机的实际的宽度要大。</p></blockquote><pre><code>   viewport的背景： 在智能手机才出来的时候，所有的pc端的网页，要想在手机上完整显示， 必须只能左右滑动。 这样的话只能让手机的可视区。比手机屏幕的宽度要大。      就产生了一个问题： 在布局的时候，如果使用百分比布局，参考的屏幕的宽度可能是一个错误的值。    强制去设置视口的宽度和屏幕的宽度一致。    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre><h3 id="viewport的属性的介绍"><a href="#viewport的属性的介绍" class="headerlink" title="viewport的属性的介绍"></a>viewport的属性的介绍</h3><ul><li>height：和 width 相对应，指定高度。</li><li>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。</li><li>maximum-scale：允许用户缩放到的最大比例。</li><li>minimum-scale：允许用户缩放到的最小比例。</li><li>user-scalable：用户是否可以手动缩放。</li></ul><p><img src="C:\Users\40671.DESKTOP-VMS0EVR\Desktop\临时文件\Snipaste_2018-03-07_10-16-10.png" alt="Snipaste_2018-03-07_10-16-10"></p>]]></content>
     
     <summary type="html">
     
@@ -272,6 +260,57 @@
   </entry>
   
   <entry>
+    <title>前端向后台发送请求的几种方式</title>
+    <link href="http://yoursite.com/2016/11/12/%E5%89%8D%E7%AB%AF%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"/>
+    <id>http://yoursite.com/2016/11/12/前端向后台发送请求方式/</id>
+    <published>2016-11-12T06:49:03.000Z</published>
+    <updated>2018-03-12T06:50:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前端向后台发送请求的几种方式"><a href="#前端向后台发送请求的几种方式" class="headerlink" title="前端向后台发送请求的几种方式"></a>前端向后台发送请求的几种方式</h3><pre><code>1、 link标签的href属性2、 script标签的src属性3、 img标签的src属性4、 ajax发送请求5、 表单提交发送请求6、 a标签的href发送请求7、 iframe的src属性发送请求</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前端向后台发送请求的几种方式&quot;&gt;&lt;a href=&quot;#前端向后台发送请求的几种方式&quot; class=&quot;headerlink&quot; title=&quot;前端向后台发送请求的几种方式&quot;&gt;&lt;/a&gt;前端向后台发送请求的几种方式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1、 link标签的href
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="发送请求" scheme="http://yoursite.com/tags/%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>border边框</title>
+    <link href="http://yoursite.com/2016/07/18/border%E8%BE%B9%E6%A1%86/"/>
+    <id>http://yoursite.com/2016/07/18/border边框/</id>
+    <published>2016-07-18T09:07:05.000Z</published>
+    <updated>2018-03-12T06:42:42.272Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="hover-加边框"><a href="#hover-加边框" class="headerlink" title="hover 加边框"></a>hover 加边框</h3><blockquote><p>当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。</p></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了border:1px solid transparent;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;hover-加边框&quot;&gt;&lt;a href=&quot;#hover-加边框&quot; class=&quot;headerlink&quot; title=&quot;hover 加边框&quot;&gt;&lt;/a&gt;hover 加边框&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;当给border加上鼠标移入加边框事件 hover 时，会
+      
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+      <category term="边框" scheme="http://yoursite.com/tags/%E8%BE%B9%E6%A1%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css高清背景图</title>
     <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
     <id>http://yoursite.com/2016/07/18/css高清图/</id>
@@ -293,32 +332,6 @@
     
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css样式</title>
-    <link href="http://yoursite.com/2016/07/18/border%E8%BE%B9%E6%A1%86/"/>
-    <id>http://yoursite.com/2016/07/18/border边框/</id>
-    <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T06:18:37.882Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="hover-加边框"><a href="#hover-加边框" class="headerlink" title="hover 加边框"></a>hover 加边框</h3><blockquote><p>当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。</p></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了border:1px solid transparent;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;hover-加边框&quot;&gt;&lt;a href=&quot;#hover-加边框&quot; class=&quot;headerlink&quot; title=&quot;hover 加边框&quot;&gt;&lt;/a&gt;hover 加边框&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;当给border加上鼠标移入加边框事件 hover 时，会
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css-边框" scheme="http://yoursite.com/tags/css-%E8%BE%B9%E6%A1%86/"/>
     
   </entry>
   
