@@ -271,6 +271,33 @@
   </entry>
   
   <entry>
+    <title>闭包</title>
+    <link href="http://yoursite.com/2016/10/05/%E9%97%AD%E5%8C%85/"/>
+    <id>http://yoursite.com/2016/10/05/闭包/</id>
+    <published>2016-10-05T07:40:32.000Z</published>
+    <updated>2018-03-12T08:58:01.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote><p>闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p></blockquote><h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><ol><li>让函数外可以访问函数内成员</li><li>让函数内成员始终活在内存中，生命周期延长。</li><li>解决变量污染（只读不改）面向对象封装思想<ul><li>减少变量声明</li></ul></li><li>控制某些数据访问权限（过滤非法数据）</li></ol><ul><li>闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。&lt;/p&gt;
+&lt;/bloc
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS对象</title>
     <link href="http://yoursite.com/2016/08/07/js%E5%AF%B9%E8%B1%A1/"/>
     <id>http://yoursite.com/2016/08/07/js对象/</id>
