@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/07/18/get%E5%92%8Cpost/</loc>
+    
+    <lastmod>2018-03-12T07:09:41.126Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/</loc>
+    
+    <lastmod>2018-03-12T07:09:01.606Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/14/viewport/</loc>
     
-    <lastmod>2018-03-12T06:53:27.103Z</lastmod>
+    <lastmod>2018-03-12T06:57:51.258Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2016/11/12/%E5%89%8D%E7%AB%AF%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/</loc>
     
     <lastmod>2018-03-12T06:50:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/03/12/get%E5%92%8Cpost/</loc>
-    
-    <lastmod>2018-03-12T06:44:17.005Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2017/09/21/PHP%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     
     <lastmod>2018-03-08T13:13:27.659Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/</loc>
-    
-    <lastmod>2018-03-08T07:39:43.607Z</lastmod>
     
   </url>
   
