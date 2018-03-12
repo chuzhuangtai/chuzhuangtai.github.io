@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-12T06:43:23.050Z</updated>
+  <updated>2018-03-12T09:01:34.430Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>闭包</title>
+    <link href="http://yoursite.com/2018/03/12/%E9%97%AD%E5%8C%85/"/>
+    <id>http://yoursite.com/2018/03/12/闭包/</id>
+    <published>2018-03-12T10:01:27.000Z</published>
+    <updated>2018-03-12T09:01:34.430Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote><p>闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p></blockquote><h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><ol><li>让函数外可以访问函数内成员</li><li>让函数内成员始终活在内存中，生命周期延长。</li><li>解决变量污染（只读不改）面向对象封装思想<ul><li>减少变量声明</li></ul></li><li>控制某些数据访问权限（过滤非法数据）</li></ol><ul><li>闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。&lt;/p&gt;
+&lt;/bloc
+      
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="闭包" scheme="http://yoursite.com/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>Canvas动画</title>
@@ -93,10 +120,10 @@
   
   <entry>
     <title>PHP数据库简单操作</title>
-    <link href="http://yoursite.com/2017/09/21/PHP%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://yoursite.com/2017/09/21/PHP数据库/</id>
-    <published>2017-09-21T09:25:18.000Z</published>
-    <updated>2018-03-08T13:13:27.659Z</updated>
+    <link href="http://yoursite.com/2017/09/27/PHP%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://yoursite.com/2017/09/27/PHP数据库/</id>
+    <published>2017-09-27T08:15:17.000Z</published>
+    <updated>2018-03-12T09:00:24.401Z</updated>
     
     <content type="html"><![CDATA[<h2 id="数据库操作方式"><a href="#数据库操作方式" class="headerlink" title="数据库操作方式"></a>数据库操作方式</h2><ul><li>图形界面客户端<ul><li>创建连接</li><li>创建数据库</li><li>删除数据库</li><li>创建表</li><li>编辑表</li><li>删除表</li><li>表结构分析</li><li>数据类型分析</li><li>数据增删改查操作</li></ul></li></ul><h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><ul><li>SQL基本概述</li><li><p>插入数据insert</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- insert into 表名 (字段列表) values (值列表)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book (<span class="keyword">name</span>,author,<span class="keyword">category</span>,price) <span class="keyword">values</span> (<span class="string">'天龙八部'</span>,<span class="string">'金庸'</span>,<span class="string">'文学'</span>,<span class="number">20</span>)</span><br></pre></td></tr></table></figure></li><li><p>修改数据update</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件</span></span><br><span class="line"><span class="keyword">update</span> book <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">'笑傲江湖'</span>,price=<span class="string">'30'</span> <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span></span><br></pre></td></tr></table></figure></li><li><p>删除数据delete</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 条件</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span></span><br></pre></td></tr></table></figure></li><li><p>查询数据select</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 where 条件</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">where</span> author=<span class="string">'金庸'</span> <span class="keyword">and</span> price&gt;<span class="number">20</span></span><br></pre></td></tr></table></figure></li><li><p>简单的联表查询</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> u.username,b.name <span class="keyword">from</span> <span class="keyword">user</span> u,book b <span class="keyword">where</span> u.id=b.uid <span class="keyword">and</span> b.price&gt;<span class="number">20</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="PHP代码操作数据"><a href="#PHP代码操作数据" class="headerlink" title="PHP代码操作数据"></a>PHP代码操作数据</h2><ul><li><p>连接数据库基本步骤</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、连接数据库</span></span><br><span class="line">$server = <span class="string">'localhost'</span>;<span class="comment">//数据库所在计算机的域名或者IP地址</span></span><br><span class="line">$username = <span class="string">'root'</span>;<span class="comment">//登录数据库的用户名</span></span><br><span class="line">$pw = <span class="string">''</span>;<span class="comment">//登录数据库的密码</span></span><br><span class="line"><span class="comment">// 执行连接操作</span></span><br><span class="line">$link = mysql_connect($server,$username,$pw);</span><br><span class="line"><span class="comment">// 2、选择要操作哪个数据库</span></span><br><span class="line">mysql_select_db(<span class="string">'hello'</span>,$link);</span><br><span class="line"><span class="comment">// 3、设置查询编码</span></span><br><span class="line">mysql_query(<span class="string">"SET names UTF8"</span>);</span><br><span class="line"><span class="comment">// 4、操作数据（通过sql语句操作数据库）</span></span><br><span class="line">$str = <span class="string">'select count(*) as cc from user'</span>;</span><br><span class="line">$result = mysql_query($str);</span><br><span class="line"><span class="comment">// 5、获取数据库的结果集并解析</span></span><br><span class="line">$row = mysql_fetch_assoc($result);</span><br><span class="line"><span class="keyword">echo</span> $row[<span class="string">'cc'</span>];</span><br><span class="line"><span class="comment">// 6、释放资源并关闭数据库</span></span><br><span class="line">mysql_free_result($result);</span><br><span class="line">mysql_close($link);</span><br></pre></td></tr></table></figure></li><li><p>数据库操作常用api</p><ul><li>mysql_connect() 连接数据库</li><li>mysql_select_db() 选择数据库</li><li>mysql_query() 执SQL语句</li><li>mysql_fetch_row() 以索引数组的形式返回结果</li><li>mysql_fetch_assoc() 以关联数组的形式范湖数据</li><li>mysql_fetch_array() 返回索引数组和关联数组</li><li>mysql_fetch_object() 以对象形式返回结果</li><li>mysql_free_result() 释放资源</li><li>mysql_close() 关闭连接</li></ul></li><li>基本增删改查操作</li></ul>]]></content>
     
@@ -271,33 +298,6 @@
   </entry>
   
   <entry>
-    <title>闭包</title>
-    <link href="http://yoursite.com/2016/10/05/%E9%97%AD%E5%8C%85/"/>
-    <id>http://yoursite.com/2016/10/05/闭包/</id>
-    <published>2016-10-05T07:40:32.000Z</published>
-    <updated>2018-03-12T08:58:01.292Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote><p>闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p></blockquote><h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><ol><li>让函数外可以访问函数内成员</li><li>让函数内成员始终活在内存中，生命周期延长。</li><li>解决变量污染（只读不改）面向对象封装思想<ul><li>减少变量声明</li></ul></li><li>控制某些数据访问权限（过滤非法数据）</li></ol><ul><li>闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。&lt;/p&gt;
-&lt;/bloc
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS对象</title>
     <link href="http://yoursite.com/2016/08/07/js%E5%AF%B9%E8%B1%A1/"/>
     <id>http://yoursite.com/2016/08/07/js对象/</id>
@@ -319,6 +319,31 @@
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css高清背景图</title>
+    <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
+    <id>http://yoursite.com/2016/07/18/css高清图/</id>
+    <published>2016-07-18T09:07:05.000Z</published>
+    <updated>2018-03-12T07:12:26.523Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSS高清背景图"><a href="#CSS高清背景图" class="headerlink" title="CSS高清背景图"></a>CSS高清背景图</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度<ol><li>css的像素的宽度： 在开发过程中，布局直接使用的宽度</li><li>手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片</li><li>在前端开发的时候，一般使用一个2倍图就可以了</li></ol></li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li>假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了<br> ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px;</li><li>如果使用的是精灵图： 那么要做的事情<ol><li>把background-position:x y; 设为它本来在精灵的位置的一半。</li><li>把background-size 也设为图片本身宽度的一半。</li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSS高清背景图&quot;&gt;&lt;a href=&quot;#CSS高清背景图&quot; class=&quot;headerlink&quot; title=&quot;CSS高清背景图&quot;&gt;&lt;/a&gt;CSS高清背景图&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -345,31 +370,6 @@
     
     
       <category term="http" scheme="http://yoursite.com/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css高清背景图</title>
-    <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
-    <id>http://yoursite.com/2016/07/18/css高清图/</id>
-    <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T07:12:26.523Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS高清背景图"><a href="#CSS高清背景图" class="headerlink" title="CSS高清背景图"></a>CSS高清背景图</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度<ol><li>css的像素的宽度： 在开发过程中，布局直接使用的宽度</li><li>手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片</li><li>在前端开发的时候，一般使用一个2倍图就可以了</li></ol></li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li>假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了<br> ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px;</li><li>如果使用的是精灵图： 那么要做的事情<ol><li>把background-position:x y; 设为它本来在精灵的位置的一半。</li><li>把background-size 也设为图片本身宽度的一半。</li></ol></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS高清背景图&quot;&gt;&lt;a href=&quot;#CSS高清背景图&quot; class=&quot;headerlink&quot; title=&quot;CSS高清背景图&quot;&gt;&lt;/a&gt;CSS高清背景图&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
