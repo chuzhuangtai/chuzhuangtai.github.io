@@ -173,6 +173,32 @@
   </entry>
   
   <entry>
+    <title>相对长度单位</title>
+    <link href="http://yoursite.com/2017/07/03/%E7%9B%B8%E5%AF%B9%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D/"/>
+    <id>http://yoursite.com/2017/07/03/相对长度单位/</id>
+    <published>2017-07-03T11:01:41.000Z</published>
+    <updated>2018-03-13T11:23:53.740Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="相对长度单位"><a href="#相对长度单位" class="headerlink" title="相对长度单位"></a>相对长度单位</h1><blockquote><p>在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。</p></blockquote><h2 id="相对长度单位说明"><a href="#相对长度单位说明" class="headerlink" title="相对长度单位说明"></a>相对长度单位说明</h2><ul><li>在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。 </li><li>1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 </li></ul><h2 id="设置相对长度单位，也就是一份的大小"><a href="#设置相对长度单位，也就是一份的大小" class="headerlink" title="设置相对长度单位，也就是一份的大小"></a>设置相对长度单位，也就是一份的大小</h2><ul><li>先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem</li></ul><h2 id="到底是使用rem还是em？"><a href="#到底是使用rem还是em？" class="headerlink" title="到底是使用rem还是em？"></a>到底是使用rem还是em？</h2><p>rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem</p><h2 id="如何使用rem"><a href="#如何使用rem" class="headerlink" title="如何使用rem"></a>如何使用rem</h2><ol><li>设计人员只会给我们一种尺寸的设计图</li><li>它是用 px 来标记的</li><li>一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320）<ul><li>除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3</li></ul></li><li>算出每个 px 在设计人员给的这个屏幕尺寸下的 rem的值。转rem的规则都是一样的<ol><li>算出在当前屏幕尺寸下的 1rem值是多少。 320 / 10 = 32px</li><li>假如说，它标记了某个字体是 24px 对应我们在开发中要用的 那个值是 rem = 24px/32px</li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;相对长度单位&quot;&gt;&lt;a href=&quot;#相对长度单位&quot; class=&quot;headerlink&quot; title=&quot;相对长度单位&quot;&gt;&lt;/a&gt;相对长度单位&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的
+      
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jQuery选择器</title>
     <link href="http://yoursite.com/2017/06/21/jQuery%E9%80%89%E6%8B%A9%E5%99%A8/"/>
     <id>http://yoursite.com/2017/06/21/jQuery选择器/</id>
@@ -219,6 +245,31 @@
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sass 高级语法补充</title>
+    <link href="http://yoursite.com/2017/04/17/Sass%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/"/>
+    <id>http://yoursite.com/2017/04/17/Sass高级语法/</id>
+    <published>2017-04-17T11:16:27.000Z</published>
+    <updated>2018-03-13T11:17:10.964Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="sass-高级语法补充"><a href="#sass-高级语法补充" class="headerlink" title="sass 高级语法补充"></a>sass 高级语法补充</h2><h3 id="1-继承"><a href="#1-继承" class="headerlink" title="1. 继承"></a>1. 继承</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">　　　　<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">　　　　@extend .class1;</span><br><span class="line">　　　　<span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure><h3 id="2-混入"><a href="#2-混入" class="headerlink" title="2. 混入"></a>2. 混入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@mixin roundborder($myborder: 10px) &#123;</span><br><span class="line">    border-radius: $myborder;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.box &#123;</span><br><span class="line">    @include roundborder(25px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>//custom：自定义的，定制的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@mixin customdiv ($sizew: 100px, $sizeh: 100px, $bgco: red, $bdr: 15px) &#123;</span><br><span class="line">    border-radius: $bdr;</span><br><span class="line">    width: $sizew;</span><br><span class="line">    height: $sizeh;</span><br><span class="line">    background-color: $bgco;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.box1 &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    @extend .box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.little1 &#123;</span><br><span class="line">    @include customdiv(120px, 120px, tomato, 20px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.little2 &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    @include customdiv(80px*0.5, 80px+15px, skyblue, 10px);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="3-计算"><a href="#3-计算" class="headerlink" title="3. 计算"></a>3. 计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　body &#123;</span><br><span class="line">　　　　margin: (14px/2);</span><br><span class="line">　　　　top: 50px + 100px;</span><br><span class="line">　　　　right: $var * 10%;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure><h3 id="4-函数"><a href="#4-函数" class="headerlink" title="4. 函数"></a>4. 函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　@function double($n) &#123;</span><br><span class="line">　　　　@return $n * 2;</span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　#sidebar &#123;</span><br><span class="line">　　　　width: double(5px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure><h3 id="5-判断和循环"><a href="#5-判断和循环" class="headerlink" title="5. 判断和循环"></a>5. 判断和循环</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//1 to 8  大于等于1，小于8</span><br><span class="line">@<span class="keyword">for</span> $i from <span class="number">1</span> to <span class="number">8</span> &#123;</span><br><span class="line">    &amp;.slide0#&#123;$i&#125; &#123;</span><br><span class="line">        background: url("../images/02-head-icons/0#&#123;$i&#125;.jpg") no-repeat top left / 100% 100%;</span><br><span class="line"></span><br><span class="line">        @<span class="keyword">if</span> $i &gt; <span class="number">5</span> &#123;</span><br><span class="line">            <span class="selector-tag">border</span>: 3<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>#less</p><h3 id="1-less的安装与使用"><a href="#1-less的安装与使用" class="headerlink" title="1. less的安装与使用"></a>1. less的安装与使用</h3><pre><code>npm install -g less</code></pre><h3 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@background-color: #ffffff;</span><br><span class="line">@text-color: #1A237E;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: @background-color;</span><br><span class="line">  <span class="attribute">color</span>: @text-color;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: @background-color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: @text-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-混入"><a href="#3-混入" class="headerlink" title="3. 混入"></a>3. 混入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#circle&#123;</span><br><span class="line">  background-color: #4CAF50;</span><br><span class="line">  border-radius: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#small-circle&#123;</span><br><span class="line">  width: 50px;</span><br><span class="line">  height: 50px;</span><br><span class="line">  #circle</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#big-circle&#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  #circle</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#circle</span>(<span class="variable">@size</span>: <span class="number">25px</span>)&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#4CAF50</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@size</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">@size</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#small-circle</span>&#123;</span><br><span class="line">    <span class="selector-id">#circle</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#big-circle</span>&#123;</span><br><span class="line">    <span class="selector-id">#circle</span>(<span class="number">100px</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="4-嵌套"><a href="#4-嵌套" class="headerlink" title="4. 嵌套"></a>4. 嵌套</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#03A9F4</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line"></span><br><span class="line">    li&#123;</span><br><span class="line">        <span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">        <span class="selector-tag">border-radius</span>: 3<span class="selector-tag">px</span>;</span><br><span class="line">        <span class="selector-tag">margin</span>: 10<span class="selector-tag">px</span> 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="5-运算"><a href="#5-运算" class="headerlink" title="5. 运算"></a>5. 运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@div-width: 100px;</span><br><span class="line">@color: #03A9F4;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">    height: 50px;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#left&#123;</span><br><span class="line">    width: @div-width;</span><br><span class="line">    background-color: @color - 100;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#right&#123;</span><br><span class="line">    width: @div-width * 2;</span><br><span class="line">    background-color: @color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="6-函数"><a href="#6-函数" class="headerlink" title="6. 函数"></a>6. 函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@var: #004590;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">  height: 50px;</span><br><span class="line">  width: 50px;</span><br><span class="line">  background-color: @var;</span><br><span class="line"></span><br><span class="line">  &amp;:hover&#123;</span><br><span class="line">    background-color: fadeout(@var, 50%)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;sass-高级语法补充&quot;&gt;&lt;a href=&quot;#sass-高级语法补充&quot; class=&quot;headerlink&quot; title=&quot;sass 高级语法补充&quot;&gt;&lt;/a&gt;sass 高级语法补充&lt;/h2&gt;&lt;h3 id=&quot;1-继承&quot;&gt;&lt;a href=&quot;#1-继承&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="sass" scheme="http://yoursite.com/categories/sass/"/>
+    
+    
+      <category term="sass语法" scheme="http://yoursite.com/tags/sass%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
@@ -323,27 +374,28 @@
   </entry>
   
   <entry>
-    <title>css高清背景图</title>
-    <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
-    <id>http://yoursite.com/2016/07/18/css高清图/</id>
+    <title>border边框</title>
+    <link href="http://yoursite.com/2016/07/18/border%E8%BE%B9%E6%A1%86/"/>
+    <id>http://yoursite.com/2016/07/18/border边框/</id>
     <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T07:12:26.523Z</updated>
+    <updated>2018-03-12T06:42:42.272Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="CSS高清背景图"><a href="#CSS高清背景图" class="headerlink" title="CSS高清背景图"></a>CSS高清背景图</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度<ol><li>css的像素的宽度： 在开发过程中，布局直接使用的宽度</li><li>手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片</li><li>在前端开发的时候，一般使用一个2倍图就可以了</li></ol></li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li>假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了<br> ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px;</li><li>如果使用的是精灵图： 那么要做的事情<ol><li>把background-position:x y; 设为它本来在精灵的位置的一半。</li><li>把background-size 也设为图片本身宽度的一半。</li></ol></li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="hover-加边框"><a href="#hover-加边框" class="headerlink" title="hover 加边框"></a>hover 加边框</h3><blockquote><p>当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。</p></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了border:1px solid transparent;</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;CSS高清背景图&quot;&gt;&lt;a href=&quot;#CSS高清背景图&quot; class=&quot;headerlink&quot; title=&quot;CSS高清背景图&quot;&gt;&lt;/a&gt;CSS高清背景图&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; titl
+        &lt;h3 id=&quot;hover-加边框&quot;&gt;&lt;a href=&quot;#hover-加边框&quot; class=&quot;headerlink&quot; title=&quot;hover 加边框&quot;&gt;&lt;/a&gt;hover 加边框&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;当给border加上鼠标移入加边框事件 hover 时，会
       
     
     </summary>
     
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+      <category term="边框" scheme="http://yoursite.com/tags/%E8%BE%B9%E6%A1%86/"/>
     
   </entry>
   
@@ -374,28 +426,27 @@
   </entry>
   
   <entry>
-    <title>border边框</title>
-    <link href="http://yoursite.com/2016/07/18/border%E8%BE%B9%E6%A1%86/"/>
-    <id>http://yoursite.com/2016/07/18/border边框/</id>
+    <title>css高清背景图</title>
+    <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
+    <id>http://yoursite.com/2016/07/18/css高清图/</id>
     <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T06:42:42.272Z</updated>
+    <updated>2018-03-12T07:12:26.523Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="hover-加边框"><a href="#hover-加边框" class="headerlink" title="hover 加边框"></a>hover 加边框</h3><blockquote><p>当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。</p></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了border:1px solid transparent;</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="CSS高清背景图"><a href="#CSS高清背景图" class="headerlink" title="CSS高清背景图"></a>CSS高清背景图</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度<ol><li>css的像素的宽度： 在开发过程中，布局直接使用的宽度</li><li>手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片</li><li>在前端开发的时候，一般使用一个2倍图就可以了</li></ol></li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li>假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了<br> ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px;</li><li>如果使用的是精灵图： 那么要做的事情<ol><li>把background-position:x y; 设为它本来在精灵的位置的一半。</li><li>把background-size 也设为图片本身宽度的一半。</li></ol></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;hover-加边框&quot;&gt;&lt;a href=&quot;#hover-加边框&quot; class=&quot;headerlink&quot; title=&quot;hover 加边框&quot;&gt;&lt;/a&gt;hover 加边框&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;当给border加上鼠标移入加边框事件 hover 时，会
+        &lt;h2 id=&quot;CSS高清背景图&quot;&gt;&lt;a href=&quot;#CSS高清背景图&quot; class=&quot;headerlink&quot; title=&quot;CSS高清背景图&quot;&gt;&lt;/a&gt;CSS高清背景图&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; titl
       
     
     </summary>
     
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="边框" scheme="http://yoursite.com/tags/%E8%BE%B9%E6%A1%86/"/>
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   

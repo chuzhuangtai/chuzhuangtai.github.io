@@ -67,6 +67,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[相对长度单位]]></title>
+    <url>%2F2017%2F07%2F03%2F%E7%9B%B8%E5%AF%B9%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D%2F</url>
+    <content type="text"><![CDATA[相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。 相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。 1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 设置相对长度单位，也就是一份的大小 先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem 到底是使用rem还是em？rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem 如何使用rem 设计人员只会给我们一种尺寸的设计图 它是用 px 来标记的 一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320） 除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3 算出每个 px 在设计人员给的这个屏幕尺寸下的 rem的值。转rem的规则都是一样的 算出在当前屏幕尺寸下的 1rem值是多少。 320 / 10 = 32px 假如说，它标记了某个字体是 24px 对应我们在开发中要用的 那个值是 rem = 24px/32px]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jQuery选择器]]></title>
     <url>%2F2017%2F06%2F21%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
     <content type="text"><![CDATA[选择器jQuery选择器是jQuery为我们提供的一组方法，让我们更加方便的获取到页面中的元素。注意：jQuery选择器返回的是jQuery对象。 jQuery选择器有很多，基本兼容了CSS1到CSS3所有的选择器，并且jQuery还添加了很多更加复杂的选择器。（查看jQuery文档） jQuery选择器虽然很多，但是选择器之间可以相互替代，就是说获取一个元素，你会有很多种方法获取到。所以我们平时真正能用到的只是少数的最常用的选择器。 jQuery基本选择器 名称 用法 描述 ID选择器 $(‘#id’); 获取指定ID的元素 类选择器 $(‘.class’); 获取同一类class的元素 标签选择器 $(‘div’); 获取同一类标签的所有元素 并集选择器 $(‘div,p,li’); 使用逗号分隔，只要符合条件之一就可。 交集选择器 $(‘div.redClass’); 获取class为redClass的div元素 总结：跟css的选择器用法一模一样。 jQuery层级选择器 名称 用法 描述 子代选择器 $(‘ul &gt; li’); 使用-号，获取儿子层级的元素，注意，并不会获取孙子层级的元素 后代选择器 $(‘ul li’); 使用空格，代表后代选择器，获取ul下的所有li元素，包括孙子等 跟CSS的选择器一模一样。 jQuery过滤选择器 这类选择器都带冒号: 名称 用法 描述 :eq（index） $(‘li:eq(2)’).css(‘color’, ‘red’); 获取到的li元素中，选择索引号为2的元素，索引号index从0开始。 :odd $(‘li:odd’).css(‘color’, ‘red’); 获取到的li元素中，选择索引号为奇数的元素 :even $(‘li:even’).css(‘color’, ‘red’); 获取到的li元素中，选择索引号为偶数的元素 jQuery筛选选择器(方法) 筛选选择器的功能与过滤选择器有点类似，但是用法不一样，筛选选择器主要是方法。 名称 用法 描述 children(selector) $(‘ul’).children(‘li’) 相当于$(‘ul-li’)，子类选择器 find(selector) $(‘ul’).find(‘li’); 相当于$(‘ul li’),后代选择器 siblings(selector) $(‘#first’).siblings(‘li’); 查找兄弟节点，不包括自己本身。 parent() $(‘#first’).parent(); 查找父亲 eq(index) $(‘li’).eq(2); 相当于$(‘li:eq(2)’),index从0开始 next() $(‘li’).next() 找下一个兄弟 prev() $(‘li’).prev() 找上一次兄弟]]></content>
@@ -86,6 +97,17 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sass 高级语法补充]]></title>
+    <url>%2F2017%2F04%2F17%2FSass%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[sass 高级语法补充1. 继承12345678 .class1 &#123; border: 1px solid #ddd; &#125; .class2 &#123; @extend .class1; font-size:120%; &#125; 2. 混入1234567@mixin roundborder($myborder: 10px) &#123; border-radius: $myborder;&#125;.box &#123; @include roundborder(25px);&#125; //custom：自定义的，定制的12345678910111213141516171819202122@mixin customdiv ($sizew: 100px, $sizeh: 100px, $bgco: red, $bdr: 15px) &#123; border-radius: $bdr; width: $sizew; height: $sizeh; background-color: $bgco;&#125;.box1 &#123; position: relative; @extend .box;&#125;.little1 &#123; @include customdiv(120px, 120px, tomato, 20px);&#125;.little2 &#123; position: absolute; bottom: 0; right: 0; @include customdiv(80px*0.5, 80px+15px, skyblue, 10px); &#125; 3. 计算12345 body &#123; margin: (14px/2); top: 50px + 100px; right: $var * 10%; &#125; 4. 函数1234567 @function double($n) &#123; @return $n * 2; &#125; #sidebar &#123; width: double(5px); &#125; 5. 判断和循环12345678910//1 to 8 大于等于1，小于8@for $i from 1 to 8 &#123; &amp;.slide0#&#123;$i&#125; &#123; background: url("../images/02-head-icons/0#&#123;$i&#125;.jpg") no-repeat top left / 100% 100%; @if $i &gt; 5 &#123; border: 3px solid #000; &#125; &#125;&#125; #less 1. less的安装与使用npm install -g less 2. 变量12345678910111213141516@background-color: #ffffff;@text-color: #1A237E;p&#123; background-color: @background-color; color: @text-color; padding: 15px;&#125;ul&#123; background-color: @background-color;&#125;li&#123; color: @text-color;&#125; 3. 混入12345678910111213141516#circle&#123; background-color: #4CAF50; border-radius: 100%;&#125;#small-circle&#123; width: 50px; height: 50px; #circle&#125;#big-circle&#123; width: 100px; height: 100px; #circle&#125; 123456789101112131415#circle(@size: 25px)&#123; background-color: #4CAF50; border-radius: 100%; width: @size; height: @size;&#125;#small-circle&#123; #circle&#125;#big-circle&#123; #circle(100px)&#125; 4. 嵌套1234567891011ul&#123; background-color: #03A9F4; padding: 10px; list-style: none; li&#123; background-color: #fff; border-radius: 3px; margin: 10px 0; &#125;&#125; 5. 运算1234567891011121314151617@div-width: 100px;@color: #03A9F4;div&#123; height: 50px; display: inline-block;&#125;#left&#123; width: @div-width; background-color: @color - 100;&#125;#right&#123; width: @div-width * 2; background-color: @color;&#125; 6. 函数1234567891011@var: #004590;div&#123; height: 50px; width: 50px; background-color: @var; &amp;:hover&#123; background-color: fadeout(@var, 50%) &#125;&#125;]]></content>
+      <categories>
+        <category>sass</category>
+      </categories>
+      <tags>
+        <tag>sass语法</tag>
       </tags>
   </entry>
   <entry>
@@ -133,14 +155,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[css高清背景图]]></title>
-    <url>%2F2016%2F07%2F18%2Fcss%E9%AB%98%E6%B8%85%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[CSS高清背景图说明 现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度 css的像素的宽度： 在开发过程中，布局直接使用的宽度 手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片 在前端开发的时候，一般使用一个2倍图就可以了 使用 假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了 ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px; 如果使用的是精灵图： 那么要做的事情 把background-position:x y; 设为它本来在精灵的位置的一半。 把background-size 也设为图片本身宽度的一半。]]></content>
+    <title><![CDATA[border边框]]></title>
+    <url>%2F2016%2F07%2F18%2Fborder%E8%BE%B9%E6%A1%86%2F</url>
+    <content type="text"><![CDATA[hover 加边框 当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。 解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了 border:1px solid transparent;]]></content>
       <categories>
-        <category>前端</category>
+        <category>css</category>
       </categories>
       <tags>
-        <tag>css</tag>
+        <tag>边框</tag>
       </tags>
   </entry>
   <entry>
@@ -155,14 +177,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[border边框]]></title>
-    <url>%2F2016%2F07%2F18%2Fborder%E8%BE%B9%E6%A1%86%2F</url>
-    <content type="text"><![CDATA[hover 加边框 当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。 解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了 border:1px solid transparent;]]></content>
+    <title><![CDATA[css高清背景图]]></title>
+    <url>%2F2016%2F07%2F18%2Fcss%E9%AB%98%E6%B8%85%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[CSS高清背景图说明 现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度 css的像素的宽度： 在开发过程中，布局直接使用的宽度 手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片 在前端开发的时候，一般使用一个2倍图就可以了 使用 假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了 ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px; 如果使用的是精灵图： 那么要做的事情 把background-position:x y; 设为它本来在精灵的位置的一半。 把background-size 也设为图片本身宽度的一半。]]></content>
       <categories>
-        <category>css</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>边框</tag>
+        <tag>css</tag>
       </tags>
   </entry>
 </search>
