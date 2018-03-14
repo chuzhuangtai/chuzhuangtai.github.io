@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="闭包," />
+  <meta name="keywords" content="会话技术," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="闭包 闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。  闭包的作用 让函数外可以访问函数内成员 让函数内成员始终活在内存中，生命周期延长。 解决变量污染（只读不改）面向对象封装思想 减少变量声明   控制某些数据访问权限（过滤非法数据）   闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。">
-<meta name="keywords" content="闭包">
+<meta name="description" content="会话技术cookiecookie原理分析 一个cookie的设置以及发送过程分为以下四步 客户端发送一个http请求到服务器端  服务器端发送一个http响应到客户端，其中包含Set-Cookie头部  客户端发送一个http请求到服务器端，其中包含Cookie头部  服务器端发送一个http响应到客户端     cookie常用属性 expires 有效期  path 路径  domain 域名">
+<meta name="keywords" content="会话技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包">
-<meta property="og:url" content="http://yoursite.com/2018/03/12/闭包/index.html">
+<meta property="og:title" content="会话技术">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/会话状态/index.html">
 <meta property="og:site_name" content="Yang.Xu">
-<meta property="og:description" content="闭包 闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。  闭包的作用 让函数外可以访问函数内成员 让函数内成员始终活在内存中，生命周期延长。 解决变量污染（只读不改）面向对象封装思想 减少变量声明   控制某些数据访问权限（过滤非法数据）   闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。">
+<meta property="og:description" content="会话技术cookiecookie原理分析 一个cookie的设置以及发送过程分为以下四步 客户端发送一个http请求到服务器端  服务器端发送一个http响应到客户端，其中包含Set-Cookie头部  客户端发送一个http请求到服务器端，其中包含Cookie头部  服务器端发送一个http响应到客户端     cookie常用属性 expires 有效期  path 路径  domain 域名">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-12T09:01:34.430Z">
+<meta property="og:updated_time" content="2018-03-14T06:46:25.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="闭包 闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。  闭包的作用 让函数外可以访问函数内成员 让函数内成员始终活在内存中，生命周期延长。 解决变量污染（只读不改）面向对象封装思想 减少变量声明   控制某些数据访问权限（过滤非法数据）   闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。">
+<meta name="twitter:title" content="会话技术">
+<meta name="twitter:description" content="会话技术cookiecookie原理分析 一个cookie的设置以及发送过程分为以下四步 客户端发送一个http请求到服务器端  服务器端发送一个http响应到客户端，其中包含Set-Cookie头部  客户端发送一个http请求到服务器端，其中包含Cookie头部  服务器端发送一个http响应到客户端     cookie常用属性 expires 有效期  path 路径  domain 域名">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/12/闭包/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/13/会话状态/"/>
 
 
 
 
 
-  <title>闭包 | Yang.Xu</title>
+  <title>会话技术 | Yang.Xu</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/闭包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/会话状态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yang.Xu">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">闭包</h1>
+          <h1 class="post-title" itemprop="name headline">会话技术</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T18:01:27+08:00">
-                2018-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T14:46:12+08:00">
+                2017-10-13
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -379,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/12/闭包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/12/闭包/" itemprop="commentsCount"></span>
+                <a href="/2017/10/13/会话状态/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/13/会话状态/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -408,21 +408,111 @@
       
 
       
-        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
-<p>闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p>
-</blockquote>
-<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><ol>
-<li>让函数外可以访问函数内成员</li>
-<li>让函数内成员始终活在内存中，生命周期延长。</li>
-<li>解决变量污染（只读不改）面向对象封装思想<ul>
-<li>减少变量声明</li>
+        <h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="cookie原理分析"><a href="#cookie原理分析" class="headerlink" title="cookie原理分析"></a>cookie原理分析</h3><ul>
+<li>一个cookie的设置以及发送过程分为以下四步<ol>
+<li>客户端发送一个http请求到服务器端 </li>
+<li>服务器端发送一个http响应到客户端，其中包含Set-Cookie头部 </li>
+<li>客户端发送一个http请求到服务器端，其中包含Cookie头部 </li>
+<li>服务器端发送一个http响应到客户端 </li>
+</ol>
+</li>
+</ul>
+<h4 id="cookie常用属性"><a href="#cookie常用属性" class="headerlink" title="cookie常用属性"></a>cookie常用属性</h4><ul>
+<li>expires 有效期 </li>
+<li>path 路径 </li>
+<li>domain 域名 </li>
+</ul>
+<h3 id="服务器操作cookie"><a href="#服务器操作cookie" class="headerlink" title="服务器操作cookie"></a>服务器操作cookie</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置cookie</span></span><br><span class="line"><span class="comment">// setcookie(name, value, expire, path, domain);</span></span><br><span class="line"><span class="comment">// 设置1小时后过期</span></span><br><span class="line">setcookie(<span class="string">"user"</span>, <span class="string">"lisi"</span>, time()+<span class="number">3600</span>);</span><br><span class="line"><span class="comment">// 获取单个cookie</span></span><br><span class="line"><span class="keyword">echo</span> $_COOKIE[<span class="string">"user"</span>];</span><br><span class="line"><span class="comment">// 查看所有cookie</span></span><br><span class="line">print_r($_COOKIE);</span><br></pre></td></tr></table></figure>
+<h4 id="js对cookie基本操作"><a href="#js对cookie基本操作" class="headerlink" title="js对cookie基本操作"></a>js对cookie基本操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,param</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.cookie = key + <span class="string">'='</span> + value + <span class="string">'; expires='</span> + param.expires + <span class="string">'; path='</span> + param.path; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取cookie</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cookies = <span class="built_in">document</span>.cookie;</span><br><span class="line">    <span class="keyword">var</span> arr = cookies.split(<span class="string">'; '</span>);</span><br><span class="line">    <span class="keyword">if</span>(arr)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</span><br><span class="line">            <span class="keyword">if</span>(kv[<span class="number">0</span>] == key)&#123;</span><br><span class="line">                <span class="keyword">return</span> kv[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="jQuery插件操作cookie（jquery-cookie-js）"><a href="#jQuery插件操作cookie（jquery-cookie-js）" class="headerlink" title="jQuery插件操作cookie（jquery.cookie.js）"></a>jQuery插件操作cookie（jquery.cookie.js）</h4><ul>
+<li>cookie插件基本使用<ul>
+<li>设置单个cookie</li>
+<li>获取单个cookie</li>
+<li>获取所有cookie</li>
+<li>删除单个cookie</li>
 </ul>
 </li>
-<li>控制某些数据访问权限（过滤非法数据）</li>
-</ol>
-<ul>
-<li>闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。</li>
+<li>浏览器中cookie基本设置</li>
 </ul>
+<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><h3 id="session原理分析"><a href="#session原理分析" class="headerlink" title="session原理分析"></a>session原理分析</h3><ul>
+<li>客户端第一次请求服务器时，服务器开启一个session，生成一个唯一标识（sessionid：存储的数据与此sessionid关联），并以响应头的Set-Cookie属性响应到客户端</li>
+<li>客户端的后续请求会一直通过请求头的Cookie属性携带sessionid（客户端与服务器通过此id维持状态）</li>
+</ul>
+<h3 id="session基本操作"><a href="#session基本操作" class="headerlink" title="session基本操作"></a>session基本操作</h3><ul>
+<li><p>设置session</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line">$_SESSION[<span class="string">'user'</span>] = <span class="keyword">array</span>(<span class="string">'username'</span>=&gt;<span class="string">'lisi'</span>,<span class="string">'age'</span>=&gt;<span class="string">'12'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取session</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line">$user = $_SESSION[<span class="string">'user'</span>];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除一个session信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line"><span class="keyword">unset</span>($_SESSION[<span class="string">'user'</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除所有session信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session_start();</span><br><span class="line"><span class="keyword">unset</span>($_SESSION);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>销毁session</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_destroy();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="session与cookie的关系"><a href="#session与cookie的关系" class="headerlink" title="session与cookie的关系"></a>session与cookie的关系</h3><ul>
+<li>session可以借助cookie实现状态维持，也可以不依赖cookie（URL重写）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>cookie</th>
+<th>session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储位置</td>
+<td>浏览器</td>
+<td>服务器</td>
+</tr>
+<tr>
+<td>浏览器携带的数据量</td>
+<td>多</td>
+<td>少（只携带session-id）</td>
+</tr>
+<tr>
+<td>存储的数据类型</td>
+<td>只能是字符串</td>
+<td>任意类型</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>较低</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>默认的有效路径</td>
+<td>当前路径及其子路径</td>
+<td>整站有效</td>
+</tr>
+<tr>
+<td>数据的传输量</td>
+<td>有限制4K，不能超过20个</td>
+<td>无限制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>cookie就是一种保存数据的技术，保存的位置是浏览器。</p>
+<ol>
+<li>只能够保存字符串。</li>
+<li>不能保存复杂类型。</li>
+<li>可以随意修改，因为我们能在浏览器看到cookie保存的内容。</li>
+<li>一般是作为登录的判断</li>
+<li>cookie的生命周期很短，默认是一次会话。关闭浏览器就会被销毁</li>
+</ol>
+<p>session就是一种保存数据的技术，保存的位置是服务器。</p>
+<ol>
+<li>可以保存复杂数据类型。</li>
+<li>浏览器中看不到数据</li>
+<li>生命周期长</li>
+</ol>
 
       
     </div>
@@ -469,7 +559,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/闭包/" rel="tag"># 闭包</a>
+            <a href="/tags/会话技术/" rel="tag"># 会话技术</a>
           
         </div>
       
@@ -482,8 +572,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/01/Canvas动画/" rel="next" title="Canvas动画">
-                <i class="fa fa-chevron-left"></i> Canvas动画
+              <a href="/2017/09/27/PHP数据库/" rel="next" title="PHP数据库简单操作">
+                <i class="fa fa-chevron-left"></i> PHP数据库简单操作
               </a>
             
           </div>
@@ -491,6 +581,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/14/前端性能优化工作总结/" rel="prev" title="前端性能优化总结">
+                前端性能优化总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -665,7 +759,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用"><span class="nav-number">1.1.</span> <span class="nav-text">闭包的作用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#会话技术"><span class="nav-number">1.</span> <span class="nav-text">会话技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">2.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie原理分析"><span class="nav-number">2.1.</span> <span class="nav-text">cookie原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie常用属性"><span class="nav-number">2.1.1.</span> <span class="nav-text">cookie常用属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器操作cookie"><span class="nav-number">2.2.</span> <span class="nav-text">服务器操作cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js对cookie基本操作"><span class="nav-number">2.2.1.</span> <span class="nav-text">js对cookie基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery插件操作cookie（jquery-cookie-js）"><span class="nav-number">2.2.2.</span> <span class="nav-text">jQuery插件操作cookie（jquery.cookie.js）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#session"><span class="nav-number">3.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session原理分析"><span class="nav-number">3.1.</span> <span class="nav-text">session原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session基本操作"><span class="nav-number">3.2.</span> <span class="nav-text">session基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session与cookie的关系"><span class="nav-number">3.3.</span> <span class="nav-text">session与cookie的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -865,7 +959,7 @@ var jiathis_config={
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1520848887000', 
+            id: '1507877172000', 
             owner: 'chuzhuangtai',
             repo: 'chuzhuangtai.github.io',
             

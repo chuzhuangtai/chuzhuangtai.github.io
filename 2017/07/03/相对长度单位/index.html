@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Yang.Xu">
 <meta property="og:description" content="相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。  相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。  1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T11:23:53.740Z">
+<meta property="og:updated_time" content="2018-03-13T11:32:59.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相对长度单位">
 <meta name="twitter:description" content="相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。  相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。  1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元">
@@ -416,11 +416,22 @@
 <li>1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 </li>
 </ul>
 <h2 id="设置相对长度单位，也就是一份的大小"><a href="#设置相对长度单位，也就是一份的大小" class="headerlink" title="设置相对长度单位，也就是一份的大小"></a>设置相对长度单位，也就是一份的大小</h2><ul>
-<li>先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem</li>
+<li>先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    //把屏幕分成10份</span><br><span class="line">    var screenw = window.screen.width;</span><br><span class="line">    document.querySelector(&quot;html&quot;).style.fontSize = screenw / 10 + &quot;px&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="到底是使用rem还是em？"><a href="#到底是使用rem还是em？" class="headerlink" title="到底是使用rem还是em？"></a>到底是使用rem还是em？</h2><p>rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem</p>
+<blockquote>
+<p>这段js代码要写在最上面</p>
+</blockquote>
+<h2 id="到底是使用rem还是em？"><a href="#到底是使用rem还是em？" class="headerlink" title="到底是使用rem还是em？"></a>到底是使用rem还是em？</h2><ul>
+<li>rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem</li>
+<li>rem和em都是相对长度单位<ul>
+<li>rem是相对于根元素的font-size来算出每一份的宽度</li>
+<li>em是相对于父元素的font-size的大小算出每一份的宽度</li>
+</ul>
+</li>
+</ul>
 <h2 id="如何使用rem"><a href="#如何使用rem" class="headerlink" title="如何使用rem"></a>如何使用rem</h2><ol>
-<li>设计人员只会给我们一种尺寸的设计图</li>
+<li>设计人员会给我们一种尺寸的设计图</li>
 <li>它是用 px 来标记的</li>
 <li>一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320）<ul>
 <li>除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3</li>
@@ -617,7 +628,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +639,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -639,7 +650,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

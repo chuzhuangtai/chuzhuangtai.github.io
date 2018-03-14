@@ -45,6 +45,39 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[border边框]]></title>
+    <url>%2F2017%2F11%2F16%2Fborder%E8%BE%B9%E6%A1%86%2F</url>
+    <content type="text"><![CDATA[hover 加边框 当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。 解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了 border:1px solid transparent;]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>边框</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端性能优化总结]]></title>
+    <url>%2F2017%2F11%2F14%2F%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[性能优化总结1. 减少http请求​ 减少http的主要手段是合并CSS、合并javascript、合并图片。将浏览器一次访问需要的javascript和CSS合并成一个文件，这样浏览器就只需要一次请求。图片也可以合并，多张图片合并成一张。如果每张图片都有不同的超链接，可通过CSS偏移响应鼠标点击操作，构造不同的URL。 2. 使用浏览器缓存​ 对一个网站而言，CSS、javascript、logo、图标这些静态资源文件更新的频率都比较低，而这些文件又几乎是每次http请求都需要的，如果将这些文件缓存在浏览器中，可以极好的改善性能。 ​ 可以使用localStorage来存储数据。 3. CSS放在页面最上部，javascript放在页面最下面​ 浏览器会在下载完成全部CSS之后才对整个页面进行渲染，因此最好的做法是将CSS放在页面最上面，让浏览器尽快下载CSS。如果将 CSS放在其他地方比如 BODY中，则浏览器有可能还未下载和解析到 CSS就已经开始渲染页面了，这就导致页面由无 CSS状态跳转到 CSS状态，用户体验比较糟糕，所以可以考虑将CSS放在HEAD中。 ​ Javascript则相反，浏览器在加载javascript后立即执行，有可能会阻塞整个页面，造成页面显示缓慢，因此javascript最好放在页面最下面。但如果页面解析时就需要用到javascript，这时放到底部就不合适了，不过这时候可以写入口函数，让这段js代码在程序运行最开始调用。 3. 避免页面跳转​ 可以使用ajax进行无刷新和后台交互，利用js来发送请求报文。阻止a标签默认事件。 4. 对图片进行优化 图片懒加载 小图片可以做成精灵图，或字体图标 加载完成前先准备一张压缩的特别厉害的缩略图，提高用户体验 如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。 ​]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[会话技术]]></title>
+    <url>%2F2017%2F10%2F13%2F%E4%BC%9A%E8%AF%9D%E7%8A%B6%E6%80%81%2F</url>
+    <content type="text"><![CDATA[会话技术cookiecookie原理分析 一个cookie的设置以及发送过程分为以下四步 客户端发送一个http请求到服务器端 服务器端发送一个http响应到客户端，其中包含Set-Cookie头部 客户端发送一个http请求到服务器端，其中包含Cookie头部 服务器端发送一个http响应到客户端 cookie常用属性 expires 有效期 path 路径 domain 域名 服务器操作cookie12345678// 设置cookie// setcookie(name, value, expire, path, domain);// 设置1小时后过期setcookie("user", "lisi", time()+3600);// 获取单个cookieecho $_COOKIE["user"];// 查看所有cookieprint_r($_COOKIE); js对cookie基本操作1234567891011121314151617// 设置cookiefunction setCookie(key,value,param)&#123; document.cookie = key + '=' + value + '; expires=' + param.expires + '; path=' + param.path; &#125;// 获取cookiefunction getCookie(key)&#123; var cookies = document.cookie; var arr = cookies.split('; '); if(arr)&#123; for (var i = 0; i &lt; arr.length; i++) &#123; var kv = arr[i].split('='); if(kv[0] == key)&#123; return kv[1]; &#125; &#125; &#125;&#125; jQuery插件操作cookie（jquery.cookie.js） cookie插件基本使用 设置单个cookie 获取单个cookie 获取所有cookie 删除单个cookie 浏览器中cookie基本设置 sessionsession原理分析 客户端第一次请求服务器时，服务器开启一个session，生成一个唯一标识（sessionid：存储的数据与此sessionid关联），并以响应头的Set-Cookie属性响应到客户端 客户端的后续请求会一直通过请求头的Cookie属性携带sessionid（客户端与服务器通过此id维持状态） session基本操作 设置session 12session_start();$_SESSION['user'] = array('username'=&gt;'lisi','age'=&gt;'12'); 读取session 12session_start();$user = $_SESSION['user']; 删除一个session信息 12session_start();unset($_SESSION['user']); 删除所有session信息 12session_start();unset($_SESSION); 销毁session 1session_destroy(); session与cookie的关系 session可以借助cookie实现状态维持，也可以不依赖cookie（URL重写） 区别 cookie session 存储位置 浏览器 服务器 浏览器携带的数据量 多 少（只携带session-id） 存储的数据类型 只能是字符串 任意类型 安全性 较低 较高 默认的有效路径 当前路径及其子路径 整站有效 数据的传输量 有限制4K，不能超过20个 无限制 总结cookie就是一种保存数据的技术，保存的位置是浏览器。 只能够保存字符串。 不能保存复杂类型。 可以随意修改，因为我们能在浏览器看到cookie保存的内容。 一般是作为登录的判断 cookie的生命周期很短，默认是一次会话。关闭浏览器就会被销毁 session就是一种保存数据的技术，保存的位置是服务器。 可以保存复杂数据类型。 浏览器中看不到数据 生命周期长]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>会话技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHP数据库简单操作]]></title>
     <url>%2F2017%2F09%2F27%2FPHP%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[数据库操作方式 图形界面客户端 创建连接 创建数据库 删除数据库 创建表 编辑表 删除表 表结构分析 数据类型分析 数据增删改查操作 SQL SQL基本概述 插入数据insert 12-- insert into 表名 (字段列表) values (值列表)insert into book (name,author,category,price) values ('天龙八部','金庸','文学',20) 修改数据update 12-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件update book set name='笑傲江湖',price='30' where id=10 删除数据delete 12-- delete from 表名 where 条件delete from book where id=10 查询数据select 12-- select * from 表名 where 条件select * from book where author='金庸' and price&gt;20 简单的联表查询 1select u.username,b.name from user u,book b where u.id=b.uid and b.price&gt;20 PHP代码操作数据 连接数据库基本步骤 12345678910111213141516171819// 1、连接数据库$server = 'localhost';//数据库所在计算机的域名或者IP地址$username = 'root';//登录数据库的用户名$pw = '';//登录数据库的密码// 执行连接操作$link = mysql_connect($server,$username,$pw);// 2、选择要操作哪个数据库mysql_select_db('hello',$link);// 3、设置查询编码mysql_query("SET names UTF8");// 4、操作数据（通过sql语句操作数据库）$str = 'select count(*) as cc from user';$result = mysql_query($str);// 5、获取数据库的结果集并解析$row = mysql_fetch_assoc($result);echo $row['cc'];// 6、释放资源并关闭数据库mysql_free_result($result);mysql_close($link); 数据库操作常用api mysql_connect() 连接数据库 mysql_select_db() 选择数据库 mysql_query() 执SQL语句 mysql_fetch_row() 以索引数组的形式返回结果 mysql_fetch_assoc() 以关联数组的形式范湖数据 mysql_fetch_array() 返回索引数组和关联数组 mysql_fetch_object() 以对象形式返回结果 mysql_free_result() 释放资源 mysql_close() 关闭连接 基本增删改查操作]]></content>
@@ -69,7 +102,7 @@
   <entry>
     <title><![CDATA[相对长度单位]]></title>
     <url>%2F2017%2F07%2F03%2F%E7%9B%B8%E5%AF%B9%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D%2F</url>
-    <content type="text"><![CDATA[相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。 相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。 1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 设置相对长度单位，也就是一份的大小 先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem 到底是使用rem还是em？rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem 如何使用rem 设计人员只会给我们一种尺寸的设计图 它是用 px 来标记的 一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320） 除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3 算出每个 px 在设计人员给的这个屏幕尺寸下的 rem的值。转rem的规则都是一样的 算出在当前屏幕尺寸下的 1rem值是多少。 320 / 10 = 32px 假如说，它标记了某个字体是 24px 对应我们在开发中要用的 那个值是 rem = 24px/32px]]></content>
+    <content type="text"><![CDATA[相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。 相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。 1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 设置相对长度单位，也就是一份的大小 先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem12345&lt;script&gt; //把屏幕分成10份 var screenw = window.screen.width; document.querySelector(&quot;html&quot;).style.fontSize = screenw / 10 + &quot;px&quot;;&lt;/script&gt; 这段js代码要写在最上面 到底是使用rem还是em？ rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem rem和em都是相对长度单位 rem是相对于根元素的font-size来算出每一份的宽度 em是相对于父元素的font-size的大小算出每一份的宽度 如何使用rem 设计人员会给我们一种尺寸的设计图 它是用 px 来标记的 一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320） 除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3 算出每个 px 在设计人员给的这个屏幕尺寸下的 rem的值。转rem的规则都是一样的 算出在当前屏幕尺寸下的 1rem值是多少。 320 / 10 = 32px 假如说，它标记了某个字体是 24px 对应我们在开发中要用的 那个值是 rem = 24px/32px]]></content>
       <categories>
         <category>css</category>
       </categories>
@@ -122,17 +155,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[前端性能优化总结]]></title>
-    <url>%2F2016%2F12%2F23%2F%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[性能优化总结1. 减少http请求​ 减少http的主要手段是合并CSS、合并javascript、合并图片。将浏览器一次访问需要的javascript和CSS合并成一个文件，这样浏览器就只需要一次请求。图片也可以合并，多张图片合并成一张。如果每张图片都有不同的超链接，可通过CSS偏移响应鼠标点击操作，构造不同的URL。 2. 使用浏览器缓存​ 对一个网站而言，CSS、javascript、logo、图标这些静态资源文件更新的频率都比较低，而这些文件又几乎是每次http请求都需要的，如果将这些文件缓存在浏览器中，可以极好的改善性能。 ​ 可以使用localStorage来存储数据。 3. CSS放在页面最上部，javascript放在页面最下面​ 浏览器会在下载完成全部CSS之后才对整个页面进行渲染，因此最好的做法是将CSS放在页面最上面，让浏览器尽快下载CSS。如果将 CSS放在其他地方比如 BODY中，则浏览器有可能还未下载和解析到 CSS就已经开始渲染页面了，这就导致页面由无 CSS状态跳转到 CSS状态，用户体验比较糟糕，所以可以考虑将CSS放在HEAD中。 ​ Javascript则相反，浏览器在加载javascript后立即执行，有可能会阻塞整个页面，造成页面显示缓慢，因此javascript最好放在页面最下面。但如果页面解析时就需要用到javascript，这时放到底部就不合适了，不过这时候可以写入口函数，让这段js代码在程序运行最开始调用。 3. 避免页面跳转​ 可以使用ajax进行无刷新和后台交互，利用js来发送请求报文。阻止a标签默认事件。 4. 对图片进行优化 图片懒加载 小图片可以做成精灵图，或字体图标 加载完成前先准备一张压缩的特别厉害的缩略图，提高用户体验 如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。 ​]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[前端向后台发送请求的几种方式]]></title>
     <url>%2F2016%2F11%2F12%2F%E5%89%8D%E7%AB%AF%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[前端向后台发送请求的几种方式1、 link标签的href属性 2、 script标签的src属性 3、 img标签的src属性 4、 ajax发送请求 5、 表单提交发送请求 6、 a标签的href发送请求 7、 iframe的src属性发送请求]]></content>
@@ -155,14 +177,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[border边框]]></title>
-    <url>%2F2016%2F07%2F18%2Fborder%E8%BE%B9%E6%A1%86%2F</url>
-    <content type="text"><![CDATA[hover 加边框 当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。 解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了 border:1px solid transparent;]]></content>
+    <title><![CDATA[css高清背景图]]></title>
+    <url>%2F2016%2F07%2F18%2Fcss%E9%AB%98%E6%B8%85%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[CSS高清背景图说明 现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度 css的像素的宽度： 在开发过程中，布局直接使用的宽度 手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片 在前端开发的时候，一般使用一个2倍图就可以了 使用 假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了 ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px; 如果使用的是精灵图： 那么要做的事情 把background-position:x y; 设为它本来在精灵的位置的一半。 把background-size 也设为图片本身宽度的一半。]]></content>
       <categories>
-        <category>css</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>边框</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -174,17 +196,6 @@
       </categories>
       <tags>
         <tag>http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[css高清背景图]]></title>
-    <url>%2F2016%2F07%2F18%2Fcss%E9%AB%98%E6%B8%85%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[CSS高清背景图说明 现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度 css的像素的宽度： 在开发过程中，布局直接使用的宽度 手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片 在前端开发的时候，一般使用一个2倍图就可以了 使用 假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了 ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px; 如果使用的是精灵图： 那么要做的事情 把background-position:x y; 设为它本来在精灵的位置的一半。 把background-size 也设为图片本身宽度的一半。]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
 </search>
