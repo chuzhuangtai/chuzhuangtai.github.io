@@ -69,6 +69,31 @@
   </entry>
   
   <entry>
+    <title>前端性能优化总结</title>
+    <link href="http://yoursite.com/2018/02/26/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/02/26/前端性能优化工作总结/</id>
+    <published>2018-02-26T14:03:55.000Z</published>
+    <updated>2018-03-16T05:11:03.931Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="性能优化总结"><a href="#性能优化总结" class="headerlink" title="性能优化总结"></a>性能优化总结</h2><h3 id="1-减少http请求"><a href="#1-减少http请求" class="headerlink" title="1. 减少http请求"></a>1. 减少http请求</h3><p>​    减少http的主要手段是合并CSS、合并javascript、合并图片。将浏览器一次访问需要的javascript和CSS合并成一个文件，这样浏览器就只需要一次请求。图片也可以合并，多张图片合并成一张。如果每张图片都有不同的超链接，可通过CSS偏移响应鼠标点击操作，构造不同的URL。</p><h3 id="2-使用浏览器缓存"><a href="#2-使用浏览器缓存" class="headerlink" title="2. 使用浏览器缓存"></a>2. 使用浏览器缓存</h3><p>​    对一个网站而言，CSS、javascript、logo、图标这些静态资源文件更新的频率都比较低，而这些文件又几乎是每次http请求都需要的，如果将这些文件缓存在浏览器中，可以极好的改善性能。</p><p>​    可以使用localStorage来存储数据。</p><h3 id="3-CSS放在页面最上部，javascript放在页面最下面"><a href="#3-CSS放在页面最上部，javascript放在页面最下面" class="headerlink" title="3. CSS放在页面最上部，javascript放在页面最下面"></a>3. CSS放在页面最上部，javascript放在页面最下面</h3><p>​    浏览器会在下载完成全部CSS之后才对整个页面进行渲染，因此最好的做法是将CSS放在页面最上面，让浏览器尽快下载CSS。如果将 CSS放在其他地方比如 BODY中，则浏览器有可能还未下载和解析到 CSS就已经开始渲染页面了，这就导致页面由无 CSS状态跳转到 CSS状态，用户体验比较糟糕，所以可以考虑将CSS放在HEAD中。</p><p>​        Javascript则相反，浏览器在加载javascript后立即执行，有可能会阻塞整个页面，造成页面显示缓慢，因此javascript最好放在页面最下面。但如果页面解析时就需要用到javascript，这时放到底部就不合适了，不过这时候可以写入口函数，让这段js代码在程序运行最开始调用。</p><h3 id="3-避免页面跳转"><a href="#3-避免页面跳转" class="headerlink" title="3. 避免页面跳转"></a>3. 避免页面跳转</h3><p>​    可以使用ajax进行无刷新和后台交互，利用js来发送请求报文。阻止a标签默认事件。</p><h3 id="4-对图片进行优化"><a href="#4-对图片进行优化" class="headerlink" title="4. 对图片进行优化"></a>4. 对图片进行优化</h3><ul><li><p>图片懒加载</p></li><li><p>小图片可以做成精灵图，或字体图标</p></li><li><p>加载完成前先准备一张压缩的特别厉害的缩略图，提高用户体验</p></li><li><p>如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。</p><p>​</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;性能优化总结&quot;&gt;&lt;a href=&quot;#性能优化总结&quot; class=&quot;headerlink&quot; title=&quot;性能优化总结&quot;&gt;&lt;/a&gt;性能优化总结&lt;/h2&gt;&lt;h3 id=&quot;1-减少http请求&quot;&gt;&lt;a href=&quot;#1-减少http请求&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
     <title>响应式viewport设计</title>
     <link href="http://yoursite.com/2018/01/14/viewport/"/>
     <id>http://yoursite.com/2018/01/14/viewport/</id>
@@ -141,31 +166,6 @@
     
     
       <category term="边框" scheme="http://yoursite.com/tags/%E8%BE%B9%E6%A1%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端性能优化总结</title>
-    <link href="http://yoursite.com/2017/11/14/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/11/14/前端性能优化工作总结/</id>
-    <published>2017-11-14T14:03:55.000Z</published>
-    <updated>2018-03-14T01:12:01.017Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="性能优化总结"><a href="#性能优化总结" class="headerlink" title="性能优化总结"></a>性能优化总结</h2><h3 id="1-减少http请求"><a href="#1-减少http请求" class="headerlink" title="1. 减少http请求"></a>1. 减少http请求</h3><p>​    减少http的主要手段是合并CSS、合并javascript、合并图片。将浏览器一次访问需要的javascript和CSS合并成一个文件，这样浏览器就只需要一次请求。图片也可以合并，多张图片合并成一张。如果每张图片都有不同的超链接，可通过CSS偏移响应鼠标点击操作，构造不同的URL。</p><h3 id="2-使用浏览器缓存"><a href="#2-使用浏览器缓存" class="headerlink" title="2. 使用浏览器缓存"></a>2. 使用浏览器缓存</h3><p>​    对一个网站而言，CSS、javascript、logo、图标这些静态资源文件更新的频率都比较低，而这些文件又几乎是每次http请求都需要的，如果将这些文件缓存在浏览器中，可以极好的改善性能。</p><p>​    可以使用localStorage来存储数据。</p><h3 id="3-CSS放在页面最上部，javascript放在页面最下面"><a href="#3-CSS放在页面最上部，javascript放在页面最下面" class="headerlink" title="3. CSS放在页面最上部，javascript放在页面最下面"></a>3. CSS放在页面最上部，javascript放在页面最下面</h3><p>​    浏览器会在下载完成全部CSS之后才对整个页面进行渲染，因此最好的做法是将CSS放在页面最上面，让浏览器尽快下载CSS。如果将 CSS放在其他地方比如 BODY中，则浏览器有可能还未下载和解析到 CSS就已经开始渲染页面了，这就导致页面由无 CSS状态跳转到 CSS状态，用户体验比较糟糕，所以可以考虑将CSS放在HEAD中。</p><p>​        Javascript则相反，浏览器在加载javascript后立即执行，有可能会阻塞整个页面，造成页面显示缓慢，因此javascript最好放在页面最下面。但如果页面解析时就需要用到javascript，这时放到底部就不合适了，不过这时候可以写入口函数，让这段js代码在程序运行最开始调用。</p><h3 id="3-避免页面跳转"><a href="#3-避免页面跳转" class="headerlink" title="3. 避免页面跳转"></a>3. 避免页面跳转</h3><p>​    可以使用ajax进行无刷新和后台交互，利用js来发送请求报文。阻止a标签默认事件。</p><h3 id="4-对图片进行优化"><a href="#4-对图片进行优化" class="headerlink" title="4. 对图片进行优化"></a>4. 对图片进行优化</h3><ul><li><p>图片懒加载</p></li><li><p>小图片可以做成精灵图，或字体图标</p></li><li><p>加载完成前先准备一张压缩的特别厉害的缩略图，提高用户体验</p></li><li><p>如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。</p><p>​</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;性能优化总结&quot;&gt;&lt;a href=&quot;#性能优化总结&quot; class=&quot;headerlink&quot; title=&quot;性能优化总结&quot;&gt;&lt;/a&gt;性能优化总结&lt;/h2&gt;&lt;h3 id=&quot;1-减少http请求&quot;&gt;&lt;a href=&quot;#1-减少http请求&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -245,6 +245,32 @@
     
     
       <category term="jQuery操作元素" scheme="http://yoursite.com/tags/jQuery%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>源代码管理工具git</title>
+    <link href="http://yoursite.com/2017/08/17/%E6%BA%90%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    <id>http://yoursite.com/2017/08/17/源代码管理工具/</id>
+    <published>2017-08-17T05:05:45.000Z</published>
+    <updated>2018-03-16T05:08:00.996Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是源代码管理工具"><a href="#什么是源代码管理工具" class="headerlink" title="什么是源代码管理工具"></a>什么是源代码管理工具</h2><pre><code>1. 早期源代码通过拷贝粘贴来管理    1. 不方便相互之间获取别人写的代码    2. 两个或者多个人同时修改了一个文件 是否替换 代码会冲突    3. 最终如何解决 ，需要严格约束写代码人员不要同时改一个文件 （如果同一个文件有新增的代码 让项目项目经理负责修改 ） 项目整合也是靠项目整合2. 为了解决源代码管理的问题 就出现了源代码管理工具    1. 方便快捷的获取到别人写的代码       2. 如何解决冲突的问题 使用工具提交 如果有冲突 会同时保留两个人写的代码</code></pre><h2 id="git和svn的区别"><a href="#git和svn的区别" class="headerlink" title="git和svn的区别"></a>git和svn的区别</h2><p>1．SVN优缺点<br>优点：<br>1、 管理方便，逻辑明确，符合一般人思维习惯。<br>2、 易于管理，集中式服务器更能保证安全性。<br>3、 代码一致性非常高。<br>4、 适合开发人数不多的项目开发。<br>缺点：<br>1、 服务器压力太大，数据库容量暴增。<br>2、 如果不能连接到服务器上，基本上不可以工作，看上面第二步，如果服务器不能连接上，就不能提交，还原，对比等等。<br>3、 不适合开源开发（开发人数非常非常多，但是Google app engine就是用svn的）。但是一般集中式管理的有非常明确的权限管理机制（例如分支访问限制），可以实现分层管理，从而很好的解决开发人数众多的问题。</p><p>2．Git优缺点<br>优点：<br>1、适合分布式开发，强调个体。<br>2、公共服务器压力和数据量都不会太大。<br>3、速度快、灵活。<br>4、任意两个开发者之间可以很容易的解决冲突。<br>5、离线工作。<br>缺点：<br>1、学习周期相对而言比较长。<br>2、不符合常规思维。<br>3、代码保密性差，一旦开发者把整个库克隆下来就可以完全公开所有代码和版本信息。</p><blockquote><p>svn比较适合后台项目 代码是私有的</p><p>git比较适合前端项目 代码的公开的</p></blockquote><h2 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h2><h3 id="1-什么是GIT"><a href="#1-什么是GIT" class="headerlink" title="1. 什么是GIT"></a>1. 什么是GIT</h3><ul><li>是一个源代码管理工具</li><li>GIT是Linux之父当年为了维护管理Linux的源代码写的一个工具</li><li>Git 之前 很多使用 svn vss tfs hs ……</li></ul><ul><li><a href="https://guides.github.com/" target="_blank" rel="noopener">https://guides.github.com/</a></li><li>github是一个git仓库的托管平台 代码库的平台</li></ul><h3 id="2-安装GIT"><a href="#2-安装GIT" class="headerlink" title="2. 安装GIT"></a>2. 安装GIT</h3><ul><li>git命令行工具</li><li>基于git命令行的一个客户端软件（提供一个界面去管理源代码）</li></ul><h3 id="3-GIT命令操作"><a href="#3-GIT命令操作" class="headerlink" title="3. GIT命令操作"></a>3. GIT命令操作</h3><ul><li>初始化一个本地GIT仓储</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 当前项目目录</span><br><span class="line">git init // 初始化一个本地的仓库</span><br></pre></td></tr></table></figure><blockquote><p>就是在本地文件夹中添加了一个.git的文件夹用于记录所有的项目变更信息</p></blockquote><ul><li>查看本地仓储的变更状态</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">用于查看本地仓储的状态</span><br><span class="line">第一次查看，显示的是一坨没有被跟踪的文件</span><br><span class="line">git status -s // -s 是输出简要的变更日志</span><br></pre></td></tr></table></figure><ul><li>添加本地暂存（托管）文件</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add</span><br><span class="line">可以将一个没有被跟踪的文件添加到跟踪列表</span><br><span class="line">类似于node_modules这种性质的文件是不应该被跟踪</span><br></pre></td></tr></table></figure><ul><li>添加本地GIT忽略清单文件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在代码库文件夹的根目录添加一个.gitignore文件</span><br><span class="line">此文件用于说明忽略的文件有哪些</span><br></pre></td></tr></table></figure><ul><li>提交被托管的文件变化到本地仓储</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br><span class="line">将本地的变化提交的本地的仓库文件夹归档</span><br><span class="line">一般在有了一个小单元的整体变化后再提交</span><br></pre></td></tr></table></figure><ul><li>对比差异</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config</span><br><span class="line"></span><br><span class="line">- 用于配置git的配置 入邮箱用户名等</span><br><span class="line"></span><br><span class="line">git diff</span><br><span class="line">可以用于对比当前状态和版本库中状态的变化</span><br></pre></td></tr></table></figure><ul><li>提交日志</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log   </span><br><span class="line">git log --oneline 查看简要日志</span><br><span class="line">可以查看提交日志</span><br></pre></td></tr></table></figure><ul><li>回归到指定版本</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure><ul><li><p>为仓储添加远端（服务器端）地址</p></li><li><p>将本地仓储的提交记录推送到远端的master分支</p></li><li><p>拉取远端master分支的更新记录到本地</p></li><li><p>回归到指定版本</p></li></ul><h1 id="git-进阶"><a href="#git-进阶" class="headerlink" title="git 进阶"></a>git 进阶</h1><h2 id="1-分支"><a href="#1-分支" class="headerlink" title="1. 分支"></a>1. 分支</h2><ul><li>查看分支：git branch，当前分支会标有一个*</li><li>创建分支：git branch [分支名称]<ul><li>分支中的代码，与创建那一刻主分支中的内容完全相同</li></ul></li><li>切换分支：git checkout [分支名称]</li><li>(简写)创建并切换分支：git checkout -b [分支名称]</li><li>合并分支：git merge [分支名称]，即：将其他分支合并到当前分支</li><li>删除分支：git branch -d [分支名称]</li></ul><h3 id="合并分支冲突"><a href="#合并分支冲突" class="headerlink" title="合并分支冲突"></a>合并分支冲突</h3><ul><li>注意：合并分支时出现冲突只能手动处理文件，然后，再次提交<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果在一个从分支中做了修改，然后，在主分支中也做了修改。</span><br><span class="line">此时，将这个从分支合并到主分支的时候，就会出现合并冲突的问题！</span><br></pre></td></tr></table></figure></li></ul><h3 id="分支的说明"><a href="#分支的说明" class="headerlink" title="分支的说明"></a>分支的说明</h3><ul><li>1 公司开发的项目都是由多个分支组成：主分支 + dev分支</li><li>2 项目经理新建项目仓库，所有的程序员都从这个仓库中获取代码，完成开发任务</li><li>3 项目经理：搭建设计仓库，创建master分支，以及dev分支（以及 debug分支等）</li><li>4 所有的程序员在 dev分支 上进行开发，并且还有自己维护的分支</li><li>5 程序员在分支上完成开发任务后，会提交合并请求</li><li>6 项目经理安排测试，如果没有问题了，最后才会与 master 分支合并</li></ul><h2 id="2-github基本使用"><a href="#2-github基本使用" class="headerlink" title="2. github基本使用"></a>2. github基本使用</h2><ul><li><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li><li>github是一个GIT服务的提供商，</li><li>提出社交化编程</li></ul><p><a href="http://zoomzhao.github.io/code-guide/" target="_blank" rel="noopener">http://zoomzhao.github.io/code-guide/</a><br><a href="https://github.com/jobbole/awesome-javascript-cn" target="_blank" rel="noopener">https://github.com/jobbole/awesome-javascript-cn</a><br><a href="https://github.com/jobbole/awesome-css-cn" target="_blank" rel="noopener">https://github.com/jobbole/awesome-css-cn</a></p><ul><li>开源中国-Git<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 GitHub 上免费托管的 Git 仓库，</span><br><span class="line">任何人都可以看到喔（但只有你自己才能改）。</span><br><span class="line">所以，不要把敏感信息放进去。</span><br></pre></td></tr></table></figure></li></ul><h3 id="github与git的关系"><a href="#github与git的关系" class="headerlink" title="github与git的关系"></a>github与git的关系</h3><ul><li>1 git 是一个版本控制工具</li><li>2 github就是一个网站，这个网站提供了 git 服务器的功能</li></ul><h3 id="将代码提交到远程仓库（HTTPS）"><a href="#将代码提交到远程仓库（HTTPS）" class="headerlink" title="将代码提交到远程仓库（HTTPS）"></a>将代码提交到远程仓库（HTTPS）</h3><ul><li>1 在本地创建仓库<ul><li>git init</li><li>git config</li></ul></li><li>2 新建 README.md 文件，并输入任意内容</li><li>3 将 README.md 提交到本地<ul><li>git add</li><li>git commit</li></ul></li><li>4 在github中新建仓库，并拿到仓库地址</li><li>5 使用命令 git push [仓库地址] master 提交内容到github的默认分支</li><li>6 刷新github仓库页面，在线修改 README.md 文件，并提交</li><li>7 使用命令 git pull [仓库地址] master 获取仓库中的最新内容</li></ul><h3 id="获取远程仓库内容"><a href="#获取远程仓库内容" class="headerlink" title="获取远程仓库内容"></a>获取远程仓库内容</h3><ul><li>命令：git pull [仓库地址] [分支名称] 获取远程仓库最新内容</li><li>命令：git clone [仓库地址] [自定义本地仓库名] 将整个仓库克隆到本地<ul><li>实例：git clone git://github.com/jquery/jquery.git myJQ</li></ul></li></ul><h3 id="简化操作"><a href="#简化操作" class="headerlink" title="简化操作"></a>简化操作</h3><ul><li>1 git remote add origin [仓库地址]<ul><li>作用：使用origin代替 仓库地址 ，方便操作</li></ul></li><li>2 git push -u origin master<ul><li>作用：-u参数将origin与master连在一起</li></ul></li><li>3 使用简化命令 git push origin 就代替原来：”git remote add origin [仓库地址]”</li></ul><h3 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h3><ul><li>非对称加密、公钥和私钥<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">GitHub 需要识别出你推送的提交确实是你推送的，而不是别人冒充的，</span><br><span class="line">而 Git 支持 SSH 协议，所以，GitHub 只要知道了你的公钥，</span><br><span class="line">就可以确认只有你自己才能推送，从而省去每次输入密码的操作。</span><br><span class="line"></span><br><span class="line">可以同时设置多个SSH key，比如：你可以在公司电脑提交需要一个key，</span><br><span class="line">回家后自己的电脑提交也需要一个key</span><br><span class="line"></span><br><span class="line">ssh是一种安全的传输模式</span><br><span class="line">github要求推送代码的用户是合法的，所以每次推送时候都要输入账号密码，</span><br><span class="line">用以验证你是否为合法用户，为了省去每次都要输入密码的步骤，采用shh公钥，密钥</span><br><span class="line">也就是你说的sshkey来验证你是否为合法用户</span><br><span class="line">在你的电脑生成了一个唯一的ssh公钥和私钥，公钥放到github上面，当你推送的时候，git就会</span><br><span class="line">匹配你的私钥是否跟github上面的公钥是配对的，正确就认为你是合法的，允许推送。</span><br><span class="line"></span><br><span class="line">sshkey可以理解为是你的身份标识，放在github上面表明你是这个项目的一个开发人员，但是别</span><br><span class="line">人是可以截获的，你本机的私钥别人就无法截获，sshkey就可以保证每次传输都是安全的。</span><br></pre></td></tr></table></figure></li></ul><h3 id="将代码提交到远程仓库（SSH）"><a href="#将代码提交到远程仓库（SSH）" class="headerlink" title="将代码提交到远程仓库（SSH）"></a>将代码提交到远程仓库（SSH）</h3><ul><li>创建SSH Key：ssh-keygen -t rsa</li><li>在文件路径 C:\用户\当前用户名\ 找到 .ssh 文件夹</li><li>文件夹中有两个文件：<ul><li>私钥：id_rsa</li><li>公钥：id_rsa.pub</li></ul></li><li>在 github -&gt; settings -&gt; SSH and GPG keys页面中，新创建SSH key</li><li>粘贴 公钥 id_rsa.pub 内容到对应文本框中</li><li>在github中新建仓库或者使用现在仓库，拿到<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:用户名/仓库名.git</li><li>此后，再次SSH方式与github“通信”，不用输入密码确认身份了</li></ul><h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul><li>先获取再提交，即：先pull再push</li><li>pull和fetch的区别</li></ul><h2 id="github搭建博客"><a href="#github搭建博客" class="headerlink" title="github搭建博客"></a>github搭建博客</h2><ul><li>使用github服务器的 gh-pages 分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1 在本地工作目录使用git初始化 `git init`</span><br><span class="line">2 创建自己的博客项目</span><br><span class="line">3 将创建好的博客添加到暂存区 `git add [文件路径]`</span><br><span class="line">4 本地提交： `git commit -m &quot;第一个博客&quot;`</span><br><span class="line">5 创建分支：`git branch gh-pages` 分支名称固定！</span><br><span class="line">6 切换分支：`git checkout gh-pages`</span><br><span class="line">7 提交到github：`git push [github仓库地址] gh-pages`</span><br><span class="line">8 查看github中对应的仓库中，是不是提交到了 &quot;gh-pages&quot; 分支</span><br><span class="line">9 访问：&lt;github用户名&gt;.github.io/&lt;仓库名&gt;/&lt;文件名&gt;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是源代码管理工具&quot;&gt;&lt;a href=&quot;#什么是源代码管理工具&quot; class=&quot;headerlink&quot; title=&quot;什么是源代码管理工具&quot;&gt;&lt;/a&gt;什么是源代码管理工具&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;1. 早期源代码通过拷贝粘贴来管理
+    1. 不方便相互
+      
+    
+    </summary>
+    
+      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
@@ -400,6 +426,32 @@
   </entry>
   
   <entry>
+    <title>GET和POST</title>
+    <link href="http://yoursite.com/2016/09/24/get%E5%92%8Cpost/"/>
+    <id>http://yoursite.com/2016/09/24/get和post/</id>
+    <published>2016-09-24T05:41:17.000Z</published>
+    <updated>2018-03-16T05:09:59.044Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol><li>get主要用于从服务器查询数据，post用于向服务器提交数据</li><li>get通过URL传递数据，post通过http请求传递数据</li><li>get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式</li><li>get 安全性较低。容易在url中暴露数据，post安全性较高</li></ol><h3 id="有关-GET-请求的其他一些注释："><a href="#有关-GET-请求的其他一些注释：" class="headerlink" title="有关 GET 请求的其他一些注释："></a>有关 GET 请求的其他一些注释：</h3><ul><li>GET 请求可被缓存</li><li>GET 请求保留在浏览器历史记录中</li><li>GET 请求可被收藏为书签</li><li>GET 请求不应在处理敏感数据时使用</li><li>GET 请求有长度限制</li><li>GET 请求只应当用于取回数据</li></ul><h3 id="有关-POST-请求的其他一些注释："><a href="#有关-POST-请求的其他一些注释：" class="headerlink" title="有关 POST 请求的其他一些注释："></a>有关 POST 请求的其他一些注释：</h3><ul><li>POST 请求不会被缓存</li><li>POST 请求不会保留在浏览器历史记录中</li><li>POST 不能被收藏为书签</li><li>POST 请求对数据长度没有要求</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;GET和POST的区别&quot;&gt;&lt;a href=&quot;#GET和POST的区别&quot; class=&quot;headerlink&quot; title=&quot;GET和POST的区别&quot;&gt;&lt;/a&gt;GET和POST的区别&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;get主要用于从服务器查询数据，post用于向服务器提交
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="提交请求" scheme="http://yoursite.com/tags/%E6%8F%90%E4%BA%A4%E8%AF%B7%E6%B1%82/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS对象</title>
     <link href="http://yoursite.com/2016/08/07/js%E5%AF%B9%E8%B1%A1/"/>
     <id>http://yoursite.com/2016/08/07/js对象/</id>
@@ -446,32 +498,6 @@
     
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GET和POST</title>
-    <link href="http://yoursite.com/2016/07/18/get%E5%92%8Cpost/"/>
-    <id>http://yoursite.com/2016/07/18/get和post/</id>
-    <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T07:09:41.126Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol><li>get主要用于从服务器查询数据，post用于向服务器提交数据</li><li>get通过URL传递数据，post通过http请求传递数据</li><li>get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式</li><li>get 安全性较低。容易在url中暴露数据，post安全性较高</li></ol><h3 id="有关-GET-请求的其他一些注释："><a href="#有关-GET-请求的其他一些注释：" class="headerlink" title="有关 GET 请求的其他一些注释："></a>有关 GET 请求的其他一些注释：</h3><ul><li>GET 请求可被缓存</li><li>GET 请求保留在浏览器历史记录中</li><li>GET 请求可被收藏为书签</li><li>GET 请求不应在处理敏感数据时使用</li><li>GET 请求有长度限制</li><li>GET 请求只应当用于取回数据</li></ul><h3 id="有关-POST-请求的其他一些注释："><a href="#有关-POST-请求的其他一些注释：" class="headerlink" title="有关 POST 请求的其他一些注释："></a>有关 POST 请求的其他一些注释：</h3><ul><li>POST 请求不会被缓存</li><li>POST 请求不会保留在浏览器历史记录中</li><li>POST 不能被收藏为书签</li><li>POST 请求对数据长度没有要求</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;GET和POST的区别&quot;&gt;&lt;a href=&quot;#GET和POST的区别&quot; class=&quot;headerlink&quot; title=&quot;GET和POST的区别&quot;&gt;&lt;/a&gt;GET和POST的区别&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;get主要用于从服务器查询数据，post用于向服务器提交
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="http" scheme="http://yoursite.com/tags/http/"/>
     
   </entry>
   
