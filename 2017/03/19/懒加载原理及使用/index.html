@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="懒加载," />
 
 
 
@@ -81,13 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yang.Xu">
-<meta property="og:url" content="http://yoursite.com/tags/边框/index.html">
+<meta name="description" content="懒加载的原理及使用12把懒加载真正要加载的图片网址存在data-original=这个自定义属性里谁要懒加载，就用jQuery找到谁，并调用它的lazyload方法就可以了  不管图片隐藏还是显示  有src属性都会去加载 那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间 解决方案：自己控制图片的加载  当进入可视区域内容才去加载 怎么控制呢？ 通过控">
+<meta name="keywords" content="懒加载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="懒加载的原理及使用">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/懒加载原理及使用/index.html">
 <meta property="og:site_name" content="Yang.Xu">
+<meta property="og:description" content="懒加载的原理及使用12把懒加载真正要加载的图片网址存在data-original=这个自定义属性里谁要懒加载，就用jQuery找到谁，并调用它的lazyload方法就可以了  不管图片隐藏还是显示  有src属性都会去加载 那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间 解决方案：自己控制图片的加载  当进入可视区域内容才去加载 怎么控制呢？ 通过控">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T01:12:35.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yang.Xu">
+<meta name="twitter:title" content="懒加载的原理及使用">
+<meta name="twitter:description" content="懒加载的原理及使用12把懒加载真正要加载的图片网址存在data-original=这个自定义属性里谁要懒加载，就用jQuery找到谁，并调用它的lazyload方法就可以了  不管图片隐藏还是显示  有src属性都会去加载 那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间 解决方案：自己控制图片的加载  当进入可视区域内容才去加载 怎么控制呢？ 通过控">
 
 
 
@@ -117,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/边框/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/19/懒加载原理及使用/"/>
 
 
 
 
 
-  <title>标签: 边框 | Yang.Xu</title>
+  <title>懒加载的原理及使用 | Yang.Xu</title>
   
 
 
@@ -152,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,54 +295,272 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>边框<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/懒加载原理及使用/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang.Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang.Xu">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/16/border边框/" itemprop="url">
-              
-                <span itemprop="name">border边框</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">懒加载的原理及使用</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-16T17:07:05+08:00"
-              content="2017-11-16" >
-          11-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T21:43:15+08:00">
+                2017-03-19
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/19/懒加载原理及使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/03/19/懒加载原理及使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="懒加载的原理及使用"><a href="#懒加载的原理及使用" class="headerlink" title="懒加载的原理及使用"></a>懒加载的原理及使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把懒加载真正要加载的图片网址存在data-original=这个自定义属性里</span><br><span class="line">谁要懒加载，就用jQuery找到谁，并调用它的lazyload方法就可以了</span><br></pre></td></tr></table></figure>
+<ol>
+<li>不管图片隐藏还是显示  有src属性都会去加载</li>
+<li>那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间</li>
+<li>解决方案：自己控制图片的加载  当进入可视区域内容才去加载</li>
+<li>怎么控制呢？ 通过控制src属性来控制图片加载 也就是说src先不给值，当滚到那张图片的显示区域时再加载</li>
+<li>滚到以后再给它src的值，真正要显示图片的值</li>
+<li>思路怎么样？ 首先默认所有的图片都不使用src属性，自定义一个属性存路径，当进入可视区域追加到src属性</li>
+<li>使用插件  基于jquery的图片加载插件</li>
+<li>jquery.lazyload.js  延时加载图片</li>
+</ol>
+<h3 id="插件的参数"><a href="#插件的参数" class="headerlink" title="插件的参数"></a>插件的参数</h3><ol>
+<li>用图片提前占位</li>
+</ol>
+<p>placeholder : “img/grey.gif”,<br>参数:placeholder,值为某一图片路径.此图片用来占据将要加载的图片的位置,待图片加载时,占位图则会隐藏</p>
+<ol>
+<li>载入使用何种效果</li>
+</ol>
+<p>effect : “fadeIn”,<br>参数：effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn</p>
+<ol>
+<li>提前开始加载</li>
+</ol>
+<p>threshold : 200,<br>参数:threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉.</p>
+<ol>
+<li>事件触发时才加载</li>
+</ol>
+<p>event : “click”,<br>参数:event,值有click(点击),mouseover(鼠标划过),sporty(运动的),foobar(…).可以实现鼠标莫过或点击图片才开始加载,后两个值未测试…</p>
+<ol>
+<li>对某容器中的图片实现效果</li>
+</ol>
+<p>container: $(”#container”),<br>参数:container,值为某容器.lazyload默认在拉动浏览器滚动条时生效,这个参数可以让你在拉动某DIV的滚动条时依次加载其中的图片</p>
+<ol>
+<li>图片排序混乱时</li>
+</ol>
+<p>failurelimit : 10,<br>参数:failurelimit,值为数字.lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit意在加载N张可见区域外的图片,以避免出现这个问题.</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yang.Xu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yang.Xu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/懒加载/" rel="tag"># 懒加载</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/08/笨笨的小鸟/" rel="next" title="Canvas小鸟游戏">
+                <i class="fa fa-chevron-left"></i> Canvas小鸟游戏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/17/Sass高级语法/" rel="prev" title="sass 高级语法补充">
+                sass 高级语法补充 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -345,6 +568,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -365,8 +599,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -436,6 +679,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载的原理及使用"><span class="nav-number">1.</span> <span class="nav-text">懒加载的原理及使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插件的参数"><span class="nav-number">1.1.</span> <span class="nav-text">插件的参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -576,6 +835,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -622,6 +885,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1489930995000', 
+            owner: 'chuzhuangtai',
+            repo: 'chuzhuangtai.github.io',
+            
+            lang: "zh-Hans# Force language, or auto switch by theme" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3866b71e82e50e7c2233454e9f13e9cfbf3c1861',
+            
+                client_id: 'a918efbd5d979d0d6eca'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
