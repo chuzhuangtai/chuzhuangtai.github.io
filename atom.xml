@@ -144,28 +144,27 @@
   </entry>
   
   <entry>
-    <title>border边框</title>
-    <link href="http://yoursite.com/2017/11/16/border%E8%BE%B9%E6%A1%86/"/>
-    <id>http://yoursite.com/2017/11/16/border边框/</id>
-    <published>2017-11-16T09:07:05.000Z</published>
-    <updated>2018-03-14T01:12:27.437Z</updated>
+    <title>盒子拖拽</title>
+    <link href="http://yoursite.com/2017/12/20/%E6%8B%96%E6%8B%BD/"/>
+    <id>http://yoursite.com/2017/12/20/拖拽/</id>
+    <published>2017-12-20T13:11:51.000Z</published>
+    <updated>2018-03-30T13:12:10.787Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="hover-加边框"><a href="#hover-加边框" class="headerlink" title="hover 加边框"></a>hover 加边框</h3><blockquote><p>当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。</p></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了border:1px solid transparent;</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h2><h3 id="拖拽事件"><a href="#拖拽事件" class="headerlink" title="拖拽事件"></a>拖拽事件</h3><ul><li>要想让一个元素可以被拖拽，需要设置其 draggable=”true”</li><li><p>被拖拽的子元素，可以实现以下事件：</p><ul><li>ondragstart： 拖拽开始</li><li>ondrag：拖拽中</li><li>ondragend： 拖拽结束</li><li>ondragleave： 离开父盒子</li><li>ondrop: 松手</li></ul></li><li><p>对被拖入子元素的父盒子</p><ul><li>ondragover： 经过父盒子</li><li>ondragenter： 进入父盒子<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3></li></ul></li><li>将红色方块从第一个盒子移入第二个盒子中<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .box1, .box2 &#123;</span></span><br><span class="line"><span class="undefined">            width: 800px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            background-color: yellowgreen;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .littleBox &#123;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: red;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第一个盒子<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"littleBox"</span> <span class="attr">draggable</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第二个盒子<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     var littleBox = document.querySelector(".littleBox");</span></span><br><span class="line"><span class="undefined">     var beginBox = document.querySelector(".box1");</span></span><br><span class="line"><span class="undefined">     var endBox = document.querySelector(".box2");</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     //开始拖拽</span></span><br><span class="line"><span class="undefined">     littleBox.ondragstart = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("开始拖拽");</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     //拖拽中</span></span><br><span class="line"><span class="undefined">     littleBox.ondrag = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("正在拖拽");</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     //拖拽结束</span></span><br><span class="line"><span class="undefined">     littleBox.ondragend = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("结束拖拽");</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     //离开父盒子</span></span><br><span class="line"><span class="undefined">     littleBox.ondragleave = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("离开父盒子");</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     //为下面的盒子绑定拖入事件</span></span><br><span class="line"><span class="undefined">     //默认是不允许拖入的， 修改默认值</span></span><br><span class="line"><span class="undefined">     endBox.ondragover = function (event) &#123;</span></span><br><span class="line"><span class="undefined">         //阻止默认行为</span></span><br><span class="line"><span class="undefined">         event.preventDefault();</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     endBox.ondragenter = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("进入");</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     endBox.ondrop = function () &#123;</span></span><br><span class="line"><span class="undefined">         console.log("松手");</span></span><br><span class="line"><span class="undefined">         this.appendChild(littleBox);</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;hover-加边框&quot;&gt;&lt;a href=&quot;#hover-加边框&quot; class=&quot;headerlink&quot; title=&quot;hover 加边框&quot;&gt;&lt;/a&gt;hover 加边框&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;当给border加上鼠标移入加边框事件 hover 时，会
+        &lt;h2 id=&quot;拖拽&quot;&gt;&lt;a href=&quot;#拖拽&quot; class=&quot;headerlink&quot; title=&quot;拖拽&quot;&gt;&lt;/a&gt;拖拽&lt;/h2&gt;&lt;h3 id=&quot;拖拽事件&quot;&gt;&lt;a href=&quot;#拖拽事件&quot; class=&quot;headerlink&quot; title=&quot;拖拽事件&quot;&gt;&lt;/a&gt;拖拽事件&lt;/h
       
     
     </summary>
     
-      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="边框" scheme="http://yoursite.com/tags/%E8%BE%B9%E6%A1%86/"/>
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
   </entry>
   
@@ -426,6 +425,33 @@
   </entry>
   
   <entry>
+    <title>同步和异步</title>
+    <link href="http://yoursite.com/2017/01/20/%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/"/>
+    <id>http://yoursite.com/2017/01/20/同步和异步/</id>
+    <published>2017-01-20T13:44:32.000Z</published>
+    <updated>2018-03-30T13:44:46.091Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="js编译器编译代码的流程"><a href="#js编译器编译代码的流程" class="headerlink" title="js编译器编译代码的流程"></a>js编译器编译代码的流程</h3><ul><li>1.从上往下依次解析代码</li><li>2.如果是同步执行，则立即编译，直到该同步执行完毕之后才会继续编译<ul><li>同步执行会阻塞线程</li></ul></li><li>3.如果是异步执行，编译器不执行而是将该异步代码放入回调池中<ul><li>异步不会阻塞线程</li><li>异步一定是在同步之后执行</li></ul></li><li>4.编译器直到整个文件编译结束之后，再执行异步的代码</li></ul><h3 id="同步与异步的区别"><a href="#同步与异步的区别" class="headerlink" title="同步与异步的区别"></a>同步与异步的区别</h3><ul><li>API：异步有回调函数无返回值，同步有返回值无回调</li><li>性能：异步性能高，同步性能低</li><li>执行顺序：同步按照从上往下顺序执行，异步无序执行</li><li>线程：异步不会阻塞线程，同步会阻塞线程</li></ul><p>异步有ajax , setTimeout</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;js编译器编译代码的流程&quot;&gt;&lt;a href=&quot;#js编译器编译代码的流程&quot; class=&quot;headerlink&quot; title=&quot;js编译器编译代码的流程&quot;&gt;&lt;/a&gt;js编译器编译代码的流程&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;1.从上往下依次解析代码&lt;/li&gt;
+&lt;li&gt;2.
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端向后台发送请求的几种方式</title>
     <link href="http://yoursite.com/2016/11/12/%E5%89%8D%E7%AB%AF%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"/>
     <id>http://yoursite.com/2016/11/12/前端向后台发送请求方式/</id>
@@ -455,16 +481,16 @@
     <link href="http://yoursite.com/2016/09/24/get%E5%92%8Cpost/"/>
     <id>http://yoursite.com/2016/09/24/get和post/</id>
     <published>2016-09-24T05:41:17.000Z</published>
-    <updated>2018-03-16T05:09:59.044Z</updated>
+    <updated>2018-03-30T13:37:53.611Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol><li>get主要用于从服务器查询数据，post用于向服务器提交数据</li><li>get通过URL传递数据，post通过http请求传递数据</li><li>get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式</li><li>get 安全性较低。容易在url中暴露数据，post安全性较高</li></ol><h3 id="有关-GET-请求的其他一些注释："><a href="#有关-GET-请求的其他一些注释：" class="headerlink" title="有关 GET 请求的其他一些注释："></a>有关 GET 请求的其他一些注释：</h3><ul><li>GET 请求可被缓存</li><li>GET 请求保留在浏览器历史记录中</li><li>GET 请求可被收藏为书签</li><li>GET 请求不应在处理敏感数据时使用</li><li>GET 请求有长度限制</li><li>GET 请求只应当用于取回数据</li></ul><h3 id="有关-POST-请求的其他一些注释："><a href="#有关-POST-请求的其他一些注释：" class="headerlink" title="有关 POST 请求的其他一些注释："></a>有关 POST 请求的其他一些注释：</h3><ul><li>POST 请求不会被缓存</li><li>POST 请求不会保留在浏览器历史记录中</li><li>POST 不能被收藏为书签</li><li>POST 请求对数据长度没有要求</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h2><ul><li><p><strong><em>如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果使用a标签跳转服务器响应返回会跳转到新界面</em></strong></p></li><li><p>浏览器发送get请求两种方式</p><ul><li><p>1.href属性可以发送get请求</p></li><li><p>2.ajax发送</p><ul><li><p>本质上还是url协议的参数格式  <code>/路径?key1=value1&amp;key2=value2</code></p><ul><li><p>?表示参数的开始</p></li><li><p>key=value:参数的键值对</p></li><li><p>&amp;：多个参数之间使用&amp;符号分隔</p><p>​</p></li></ul></li></ul></li></ul><p>​</p></li></ul><h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol><li>get主要用于从服务器查询数据，post用于向服务器提交数据</li><li>get通过URL传递数据，post通过http请求传递数据</li><li>get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式</li><li>get 安全性较低。容易在url中暴露数据，post安全性较高</li></ol><h3 id="有关-GET-请求的其他一些注释："><a href="#有关-GET-请求的其他一些注释：" class="headerlink" title="有关 GET 请求的其他一些注释："></a>有关 GET 请求的其他一些注释：</h3><ul><li>GET 请求可被缓存</li><li>GET 请求保留在浏览器历史记录中</li><li>GET 请求可被收藏为书签</li><li>GET 请求不应在处理敏感数据时使用</li><li>GET 请求有长度限制</li><li>GET 请求只应当用于取回数据</li></ul><h3 id="有关-POST-请求的其他一些注释："><a href="#有关-POST-请求的其他一些注释：" class="headerlink" title="有关 POST 请求的其他一些注释："></a>有关 POST 请求的其他一些注释：</h3><ul><li>POST 请求不会被缓存</li><li>POST 请求不会保留在浏览器历史记录中</li><li>POST 不能被收藏为书签</li><li>POST 请求对数据长度没有要求</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;GET和POST的区别&quot;&gt;&lt;a href=&quot;#GET和POST的区别&quot; class=&quot;headerlink&quot; title=&quot;GET和POST的区别&quot;&gt;&lt;/a&gt;GET和POST的区别&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;get主要用于从服务器查询数据，post用于向服务器提交
+        &lt;h2 id=&quot;get请求&quot;&gt;&lt;a href=&quot;#get请求&quot; class=&quot;headerlink&quot; title=&quot;get请求&quot;&gt;&lt;/a&gt;get请求&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果
       
     
     </summary>
@@ -498,31 +524,6 @@
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css高清背景图</title>
-    <link href="http://yoursite.com/2016/07/18/css%E9%AB%98%E6%B8%85%E5%9B%BE/"/>
-    <id>http://yoursite.com/2016/07/18/css高清图/</id>
-    <published>2016-07-18T09:07:05.000Z</published>
-    <updated>2018-03-12T07:12:26.523Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS高清背景图"><a href="#CSS高清背景图" class="headerlink" title="CSS高清背景图"></a>CSS高清背景图</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度<ol><li>css的像素的宽度： 在开发过程中，布局直接使用的宽度</li><li>手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片</li><li>在前端开发的时候，一般使用一个2倍图就可以了</li></ol></li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li>假如我们使用的就是一个小图标： 那么只需要把 background-size 设为图片本身的一半，就可以了<br> ´background: url(“./images/im_2x.png”) no-repeat 0px 0px /57px 21px;</li><li>如果使用的是精灵图： 那么要做的事情<ol><li>把background-position:x y; 设为它本来在精灵的位置的一半。</li><li>把background-size 也设为图片本身宽度的一半。</li></ol></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS高清背景图&quot;&gt;&lt;a href=&quot;#CSS高清背景图&quot; class=&quot;headerlink&quot; title=&quot;CSS高清背景图&quot;&gt;&lt;/a&gt;CSS高清背景图&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   

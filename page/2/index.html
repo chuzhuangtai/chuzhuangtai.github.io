@@ -1219,6 +1219,165 @@ jQuery
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/20/同步和异步/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang.Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang.Xu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/01/20/同步和异步/" itemprop="url">同步和异步</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T21:44:32+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          js编译器编译代码的流程
+1.从上往下依次解析代码
+2.如果是同步执行，则立即编译，直到该同步执行完毕之后才会继续编译
+同步执行会阻塞线程
+
+
+3.如果是异步执行，编译器不执行而是将该异步代码放入回调池中
+异步不会阻塞线程
+异步一定是在同步之后执行
+
+
+4.编译器直到整个文件编译结束之后，再执行异步
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/20/同步和异步/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/12/前端向后台发送请求方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1472,11 +1631,16 @@ jQuery
       
         
           
-          GET和POST的区别
-get主要用于从服务器查询数据，post用于向服务器提交数据
-get通过URL传递数据，post通过http请求传递数据
-get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式
-get 安全性较低。容易在url中暴露数据
+          get请求
+如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果使用a标签跳转服务器响应返回会跳转到新界面
+
+浏览器发送get请求两种方式
+
+1.href属性可以发送get请求
+
+2.ajax发送
+
+本质上还是url协议的参数格式  /路径?key1=value1&amp;ke
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1666,163 +1830,11 @@ get 安全性较低。容易在url中暴露数据
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/18/css高清图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang.Xu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/596cd3e8d520e.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yang.Xu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/07/18/css高清图/" itemprop="url">css高清背景图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-18T17:07:05+08:00">
-                2016-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          CSS高清背景图说明
-现在的手机普遍使用的都是高清图，也就意味着屏幕有两个宽度
-css的像素的宽度： 在开发过程中，布局直接使用的宽度
-手机硬件的分辨率的宽度，一般情况下和CSS的宽度是一致的，但是近几年，都流行高清屏，硬件的宽度一般是css宽度的2倍或3倍，这个时候就需要使用高清图片
-在前端开发的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/18/css高清图/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1872,7 +1884,7 @@ css的像素的宽度： 在开发过程中，布局直接使用的宽度
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

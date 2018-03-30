@@ -1073,7 +1073,7 @@ JS中为了减少与服务器的通信，经常会用到保存的数据到本地
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/border边框/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/拖拽/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yang.Xu">
@@ -1092,7 +1092,7 @@ JS中为了减少与服务器的通信，经常会用到保存的数据到本地
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/16/border边框/" itemprop="url">border边框</a></h1>
+                <a class="post-title-link" href="/2017/12/20/拖拽/" itemprop="url">盒子拖拽</a></h1>
         
 
         <div class="post-meta">
@@ -1104,8 +1104,8 @@ JS中为了减少与服务器的通信，经常会用到保存的数据到本地
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T17:07:05+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T21:11:51+08:00">
+                2017-12-20
               </time>
             
 
@@ -1127,8 +1127,8 @@ JS中为了减少与服务器的通信，经常会用到保存的数据到本地
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -1166,14 +1166,22 @@ JS中为了减少与服务器的通信，经常会用到保存的数据到本地
       
         
           
-          hover 加边框
-当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。
+          拖拽拖拽事件
+要想让一个元素可以被拖拽，需要设置其 draggable=”true”
+被拖拽的子元素，可以实现以下事件：
 
-解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框
+ondragstart： 拖拽开始
+ondrag：拖拽中
+ondragend： 拖拽结束
+ondragleave： 离开父盒子
+ondrop: 松手
+
+
+对被拖入子元素的父盒子
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/16/border边框/#more" rel="contents">
+            <a class="btn" href="/2017/12/20/拖拽/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1838,7 +1846,7 @@ SQL基本概述
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1888,7 +1896,7 @@ SQL基本概述
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

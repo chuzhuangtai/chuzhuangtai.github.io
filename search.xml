@@ -56,14 +56,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[border边框]]></title>
-    <url>%2F2017%2F11%2F16%2Fborder%E8%BE%B9%E6%A1%86%2F</url>
-    <content type="text"><![CDATA[hover 加边框 当给border加上鼠标移入加边框事件 hover 时，会发现边框会改变原本的盒子大小，但是这个时候加上box-sizing:border-box;也并没有效果。 解决方案在原本的盒子模型中预先加上一个边框，并设置其颜色为透明即可，当做占位符。这样在后续给盒子添加鼠标移入加边框时就不会出现改变盒子模型的情况了 border:1px solid transparent;]]></content>
+    <title><![CDATA[盒子拖拽]]></title>
+    <url>%2F2017%2F12%2F20%2F%E6%8B%96%E6%8B%BD%2F</url>
+    <content type="text"><![CDATA[拖拽拖拽事件 要想让一个元素可以被拖拽，需要设置其 draggable=”true” 被拖拽的子元素，可以实现以下事件： ondragstart： 拖拽开始 ondrag：拖拽中 ondragend： 拖拽结束 ondragleave： 离开父盒子 ondrop: 松手 对被拖入子元素的父盒子 ondragover： 经过父盒子 ondragenter： 进入父盒子示例 将红色方块从第一个盒子移入第二个盒子中123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;title&gt;&lt;/title&gt; &lt;meta charset="UTF-8"&gt; &lt;style&gt; .box1, .box2 &#123; width: 800px; height: 200px; background-color: yellowgreen; &#125; .littleBox &#123; width: 100px; height: 100px; background-color: red; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;h3&gt;第一个盒子&lt;/h3&gt; &lt;div class="box1"&gt; &lt;div class="littleBox" draggable="true"&gt;&lt;/div&gt; &lt;/div&gt; &lt;h3&gt;第二个盒子&lt;/h3&gt; &lt;div class="box2"&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&lt;script&gt; var littleBox = document.querySelector(".littleBox"); var beginBox = document.querySelector(".box1"); var endBox = document.querySelector(".box2"); //开始拖拽 littleBox.ondragstart = function () &#123; console.log("开始拖拽"); &#125; //拖拽中 littleBox.ondrag = function () &#123; console.log("正在拖拽"); &#125; //拖拽结束 littleBox.ondragend = function () &#123; console.log("结束拖拽"); &#125; //离开父盒子 littleBox.ondragleave = function () &#123; console.log("离开父盒子"); &#125; //为下面的盒子绑定拖入事件 //默认是不允许拖入的， 修改默认值 endBox.ondragover = function (event) &#123; //阻止默认行为 event.preventDefault(); &#125; endBox.ondragenter = function () &#123; console.log("进入"); &#125; endBox.ondrop = function () &#123; console.log("松手"); this.appendChild(littleBox); &#125;&lt;/script&gt;]]></content>
       <categories>
-        <category>css</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>边框</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -177,6 +177,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[同步和异步]]></title>
+    <url>%2F2017%2F01%2F20%2F%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%2F</url>
+    <content type="text"><![CDATA[js编译器编译代码的流程 1.从上往下依次解析代码 2.如果是同步执行，则立即编译，直到该同步执行完毕之后才会继续编译 同步执行会阻塞线程 3.如果是异步执行，编译器不执行而是将该异步代码放入回调池中 异步不会阻塞线程 异步一定是在同步之后执行 4.编译器直到整个文件编译结束之后，再执行异步的代码 同步与异步的区别 API：异步有回调函数无返回值，同步有返回值无回调 性能：异步性能高，同步性能低 执行顺序：同步按照从上往下顺序执行，异步无序执行 线程：异步不会阻塞线程，同步会阻塞线程 异步有ajax , setTimeout]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端向后台发送请求的几种方式]]></title>
     <url>%2F2016%2F11%2F12%2F%E5%89%8D%E7%AB%AF%E5%90%91%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[前端向后台发送请求的几种方式1、 link标签的href属性 2、 script标签的src属性 3、 img标签的src属性 4、 ajax发送请求 5、 表单提交发送请求 6、 a标签的href发送请求 7、 iframe的src属性发送请求]]></content>
@@ -190,7 +201,7 @@
   <entry>
     <title><![CDATA[GET和POST]]></title>
     <url>%2F2016%2F09%2F24%2Fget%E5%92%8Cpost%2F</url>
-    <content type="text"><![CDATA[GET和POST的区别 get主要用于从服务器查询数据，post用于向服务器提交数据 get通过URL传递数据，post通过http请求传递数据 get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式 get 安全性较低。容易在url中暴露数据，post安全性较高 有关 GET 请求的其他一些注释： GET 请求可被缓存 GET 请求保留在浏览器历史记录中 GET 请求可被收藏为书签 GET 请求不应在处理敏感数据时使用 GET 请求有长度限制 GET 请求只应当用于取回数据 有关 POST 请求的其他一些注释： POST 请求不会被缓存 POST 请求不会保留在浏览器历史记录中 POST 不能被收藏为书签 POST 请求对数据长度没有要求]]></content>
+    <content type="text"><![CDATA[get请求 如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果使用a标签跳转服务器响应返回会跳转到新界面 浏览器发送get请求两种方式 1.href属性可以发送get请求 2.ajax发送 本质上还是url协议的参数格式 /路径?key1=value1&amp;key2=value2 ?表示参数的开始 key=value:参数的键值对 &amp;：多个参数之间使用&amp;符号分隔 ​ ​ GET和POST的区别 get主要用于从服务器查询数据，post用于向服务器提交数据 get通过URL传递数据，post通过http请求传递数据 get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式 get 安全性较低。容易在url中暴露数据，post安全性较高 有关 GET 请求的其他一些注释： GET 请求可被缓存 GET 请求保留在浏览器历史记录中 GET 请求可被收藏为书签 GET 请求不应在处理敏感数据时使用 GET 请求有长度限制 GET 请求只应当用于取回数据 有关 POST 请求的其他一些注释： POST 请求不会被缓存 POST 请求不会保留在浏览器历史记录中 POST 不能被收藏为书签 POST 请求对数据长度没有要求]]></content>
       <categories>
         <category>前端</category>
       </categories>
