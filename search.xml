@@ -155,6 +155,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[模板引擎]]></title>
+    <url>%2F2017%2F04%2F05%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%2F</url>
+    <content type="text"><![CDATA[模板引擎渲染的本质 只是字符串的替换 使用js语言实现字符串的替换 只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成客户端模板引擎用法 （1）导入art-template （2） ajax请求模板数据 （3）写模板（script标签中 text属性不能是javascript）&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt; （4）模板引擎渲染 template(模板id，数据) express配置模板引擎 配置模板引擎用法 express中的模板引擎：默认情况下express中的模板引擎是jade第三方 模板引擎的第三方有很多种，有十几种，art-template只是其中一种 如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express art-template：http://aui.github.io/art-template/express/ 1.先下载第三方模块，需要下载两个 npm install --save art-template npm install --save express-art-template 2.配置模板引擎：两行代码 app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;)) 第一个参数：模板文件的后缀名，一般为html 第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴 app.set(&#39;view engine&#39;,&#39;html&#39;) 第一个参数：固定字符串 view engine:模板引擎 第二个参数：与第一行代码的第一个参数一致即可 一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数 3.使用模板引擎：res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;) 第一个参数：要渲染的模板文件名 默认情况下express只会从views文件夹下寻找模板文件 views是服务端MVC的V层文件夹标准叫法 第二个参数：要渲染的数据 只能是json对象，如果为空则直接响应返回html]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>模板引擎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[懒加载的原理及使用]]></title>
     <url>%2F2017%2F03%2F19%2F%E6%87%92%E5%8A%A0%E8%BD%BD%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[懒加载的原理及使用12把懒加载真正要加载的图片网址存在data-original=这个自定义属性里谁要懒加载，就用jQuery找到谁，并调用它的lazyload方法就可以了 不管图片隐藏还是显示 有src属性都会去加载 那么如果页面上有太多的图片 而且有些图片不在可视窗口内 如果加载了会影响页面的渲染页面时间 解决方案：自己控制图片的加载 当进入可视区域内容才去加载 怎么控制呢？ 通过控制src属性来控制图片加载 也就是说src先不给值，当滚到那张图片的显示区域时再加载 滚到以后再给它src的值，真正要显示图片的值 思路怎么样？ 首先默认所有的图片都不使用src属性，自定义一个属性存路径，当进入可视区域追加到src属性 使用插件 基于jquery的图片加载插件 jquery.lazyload.js 延时加载图片 插件的参数 用图片提前占位 placeholder : “img/grey.gif”,参数:placeholder,值为某一图片路径.此图片用来占据将要加载的图片的位置,待图片加载时,占位图则会隐藏 载入使用何种效果 effect : “fadeIn”,参数：effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn 提前开始加载 threshold : 200,参数:threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉. 事件触发时才加载 event : “click”,参数:event,值有click(点击),mouseover(鼠标划过),sporty(运动的),foobar(…).可以实现鼠标莫过或点击图片才开始加载,后两个值未测试… 对某容器中的图片实现效果 container: $(”#container”),参数:container,值为某容器.lazyload默认在拉动浏览器滚动条时生效,这个参数可以让你在拉动某DIV的滚动条时依次加载其中的图片 图片排序混乱时 failurelimit : 10,参数:failurelimit,值为数字.lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit意在加载N张可见区域外的图片,以避免出现这个问题.]]></content>
