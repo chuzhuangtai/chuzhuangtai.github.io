@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-12T09:01:34.430Z</updated>
+  <updated>2018-04-05T13:38:13.742Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模板引擎</title>
+    <link href="http://yoursite.com/2018/04/05/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
+    <id>http://yoursite.com/2018/04/05/模板引擎/</id>
+    <published>2018-04-05T13:32:56.000Z</published>
+    <updated>2018-04-05T13:38:13.742Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="模板引擎渲染的本质"><a href="#模板引擎渲染的本质" class="headerlink" title="模板引擎渲染的本质"></a>模板引擎渲染的本质</h2><ul><li>只是字符串的替换<ul><li>使用js语言实现字符串的替换<ul><li>只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成<h2 id="客户端模板引擎用法"><a href="#客户端模板引擎用法" class="headerlink" title="客户端模板引擎用法"></a>客户端模板引擎用法</h2></li></ul></li></ul></li><li>（1）导入art-template</li><li>（2） ajax请求模板数据<ul><li>（3）写模板（script标签中 text属性不能是javascript）<br><code>&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt;</code></li></ul></li><li>（4）模板引擎渲染  template(模板id，数据)</li></ul><h2 id="express配置模板引擎"><a href="#express配置模板引擎" class="headerlink" title="express配置模板引擎"></a>express配置模板引擎</h2><ul><li>配置模板引擎用法<ul><li>express中的模板引擎：默认情况下express中的模板引擎是jade第三方<ul><li>模板引擎的第三方有很多种，有十几种，art-template只是其中一种</li></ul></li><li>如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express<ul><li>art-template：<a href="http://aui.github.io/art-template/express/" target="_blank" rel="noopener">http://aui.github.io/art-template/express/</a></li></ul></li><li>1.先下载第三方模块，需要下载两个<ul><li><code>npm install --save art-template</code></li><li><code>npm install --save express-art-template</code></li></ul></li><li>2.配置模板引擎：两行代码<ul><li><code>app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;))</code><ul><li>第一个参数：模板文件的后缀名，一般为html</li><li>第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴</li></ul></li><li><code>app.set(&#39;view engine&#39;,&#39;html&#39;)</code><ul><li>第一个参数：固定字符串 view engine:模板引擎</li><li>第二个参数：与第一行代码的第一个参数一致即可</li></ul></li><li>一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数</li></ul></li><li>3.使用模板引擎：<code>res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;)</code><ul><li>第一个参数：要渲染的模板文件名<ul><li><strong><em>默认情况下express只会从<code>views</code>文件夹下寻找模板文件</em></strong><ul><li>views是服务端MVC的V层文件夹标准叫法</li></ul></li></ul></li><li>第二个参数：要渲染的数据<ul><li><strong><em>只能是json对象，如果为空则直接响应返回html</em></strong></li></ul></li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;模板引擎渲染的本质&quot;&gt;&lt;a href=&quot;#模板引擎渲染的本质&quot; class=&quot;headerlink&quot; title=&quot;模板引擎渲染的本质&quot;&gt;&lt;/a&gt;模板引擎渲染的本质&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;只是字符串的替换&lt;ul&gt;
+&lt;li&gt;使用js语言实现字符串的替换&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="模板引擎" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>闭包</title>
@@ -274,6 +302,31 @@
   </entry>
   
   <entry>
+    <title>mongodb</title>
+    <link href="http://yoursite.com/2017/07/17/mongoose%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/07/17/mongoose使用完整流程/</id>
+    <published>2017-07-17T12:19:40.000Z</published>
+    <updated>2018-04-06T12:20:04.317Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-什么是mongodb"><a href="#1-什么是mongodb" class="headerlink" title="1. 什么是mongodb"></a>1. 什么是mongodb</h2><h3 id="1-1-mongodb是一种非关系型数据库"><a href="#1-1-mongodb是一种非关系型数据库" class="headerlink" title="1.1 mongodb是一种非关系型数据库"></a>1.1 mongodb是一种非关系型数据库</h3><p>特点：</p><ul><li>免费</li><li>分布式</li><li>高并发</li></ul><h2 id="2-搭建mongodb环境"><a href="#2-搭建mongodb环境" class="headerlink" title="2. 搭建mongodb环境"></a>2. 搭建mongodb环境</h2><h4 id="第一环节：开启mongodb服务"><a href="#第一环节：开启mongodb服务" class="headerlink" title="第一环节：开启mongodb服务"></a>第一环节：开启mongodb服务</h4><ul><li>1.下载安装：mongodb安装包</li><li>2.开启mongodb服务<ul><li>打开终端，进入安装包目录</li><li>在终端输入:<code>mongod</code>开启数据库服务</li></ul></li><li>3.默认情况下开启数据库服务会报错：<code>exception in initAndListen: 29 Data directory C:\data\db\ not found., terminating</code><ul><li>原因：没有指定数据库存储路径</li><li>默认情况下mongodb会将数据库文件保存在安装包的磁盘根目录：例如:<code>C:\data\db\</code></li></ul></li><li>4.手动在你的mongodb安装包的磁盘根目录（默认是C盘），创建<code>data/db</code>文件夹</li><li>5.创建完<code>C:\data\db</code>之后，重复步骤2，如果终端出现<code>waiting for connections on port 27017</code>表示配置成功<ul><li><strong><em>此时这个终端窗口就相当于mongodb软件，不能关闭，一旦关闭数据库无法使用</em></strong></li></ul></li></ul><h4 id="第二个环节：连接mongodb服务，相当于开启excel软件"><a href="#第二个环节：连接mongodb服务，相当于开启excel软件" class="headerlink" title="第二个环节：连接mongodb服务，相当于开启excel软件"></a>第二个环节：连接mongodb服务，相当于开启excel软件</h4><ul><li><strong><em>细节：连接mongodb服务的前提是已经开启了服务</em></strong></li><li>Robomongo：可视化数据库操作工具，mongodb专用的</li><li>1.安装robo3t</li><li>2.打开之后点击create创建一个链接：默认mongodb的端口是27017无需修改</li><li>3.选择连接刚刚创建的链接</li></ul><h2 id="3-mongodb存储数据结构"><a href="#3-mongodb存储数据结构" class="headerlink" title="3.mongodb存储数据结构"></a>3.mongodb存储数据结构</h2><ul><li>1.数据库服务：关系型：excel软件  非关系型：mongod mongosse:<ul><li>一个数据库服务可以有很多个数据库</li><li>2.数据库：database  关系型：一个excel文件 非关系型：database mongoose：database<ul><li>一个数据库下可以有很多张表</li><li>3.表：table  关系型：表格table  非关系型：集合collections  mongoose：model<ul><li>列：cloum 确定表的存储数据结构 mongoose:schema</li><li>4.一个表中可以有很多行：关系型：记录、行  非关系型：文档（Documents）  mongoose:实体entity</li></ul></li></ul></li></ul></li></ul><h2 id="4-数据增删改查"><a href="#4-数据增删改查" class="headerlink" title="4.数据增删改查"></a>4.数据增删改查</h2><h3 id="mongoose介绍-第三方模块"><a href="#mongoose介绍-第三方模块" class="headerlink" title="mongoose介绍:第三方模块"></a>mongoose介绍:第三方模块</h3><ul><li>特点：1.异步环境（与nodejs高性能不谋而合）<ul><li>2.基于ORM（object relational Mapping）技术：对象关系映射技术(以面向对象的思维操作数据库)<ul><li>说人话：通过操作对象来操作数据库（看不到sql语句，看不到数据库操作，增删改查已经变成一个对象的四个方法API）</li></ul></li></ul></li></ul><ul><li><p>mongodb，mongod，robomongo,mongoose三者之前的关系与区别</p><ul><li><p>mongodb：数据库的名字</p></li><li><p>mongod：数据库服务，要想使用数据库必须要开启服务</p></li><li><p>robomongo:数据库的客户端（有界面，使用鼠标来操作数据库的增删改查）</p></li><li><p>mongoose：数据库的客户端（无界面，使用代码来操作数据库的增删改查）</p></li></ul></li></ul><h2 id="5-mongoose使用完整流程"><a href="#5-mongoose使用完整流程" class="headerlink" title="5. mongoose使用完整流程"></a>5. mongoose使用完整流程</h2><ul><li>1.导入mongoose：<code>var mongoose = require(&#39;mongoose&#39;)</code></li><li>2.连接数据库:<code>mongoose.connect(&#39;mongodb://localhost/数据库名字&#39;)</code></li><li>3.创建Schema：<code>var schema = mongoose.Schema({属性名：数据类型})</code><ul><li>（1）确定数据库数据结构</li><li>（2）创建model</li></ul></li><li>4.创建Model:<code>var model = mongoose.model(模型名字,schema)</code><ul><li>第一个参数：要创建的model名（集合collections名字）<ul><li>mongoose默认会将首字母小写</li><li>会以复数的形式</li></ul></li><li>第二个参数<ul><li>schema</li></ul></li></ul></li><li>5.创建Entity：<code>var entity = new model({属性名：值})</code></li><li><p>6.增删改查</p></li><li><p>6.mongoose实现增删改查</p><ul><li>增加：create()</li><li>查询：find()、findOne()、findById()</li><li>修改：update()、updateMany()</li><li>删除：deleteOne()、deleteMany()</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-什么是mongodb&quot;&gt;&lt;a href=&quot;#1-什么是mongodb&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是mongodb&quot;&gt;&lt;/a&gt;1. 什么是mongodb&lt;/h2&gt;&lt;h3 id=&quot;1-1-mongodb是一种非关系型数据库&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="mongodb" scheme="http://yoursite.com/categories/mongodb/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>相对长度单位</title>
     <link href="http://yoursite.com/2017/07/03/%E7%9B%B8%E5%AF%B9%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D/"/>
     <id>http://yoursite.com/2017/07/03/相对长度单位/</id>
@@ -371,34 +424,6 @@
     
     
       <category term="sass语法" scheme="http://yoursite.com/tags/sass%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模板引擎</title>
-    <link href="http://yoursite.com/2017/04/05/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
-    <id>http://yoursite.com/2017/04/05/模板引擎/</id>
-    <published>2017-04-05T13:32:56.000Z</published>
-    <updated>2018-04-05T13:33:14.703Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="模板引擎渲染的本质"><a href="#模板引擎渲染的本质" class="headerlink" title="模板引擎渲染的本质"></a>模板引擎渲染的本质</h2><ul><li>只是字符串的替换<ul><li>使用js语言实现字符串的替换<ul><li>只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成<h2 id="客户端模板引擎用法"><a href="#客户端模板引擎用法" class="headerlink" title="客户端模板引擎用法"></a>客户端模板引擎用法</h2></li></ul></li></ul></li><li>（1）导入art-template</li><li>（2） ajax请求模板数据<ul><li>（3）写模板（script标签中 text属性不能是javascript）<br><code>&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt;</code></li></ul></li><li>（4）模板引擎渲染  template(模板id，数据)</li></ul><h2 id="express配置模板引擎"><a href="#express配置模板引擎" class="headerlink" title="express配置模板引擎"></a>express配置模板引擎</h2><ul><li>配置模板引擎用法<ul><li>express中的模板引擎：默认情况下express中的模板引擎是jade第三方<ul><li>模板引擎的第三方有很多种，有十几种，art-template只是其中一种</li></ul></li><li>如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express<ul><li>art-template：<a href="http://aui.github.io/art-template/express/" target="_blank" rel="noopener">http://aui.github.io/art-template/express/</a></li></ul></li><li>1.先下载第三方模块，需要下载两个<ul><li><code>npm install --save art-template</code></li><li><code>npm install --save express-art-template</code></li></ul></li><li>2.配置模板引擎：两行代码<ul><li><code>app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;))</code><ul><li>第一个参数：模板文件的后缀名，一般为html</li><li>第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴</li></ul></li><li><code>app.set(&#39;view engine&#39;,&#39;html&#39;)</code><ul><li>第一个参数：固定字符串 view engine:模板引擎</li><li>第二个参数：与第一行代码的第一个参数一致即可</li></ul></li><li>一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数</li></ul></li><li>3.使用模板引擎：<code>res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;)</code><ul><li>第一个参数：要渲染的模板文件名<ul><li><strong><em>默认情况下express只会从<code>views</code>文件夹下寻找模板文件</em></strong><ul><li>views是服务端MVC的V层文件夹标准叫法</li></ul></li></ul></li><li>第二个参数：要渲染的数据<ul><li><strong><em>只能是json对象，如果为空则直接响应返回html</em></strong></li></ul></li></ul></li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;模板引擎渲染的本质&quot;&gt;&lt;a href=&quot;#模板引擎渲染的本质&quot; class=&quot;headerlink&quot; title=&quot;模板引擎渲染的本质&quot;&gt;&lt;/a&gt;模板引擎渲染的本质&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;只是字符串的替换&lt;ul&gt;
-&lt;li&gt;使用js语言实现字符串的替换&lt;ul&gt;
-
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="模板引擎" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
@@ -501,32 +526,6 @@
     
     
       <category term="发送请求" scheme="http://yoursite.com/tags/%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GET和POST</title>
-    <link href="http://yoursite.com/2016/09/24/get%E5%92%8Cpost/"/>
-    <id>http://yoursite.com/2016/09/24/get和post/</id>
-    <published>2016-09-24T05:41:17.000Z</published>
-    <updated>2018-03-30T13:37:53.611Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h2><ul><li><p><strong><em>如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果使用a标签跳转服务器响应返回会跳转到新界面</em></strong></p></li><li><p>浏览器发送get请求两种方式</p><ul><li><p>1.href属性可以发送get请求</p></li><li><p>2.ajax发送</p><ul><li><p>本质上还是url协议的参数格式  <code>/路径?key1=value1&amp;key2=value2</code></p><ul><li><p>?表示参数的开始</p></li><li><p>key=value:参数的键值对</p></li><li><p>&amp;：多个参数之间使用&amp;符号分隔</p><p>​</p></li></ul></li></ul></li></ul><p>​</p></li></ul><h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol><li>get主要用于从服务器查询数据，post用于向服务器提交数据</li><li>get通过URL传递数据，post通过http请求传递数据</li><li>get传输数据量有限制，不能大于2kb,post传递的数据量较大，一般大量的数据和文件提交都是通过Post方式</li><li>get 安全性较低。容易在url中暴露数据，post安全性较高</li></ol><h3 id="有关-GET-请求的其他一些注释："><a href="#有关-GET-请求的其他一些注释：" class="headerlink" title="有关 GET 请求的其他一些注释："></a>有关 GET 请求的其他一些注释：</h3><ul><li>GET 请求可被缓存</li><li>GET 请求保留在浏览器历史记录中</li><li>GET 请求可被收藏为书签</li><li>GET 请求不应在处理敏感数据时使用</li><li>GET 请求有长度限制</li><li>GET 请求只应当用于取回数据</li></ul><h3 id="有关-POST-请求的其他一些注释："><a href="#有关-POST-请求的其他一些注释：" class="headerlink" title="有关 POST 请求的其他一些注释："></a>有关 POST 请求的其他一些注释：</h3><ul><li>POST 请求不会被缓存</li><li>POST 请求不会保留在浏览器历史记录中</li><li>POST 不能被收藏为书签</li><li>POST 请求对数据长度没有要求</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;get请求&quot;&gt;&lt;a href=&quot;#get请求&quot; class=&quot;headerlink&quot; title=&quot;get请求&quot;&gt;&lt;/a&gt;get请求&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;如果浏览器使用ajax发送get请求，服务器响应数据不会跳转到新界面。如果
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="提交请求" scheme="http://yoursite.com/tags/%E6%8F%90%E4%BA%A4%E8%AF%B7%E6%B1%82/"/>
     
   </entry>
   

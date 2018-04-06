@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[模板引擎]]></title>
+    <url>%2F2018%2F04%2F05%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%2F</url>
+    <content type="text"><![CDATA[模板引擎渲染的本质 只是字符串的替换 使用js语言实现字符串的替换 只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成客户端模板引擎用法 （1）导入art-template （2） ajax请求模板数据 （3）写模板（script标签中 text属性不能是javascript）&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt; （4）模板引擎渲染 template(模板id，数据) express配置模板引擎 配置模板引擎用法 express中的模板引擎：默认情况下express中的模板引擎是jade第三方 模板引擎的第三方有很多种，有十几种，art-template只是其中一种 如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express art-template：http://aui.github.io/art-template/express/ 1.先下载第三方模块，需要下载两个 npm install --save art-template npm install --save express-art-template 2.配置模板引擎：两行代码 app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;)) 第一个参数：模板文件的后缀名，一般为html 第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴 app.set(&#39;view engine&#39;,&#39;html&#39;) 第一个参数：固定字符串 view engine:模板引擎 第二个参数：与第一行代码的第一个参数一致即可 一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数 3.使用模板引擎：res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;) 第一个参数：要渲染的模板文件名 默认情况下express只会从views文件夹下寻找模板文件 views是服务端MVC的V层文件夹标准叫法 第二个参数：要渲染的数据 只能是json对象，如果为空则直接响应返回html]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>模板引擎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[闭包]]></title>
     <url>%2F2018%2F03%2F12%2F%E9%97%AD%E5%8C%85%2F</url>
     <content type="text"><![CDATA[闭包 闭包就是能够读取其他函数内部变量的函数。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。 闭包的作用 让函数外可以访问函数内成员 让函数内成员始终活在内存中，生命周期延长。 解决变量污染（只读不改）面向对象封装思想 减少变量声明 控制某些数据访问权限（过滤非法数据） 闭包不能滥用，否则会导致内存泄露，影响网页的性能。闭包使用完了后，要立即释放资源，将引用变量指向null。]]></content>
@@ -111,6 +122,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[mongodb]]></title>
+    <url>%2F2017%2F07%2F17%2Fmongoose%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[1. 什么是mongodb1.1 mongodb是一种非关系型数据库特点： 免费 分布式 高并发 2. 搭建mongodb环境第一环节：开启mongodb服务 1.下载安装：mongodb安装包 2.开启mongodb服务 打开终端，进入安装包目录 在终端输入:mongod开启数据库服务 3.默认情况下开启数据库服务会报错：exception in initAndListen: 29 Data directory C:\data\db\ not found., terminating 原因：没有指定数据库存储路径 默认情况下mongodb会将数据库文件保存在安装包的磁盘根目录：例如:C:\data\db\ 4.手动在你的mongodb安装包的磁盘根目录（默认是C盘），创建data/db文件夹 5.创建完C:\data\db之后，重复步骤2，如果终端出现waiting for connections on port 27017表示配置成功 此时这个终端窗口就相当于mongodb软件，不能关闭，一旦关闭数据库无法使用 第二个环节：连接mongodb服务，相当于开启excel软件 细节：连接mongodb服务的前提是已经开启了服务 Robomongo：可视化数据库操作工具，mongodb专用的 1.安装robo3t 2.打开之后点击create创建一个链接：默认mongodb的端口是27017无需修改 3.选择连接刚刚创建的链接 3.mongodb存储数据结构 1.数据库服务：关系型：excel软件 非关系型：mongod mongosse: 一个数据库服务可以有很多个数据库 2.数据库：database 关系型：一个excel文件 非关系型：database mongoose：database 一个数据库下可以有很多张表 3.表：table 关系型：表格table 非关系型：集合collections mongoose：model 列：cloum 确定表的存储数据结构 mongoose:schema 4.一个表中可以有很多行：关系型：记录、行 非关系型：文档（Documents） mongoose:实体entity 4.数据增删改查mongoose介绍:第三方模块 特点：1.异步环境（与nodejs高性能不谋而合） 2.基于ORM（object relational Mapping）技术：对象关系映射技术(以面向对象的思维操作数据库) 说人话：通过操作对象来操作数据库（看不到sql语句，看不到数据库操作，增删改查已经变成一个对象的四个方法API） mongodb，mongod，robomongo,mongoose三者之前的关系与区别 mongodb：数据库的名字 mongod：数据库服务，要想使用数据库必须要开启服务 robomongo:数据库的客户端（有界面，使用鼠标来操作数据库的增删改查） mongoose：数据库的客户端（无界面，使用代码来操作数据库的增删改查） 5. mongoose使用完整流程 1.导入mongoose：var mongoose = require(&#39;mongoose&#39;) 2.连接数据库:mongoose.connect(&#39;mongodb://localhost/数据库名字&#39;) 3.创建Schema：var schema = mongoose.Schema({属性名：数据类型}) （1）确定数据库数据结构 （2）创建model 4.创建Model:var model = mongoose.model(模型名字,schema) 第一个参数：要创建的model名（集合collections名字） mongoose默认会将首字母小写 会以复数的形式 第二个参数 schema 5.创建Entity：var entity = new model({属性名：值}) 6.增删改查 6.mongoose实现增删改查 增加：create() 查询：find()、findOne()、findById() 修改：update()、updateMany() 删除：deleteOne()、deleteMany()]]></content>
+      <categories>
+        <category>mongodb</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[相对长度单位]]></title>
     <url>%2F2017%2F07%2F03%2F%E7%9B%B8%E5%AF%B9%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D%2F</url>
     <content type="text"><![CDATA[相对长度单位 在移动开发过程中，因为手机的屏幕尺寸比较多， 如果使用绝对长度单位， 那么在不同的手机尺寸下面，显示的比例可能不一样。 相对长度单位说明 在css中有两个相对长度单位， em， rem。 我们可以把它理解成屏幕宽度的 一份。 1份默认的宽度是16px，也就是浏览器器的默认显示字体， 如果说直接使用16px. 是不行的， 假如说，在ipone7上和iphone7plus上，有一个元素，都占了五份。 相当于两个屏幕上都创建一个 5*16px的宽度的元素。所以，我们要根据不同的手机宽度，来设置每一份到底点多大的宽度。 设置相对长度单位，也就是一份的大小 先把屏幕的宽度拿到，分成10份， 把每一份的宽度设为 html 的 font-size 的大小，那么 1份=html.fontsize = 1em, 1rem12345&lt;script&gt; //把屏幕分成10份 var screenw = window.screen.width; document.querySelector(&quot;html&quot;).style.fontSize = screenw / 10 + &quot;px&quot;;&lt;/script&gt; 这段js代码要写在最上面 到底是使用rem还是em？ rem永远是html的font-size的大小作为一份的大小；em是以父元素的font-size的大小作为一份的大小。 我们那建议为了减少计算量，直接使用 rem rem和em都是相对长度单位 rem是相对于根元素的font-size来算出每一份的宽度 em是相对于父元素的font-size的大小算出每一份的宽度 如何使用rem 设计人员会给我们一种尺寸的设计图 它是用 px 来标记的 一般给的是高清图（以设备的分辨率作为宽高，而不是以css宽度），我们需要把它转成 css 宽度 （640 / 2 = 320） 除了二倍图之外，也可能给3倍图， 如果3倍图，就要除以3 算出每个 px 在设计人员给的这个屏幕尺寸下的 rem的值。转rem的规则都是一样的 算出在当前屏幕尺寸下的 1rem值是多少。 320 / 10 = 32px 假如说，它标记了某个字体是 24px 对应我们在开发中要用的 那个值是 rem = 24px/32px]]></content>
@@ -152,17 +174,6 @@
       </categories>
       <tags>
         <tag>sass语法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[模板引擎]]></title>
-    <url>%2F2017%2F04%2F05%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%2F</url>
-    <content type="text"><![CDATA[模板引擎渲染的本质 只是字符串的替换 使用js语言实现字符串的替换 只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成客户端模板引擎用法 （1）导入art-template （2） ajax请求模板数据 （3）写模板（script标签中 text属性不能是javascript）&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt; （4）模板引擎渲染 template(模板id，数据) express配置模板引擎 配置模板引擎用法 express中的模板引擎：默认情况下express中的模板引擎是jade第三方 模板引擎的第三方有很多种，有十几种，art-template只是其中一种 如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express art-template：http://aui.github.io/art-template/express/ 1.先下载第三方模块，需要下载两个 npm install --save art-template npm install --save express-art-template 2.配置模板引擎：两行代码 app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;)) 第一个参数：模板文件的后缀名，一般为html 第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴 app.set(&#39;view engine&#39;,&#39;html&#39;) 第一个参数：固定字符串 view engine:模板引擎 第二个参数：与第一行代码的第一个参数一致即可 一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数 3.使用模板引擎：res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;) 第一个参数：要渲染的模板文件名 默认情况下express只会从views文件夹下寻找模板文件 views是服务端MVC的V层文件夹标准叫法 第二个参数：要渲染的数据 只能是json对象，如果为空则直接响应返回html]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>模板引擎</tag>
       </tags>
   </entry>
   <entry>
