@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2018%2F04%2F07%2Fnodejs%E5%B8%B8%E7%94%A8API%2F</url>
+    <content type="text"><![CDATA[文件模块：读写文件 var fs = require(‘fs’); 路径模块：拼接路径 var path = require(‘path’); url模块：解析url路径得到url协议中的每一部分 var url = require(‘url’); 使用url模块解析请求路径: 第一个参数：要解析的字符串 第二个参数：boolean 如果为true则query是一个对象 如果为false则query是一个字符串 返回值是一个url对象，本质就是将req.url拆分成url协议的完整结构，得到一个url对象 protocol: null,//协议名 slashes: null,//表示 //到第一个/之间都是host auth: null,//认证 host: null,//主机名+ 端口号 hosetname+port port: null,//端口号 hostname: null,//主机名 ip地址 hash: null,//资源定位符 search: ‘?name=OldFe&amp;age=18’, query: { name: ‘OldFe’, age: ‘18’ },//get请求的参数对象 pathname: ‘/getRequest’,//路径 path: ‘/getRequest?name=OldFe&amp;age=18’,//路径+请求参数 href: ‘/getRequest?name=OldFe&amp;age=18’ } querystring模块：解析post请求的参数var querystring = require(‘querystring’); end函数只能有两种参数字符串和二进制需要将json对象转为字符串响应返回res.end()是nodejs原生的响应请求的API 它的参数只能是字符串或者二进制，如果是json对象需要自己去转json字符串 //express它拓展了几个响应请求的API //res.send(普通文本)自动转中文 //res.json(json对象)自动将json对象转为json字符串]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[模板引擎]]></title>
     <url>%2F2018%2F04%2F05%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%2F</url>
     <content type="text"><![CDATA[模板引擎渲染的本质 只是字符串的替换 使用js语言实现字符串的替换 只要有js语言都可以做模板引擎渲染，模板引擎渲染并不一定只在客户端完成客户端模板引擎用法 （1）导入art-template （2） ajax请求模板数据 （3）写模板（script标签中 text属性不能是javascript）&lt;script typr=&quot;text/html&quot; id=&quot;xx&quot;&gt;&lt;/script&gt; （4）模板引擎渲染 template(模板id，数据) express配置模板引擎 配置模板引擎用法 express中的模板引擎：默认情况下express中的模板引擎是jade第三方 模板引擎的第三方有很多种，有十几种，art-template只是其中一种 如果想用自己的模板引擎，则需要去对应的模板引擎官网查看如何配置express art-template：http://aui.github.io/art-template/express/ 1.先下载第三方模块，需要下载两个 npm install --save art-template npm install --save express-art-template 2.配置模板引擎：两行代码 app.engine(&#39;html&#39;,require(&#39;express-art-template&#39;)) 第一个参数：模板文件的后缀名，一般为html 第二个参数：要配置的第三方模块，不要修改直接从官网复制粘贴 app.set(&#39;view engine&#39;,&#39;html&#39;) 第一个参数：固定字符串 view engine:模板引擎 第二个参数：与第一行代码的第一个参数一致即可 一旦配置模板引擎之后，所有的res对象都会添加一个render函数，这就是模板引擎渲染函数 3.使用模板引擎：res.render(&#39;模板文件名&#39;,&#39;要渲染的数据&#39;) 第一个参数：要渲染的模板文件名 默认情况下express只会从views文件夹下寻找模板文件 views是服务端MVC的V层文件夹标准叫法 第二个参数：要渲染的数据 只能是json对象，如果为空则直接响应返回html]]></content>
@@ -89,6 +94,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Nodejs中的get和post]]></title>
+    <url>%2F2017%2F09%2F29%2Fnodejs%E4%B8%ADgit%E5%92%8Cpost%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[Nodejs中的get和post请求参数GET请求：url模块：解析url路径得到url协议中的每一部分 var url = require(&#39;url&#39;); 使用url模块解析请求路径: 第一个参数：要解析的字符串 第二个参数：boolean 如果为true则query是一个对象 如果为false则query是一个字符串 //返回值是一个url对象，本质就是将req.url拆分成url协议的完整结构，得到一个url对象 var urlObjc = url.parse(req.url,true); get请求的参数就是这个对象的query属性 POST请求： nodejs接收post请求参数 post请求的参数是在请求体中，无法使用get的方式来接收post请求的参数 post请求的特点：post请求的参数无法一次获取，有可能是多次 原因：post可以提交大数据，而宽带有网络限制 nodejs接收post请求参数的流程 ​ var postData = &quot;&quot;; 给req对象注册一个data事件：表示开始接收post请求参数 ​ 客户端没发送一次数据该方法都会执行一次，回调函数的参数就是本次接收到的数据（数据流） ​ 接受的次数不固定：取决于数据的大小和你的宽带的网速 req.on(&apos;data&apos;, function (chuck) { postData += chuck; }); 给requ对象注册一个end事件，表示本次post数据发送完毕​​ ​ req.on(‘end’, function () { //post接收到的数据其实就是url完整结构中的query部分 console.log(postData); ​ } 解析post参数得到参数对象 ​ 无法使用url模块的pares函数来解析，因为这个函数解析的是url的完整结构 ​ 而post数据接收到的只是query部分 ​ 使用querystring模块来解析post请求的参数 ​ var postObjc = querystring.parse(postData);]]></content>
+      <categories>
+        <category>nodejs</category>
+      </categories>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHP数据库简单操作]]></title>
     <url>%2F2017%2F09%2F27%2FPHP%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[数据库操作方式 图形界面客户端 创建连接 创建数据库 删除数据库 创建表 编辑表 删除表 表结构分析 数据类型分析 数据增删改查操作 SQL SQL基本概述 插入数据insert 12-- insert into 表名 (字段列表) values (值列表)insert into book (name,author,category,price) values ('天龙八部','金庸','文学',20) 修改数据update 12-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件update book set name='笑傲江湖',price='30' where id=10 删除数据delete 12-- delete from 表名 where 条件delete from book where id=10 查询数据select 12-- select * from 表名 where 条件select * from book where author='金庸' and price&gt;20 简单的联表查询 1select u.username,b.name from user u,book b where u.id=b.uid and b.price&gt;20 PHP代码操作数据 连接数据库基本步骤 12345678910111213141516171819// 1、连接数据库$server = 'localhost';//数据库所在计算机的域名或者IP地址$username = 'root';//登录数据库的用户名$pw = '';//登录数据库的密码// 执行连接操作$link = mysql_connect($server,$username,$pw);// 2、选择要操作哪个数据库mysql_select_db('hello',$link);// 3、设置查询编码mysql_query("SET names UTF8");// 4、操作数据（通过sql语句操作数据库）$str = 'select count(*) as cc from user';$result = mysql_query($str);// 5、获取数据库的结果集并解析$row = mysql_fetch_assoc($result);echo $row['cc'];// 6、释放资源并关闭数据库mysql_free_result($result);mysql_close($link); 数据库操作常用api mysql_connect() 连接数据库 mysql_select_db() 选择数据库 mysql_query() 执SQL语句 mysql_fetch_row() 以索引数组的形式返回结果 mysql_fetch_assoc() 以关联数组的形式范湖数据 mysql_fetch_array() 返回索引数组和关联数组 mysql_fetch_object() 以对象形式返回结果 mysql_free_result() 释放资源 mysql_close() 关闭连接 基本增删改查操作]]></content>
@@ -163,6 +179,17 @@
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器工作原理]]></title>
+    <url>%2F2017%2F04%2F25%2F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[浏览器工作原理1.1-浏览器的组成 1.人机交互(用户界面UI) 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分 2.浏览器引擎（Rendering engine） 用来查询及操作渲染引擎的接口,也被称为浏览器内核、渲染引起，主要负责取得页面内容、整理信息（应用CSS）、计算页面的显示方式，然后会输出到显示器或者打印机 3.渲染引擎 用来显示请求的内容，例如，如果请求内容为html，它负责解析html及css，并将解析后的结果显示出来 4.网络请求部分(Socket)－用来完成网络调用，例如http请求，它具有平台无关的接口，可以在不同平台上工作 5.UI后端 *用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口 6.JavaScript引擎部分(JS解释器) 用来解释执行JS代码 7.数据存储 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了web database技术，这是一种轻量级完整的客户端存储技术 1.2-主流渲染引擎1.2.1-介绍 1.渲染引擎 又叫 排版引擎 或 浏览器内核。 2.主流的 渲染引擎 有 Chrome浏览器: Blink引擎（WebKit的一个分支）。 Safari浏览器: WebKit引擎，windows版本2008年3月18日推出正式版，但苹果已于2012年7月25日停止开发Windows版的Safari。 FireFox浏览器: Gecko引擎。 Opera浏览器: Blink引擎(早期版使用Presto引擎）。 Internet Explorer浏览器: Trident引擎。 Microsoft Edge浏览器: EdgeHTML引擎（Trident的一个分支）。 1.2.2-工作原理 1.解析HTML构建Dom树（Document Object Model，文档对象模型），DOM 是W3C组织推荐的处理可扩展置标语言的标准编程接口。 2.构建渲染树，渲染树并不等同于Dom树，因为像head标签 或 display: none这样的元素就没有必要放到渲染树中了，但是它们在Dom树中。 3.对渲染树进行布局，定位坐标和大小、确定是否换行、确定position、overflow、z-index等等，这个过程叫&quot;layout&quot; 或 &quot;reflow&quot;。 4.绘制渲染树，调用操作系统底层API进行绘图操作。 渲染引擎工作原理示意图 WebKit工作原理（Chrome、Safari、Opera） Gecko工作原理（FireFox） 浏览器的 reflow 或 layout 过程https://www.youtube.com/watch?v=ZTnIxIA5KGw 打开 Chrome 的 Rendering 功能第一步： 第二步： 浏览器访问网站过程 在浏览器地址栏中输入网址。 浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。 123456789GET / HTTP/1.1Host: www.taobao.comConnection: keep-aliveUpgrade-Insecure-Requests: 1User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Accept-Encoding: gzip, deflate, sdch, brAccept-Language: zh-CN,zh;q=0.8,en;q=0.6Cookie: l=Ag0NWp9E8X4hgaGEtIBhOmKxnSOH6kG8; isg=AkZGLTL-Yr9tHDZbgd5bsn4Rlzwg5IphaK-1BzBvMmlEM-ZNmDfacSyDfdgF; thw=cn 浏览器发起DNS解析请求，将域名转换为IP地址。 浏览器将请求报文发送给服务器。 服务器接收请求报文，并解析。 服务器处理用户请求，并将处理结果封装成HTTP响应报文。 1234567891011121314151617181920212223242526272829303132333435HTTP/1.1 200 OKServer: TengineDate: Thu, 13 Apr 2017 02:24:25 GMTContent-Type: text/html; charset=utf-8Transfer-Encoding: chunkedConnection: keep-aliveVary: Accept-EncodingVary: Ali-Detector-Type, X-CIP-PTCache-Control: max-age=0, s-maxage=300Via: cache8.l2cm10-1[172,200-0,C], cache13.l2cm10-1[122,0], cache3.cn206[0,200-0,H], cache6.cn206[0,0]Age: 293X-Cache: HIT TCP_MEM_HIT dirn:-2:-2X-Swift-SaveTime: Thu, 13 Apr 2017 02:19:32 GMTX-Swift-CacheTime: 300Timing-Allow-Origin: *EagleId: 9903e7e514920502659594264eStrict-Transport-Security: max-age=31536000Content-Encoding: gzip&lt;!DOCTYPE html&gt;&lt;html lang="zh-CN"&gt;&lt;head&gt;&lt;meta charset="utf-8" /&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /&gt;&lt;meta name="renderer" content="webkit" /&gt;&lt;title&gt;淘宝网 - 淘！我喜欢&lt;/title&gt;&lt;meta name="spm-id" content="a21bo" /&gt;&lt;meta name="description" content="淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！" /&gt;&lt;meta name="aplus-xplug" content="NONE"&gt;&lt;meta name="keyword" content="淘宝,掏宝,网上购物,C2C,在线交易,交易市场,网上交易,交易市场,网上买,网上卖,购物网站,团购,网上贸易,安全购物,电子商务,放心买,供应,买卖信息,网店,一口价,拍卖,网上开店,网络购物,打折,免费开店,网购,频道,店铺" /&gt;&lt;/head&gt;&lt;body&gt;......&lt;/body&gt;&lt;/html&gt; 服务器将HTTP响应报文发送给浏览器。 浏览器接收服务器响应的HTTP报文，并解析。 浏览器解析 HTML 页面并展示，在解析HTML页面时遇到新的资源需要再次发起请求。 最终浏览器展示出了页面 windows 下 hosts 文件位置C:\Windows\System32\drivers\etc\hosts DOM 解析参考代码: 123456&lt;html&gt; &lt;body&gt; &lt;p&gt;Hello World&lt;/p&gt; &lt;div&gt; &lt;img src="example.png" alt="example"/&gt;&lt;/div&gt; &lt;/body&gt;&lt;/html&gt; Webkit CSS 解析 How Browsers work - 浏览器是如何工作的How Browsers workhttps://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>

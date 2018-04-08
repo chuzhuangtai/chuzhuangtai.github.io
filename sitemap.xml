@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/09/29/nodejs%E4%B8%ADgit%E5%92%8Cpost%E5%8F%82%E6%95%B0/</loc>
+    
+    <lastmod>2018-04-08T07:13:31.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/04/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2018-04-08T07:11:05.160Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/07/nodejs%E5%B8%B8%E7%94%A8API/</loc>
+    
+    <lastmod>2018-04-07T11:52:19.833Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/07/17/mongoose%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/</loc>
     
     <lastmod>2018-04-06T12:20:04.317Z</lastmod>
